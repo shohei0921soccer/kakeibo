@@ -3,10 +3,389 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <title>家計簿</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+      background: #f5f5f7;
+      color: #222;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px 16px 80px;
+    }
+
+    h1 {
+      margin: 10px 0 4px;
+      font-size: 30px;
+    }
+
+    .period {
+      color: #666;
+      margin-bottom: 18px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 18px;
+      padding: 18px;
+      margin-bottom: 16px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    .total-label {
+      font-size: 14px;
+      color: #777;
+    }
+
+    .total {
+      font-size: 36px;
+      font-weight: 700;
+      margin-top: 6px;
+    }
+
+    .category-row,
+    .history-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 11px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .category-row:last-child,
+    .history-row:last-child {
+      border-bottom: none;
+    }
+
+    label {
+      display: block;
+      font-size: 14px;
+      margin: 12px 0 5px;
+      color: #555;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      font-size: 16px;
+      background: white;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 70px;
+    }
+
+    button {
+      width: 100%;
+      border: none;
+      border-radius: 14px;
+      padding: 14px;
+      font-size: 17px;
+      font-weight: 700;
+      margin-top: 16px;
+      background: #111;
+      color: white;
+    }
+
+    .delete-button {
+      width: auto;
+      margin: 0;
+      padding: 7px 10px;
+      font-size: 13px;
+      background: #e5484d;
+    }
+
+    .history-main {
+      flex: 1;
+    }
+
+    .history-title {
+      font-weight: 600;
+    }
+
+    .history-sub {
+      margin-top: 4px;
+      font-size: 13px;
+      color: #777;
+    }
+
+    .history-price {
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .empty {
+      color: #888;
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    h2 {
+      font-size: 20px;
+      margin-top: 0;
+    }
+  </style>
 </head>
+
 <body>
-  <h1>家計簿</h1>
-  <p>家計簿アプリ作成中</p>
+  <div class="container">
+    <h1>家計簿</h1>
+
+    <div class="period" id="periodText"></div>
+
+    <div class="card">
+      <div class="total-label">今月の支出</div>
+      <div class="total" id="totalAmount">¥0</div>
+    </div>
+
+    <div class="card">
+      <h2>カテゴリ別</h2>
+      <div id="categorySummary"></div>
+    </div>
+
+    <div class="card">
+      <h2>支出を追加</h2>
+
+      <label for="amount">金額</label>
+      <input type="number" id="amount" inputmode="numeric" placeholder="例：1280">
+
+      <label for="date">日付</label>
+      <input type="date" id="date">
+
+      <label for="category">カテゴリ</label>
+      <select id="category">
+        <option value="食費">食費</option>
+        <option value="日用品">日用品</option>
+        <option value="交通費">交通費</option>
+        <option value="娯楽">娯楽</option>
+        <option value="その他">その他</option>
+        <option value="固定費">固定費</option>
+      </select>
+
+      <label for="shop">店名</label>
+      <input type="text" id="shop" placeholder="例：スーパー">
+
+      <label for="memo">メモ</label>
+      <textarea id="memo" placeholder="任意"></textarea>
+
+      <button onclick="addExpense()">登録する</button>
+    </div>
+
+    <div class="card">
+      <h2>支出履歴</h2>
+      <div id="history"></div>
+    </div>
+  </div>
+
+  <script>
+    const STORAGE_KEY = "kakeibo_expenses_v1";
+
+    let expenses = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+
+    const categories = [
+      "食費",
+      "日用品",
+      "交通費",
+      "娯楽",
+      "その他",
+      "固定費"
+    ];
+
+    function formatMoney(value) {
+      return "¥" + Number(value).toLocaleString("ja-JP");
+    }
+
+    function getCurrentPeriod(baseDate = new Date()) {
+      const year = baseDate.getFullYear();
+      const month = baseDate.getMonth();
+      const day = baseDate.getDate();
+
+      let start;
+      let end;
+
+      if (day >= 16) {
+        start = new Date(year, month, 16);
+        end = new Date(year, month + 1, 15, 23, 59, 59);
+      } else {
+        start = new Date(year, month - 1, 16);
+        end = new Date(year, month, 15, 23, 59, 59);
+      }
+
+      return { start, end };
+    }
+
+    function formatDateForInput(date) {
+      const y = date.getFullYear();
+      const m = String(date.getMonth() + 1).padStart(2, "0");
+      const d = String(date.getDate()).padStart(2, "0");
+      return `${y}-${m}-${d}`;
+    }
+
+    function formatShortDate(date) {
+      return `${date.getMonth() + 1}/${date.getDate()}`;
+    }
+
+    function isInCurrentPeriod(dateString) {
+      const expenseDate = new Date(dateString + "T12:00:00");
+      const { start, end } = getCurrentPeriod();
+
+      return expenseDate >= start && expenseDate <= end;
+    }
+
+    function saveExpenses() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(expenses));
+    }
+
+    function addExpense() {
+      const amount = Number(document.getElementById("amount").value);
+      const date = document.getElementById("date").value;
+      const category = document.getElementById("category").value;
+      const shop = document.getElementById("shop").value.trim();
+      const memo = document.getElementById("memo").value.trim();
+
+      if (!amount || amount <= 0) {
+        alert("金額を入力してください。");
+        return;
+      }
+
+      if (!date) {
+        alert("日付を入力してください。");
+        return;
+      }
+
+      const expense = {
+        id: Date.now(),
+        amount,
+        date,
+        category,
+        shop,
+        memo
+      };
+
+      expenses.push(expense);
+      saveExpenses();
+
+      document.getElementById("amount").value = "";
+      document.getElementById("shop").value = "";
+      document.getElementById("memo").value = "";
+
+      render();
+    }
+
+    function deleteExpense(id) {
+      if (!confirm("この支出を削除しますか？")) {
+        return;
+      }
+
+      expenses = expenses.filter(expense => expense.id !== id);
+      saveExpenses();
+      render();
+    }
+
+    function render() {
+      const { start, end } = getCurrentPeriod();
+
+      document.getElementById("periodText").textContent =
+        `${formatShortDate(start)} 〜 ${formatShortDate(end)}`;
+
+      const currentExpenses = expenses
+        .filter(expense => isInCurrentPeriod(expense.date))
+        .sort((a, b) => new Date(b.date) - new Date(a.date));
+
+      const total = currentExpenses.reduce(
+        (sum, expense) => sum + Number(expense.amount),
+        0
+      );
+
+      document.getElementById("totalAmount").textContent =
+        formatMoney(total);
+
+      const categorySummary = document.getElementById("categorySummary");
+      categorySummary.innerHTML = "";
+
+      categories.forEach(category => {
+        const categoryTotal = currentExpenses
+          .filter(expense => expense.category === category)
+          .reduce((sum, expense) => sum + Number(expense.amount), 0);
+
+        const row = document.createElement("div");
+        row.className = "category-row";
+
+        row.innerHTML = `
+          <span>${category}</span>
+          <strong>${formatMoney(categoryTotal)}</strong>
+        `;
+
+        categorySummary.appendChild(row);
+      });
+
+      const history = document.getElementById("history");
+      history.innerHTML = "";
+
+      if (currentExpenses.length === 0) {
+        history.innerHTML =
+          '<div class="empty">まだ支出がありません</div>';
+        return;
+      }
+
+      currentExpenses.forEach(expense => {
+        const row = document.createElement("div");
+        row.className = "history-row";
+
+        const description = [
+          expense.category,
+          expense.shop
+        ].filter(Boolean).join("・");
+
+        row.innerHTML = `
+          <div class="history-main">
+            <div class="history-title">
+              ${description || expense.category}
+            </div>
+
+            <div class="history-sub">
+              ${expense.date}
+              ${expense.memo ? " / " + expense.memo : ""}
+            </div>
+          </div>
+
+          <div>
+            <div class="history-price">
+              ${formatMoney(expense.amount)}
+            </div>
+
+            <button
+              class="delete-button"
+              onclick="deleteExpense(${expense.id})">
+              削除
+            </button>
+          </div>
+        `;
+
+        history.appendChild(row);
+      });
+    }
+
+    document.getElementById("date").value =
+      formatDateForInput(new Date());
+
+    render();
+  </script>
 </body>
 </html>
