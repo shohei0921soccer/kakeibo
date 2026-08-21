@@ -30,6 +30,11 @@
       font-size: 30px;
     }
 
+    h2 {
+      font-size: 20px;
+      margin-top: 0;
+    }
+
     .period {
       color: #666;
       margin-bottom: 18px;
@@ -91,7 +96,8 @@
       min-height: 70px;
     }
 
-    button {
+    button,
+    .receipt-button {
       width: 100%;
       border: none;
       border-radius: 14px;
@@ -101,6 +107,25 @@
       margin-top: 16px;
       background: #111;
       color: white;
+      display: block;
+      text-align: center;
+    }
+
+    .receipt-button {
+      background: #fff;
+      color: #111;
+      border: 1px solid #ccc;
+    }
+
+    #receiptInput {
+      display: none;
+    }
+
+    #receiptPreview {
+      width: 100%;
+      border-radius: 14px;
+      margin-top: 14px;
+      display: none;
     }
 
     .delete-button {
@@ -135,11 +160,6 @@
       text-align: center;
       padding: 20px 0;
     }
-
-    h2 {
-      font-size: 20px;
-      margin-top: 0;
-    }
   </style>
 </head>
 
@@ -157,6 +177,23 @@
     <div class="card">
       <h2>カテゴリ別</h2>
       <div id="categorySummary"></div>
+    </div>
+
+    <div class="card">
+      <h2>レシートから入力</h2>
+
+      <label class="receipt-button" for="receiptInput">
+        📷 レシートを撮影
+      </label>
+
+      <input
+        type="file"
+        id="receiptInput"
+        accept="image/*"
+        capture="environment"
+      >
+
+      <img id="receiptPreview" alt="レシート画像">
     </div>
 
     <div class="card">
@@ -381,6 +418,18 @@
         history.appendChild(row);
       });
     }
+
+    document.getElementById("receiptInput").addEventListener("change", function(event) {
+      const file = event.target.files[0];
+
+      if (!file) {
+        return;
+      }
+
+      const preview = document.getElementById("receiptPreview");
+      preview.src = URL.createObjectURL(file);
+      preview.style.display = "block";
+    });
 
     document.getElementById("date").value =
       formatDateForInput(new Date());
