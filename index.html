@@ -5,7 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
   <title>家計簿</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
 
   <style>
     * {
@@ -112,9 +115,14 @@
     }
 
     .receipt-button {
-      background: #fff;
+      background: white;
       color: #111;
       border: 1px solid #ccc;
+    }
+
+    .ocr-button {
+      background: #111;
+      color: white;
     }
 
     #receiptInput {
@@ -125,6 +133,23 @@
       width: 100%;
       border-radius: 14px;
       margin-top: 14px;
+      display: none;
+    }
+
+    #ocrStatus {
+      margin-top: 14px;
+      font-size: 14px;
+      color: #666;
+      text-align: center;
+    }
+
+    #ocrResult {
+      margin-top: 14px;
+      padding: 12px;
+      background: #f5f5f7;
+      border-radius: 12px;
+      white-space: pre-wrap;
+      font-size: 13px;
       display: none;
     }
 
@@ -164,7 +189,9 @@
 </head>
 
 <body>
+
   <div class="container">
+
     <h1>家計簿</h1>
 
     <div class="period" id="periodText"></div>
@@ -175,14 +202,21 @@
     </div>
 
     <div class="card">
+
       <h2>カテゴリ別</h2>
+
       <div id="categorySummary"></div>
+
     </div>
 
     <div class="card">
+
       <h2>レシートから入力</h2>
 
-      <label class="receipt-button" for="receiptInput">
+      <label
+        class="receipt-button"
+        for="receiptInput"
+      >
         📷 レシートを撮影
       </label>
 
@@ -193,47 +227,129 @@
         capture="environment"
       >
 
-      <img id="receiptPreview" alt="レシート画像">
+      <img
+        id="receiptPreview"
+        alt="レシート画像"
+      >
+
+      <button
+        id="ocrButton"
+        class="ocr-button"
+        onclick="readReceipt()"
+        style="display:none;"
+      >
+        文字を読み取る
+      </button>
+
+      <div id="ocrStatus"></div>
+
+      <div id="ocrResult"></div>
+
     </div>
 
     <div class="card">
+
       <h2>支出を追加</h2>
 
-      <label for="amount">金額</label>
-      <input type="number" id="amount" inputmode="numeric" placeholder="例：1280">
+      <label for="amount">
+        金額
+      </label>
 
-      <label for="date">日付</label>
-      <input type="date" id="date">
+      <input
+        type="number"
+        id="amount"
+        inputmode="numeric"
+        placeholder="例：1280"
+      >
 
-      <label for="category">カテゴリ</label>
+      <label for="date">
+        日付
+      </label>
+
+      <input
+        type="date"
+        id="date"
+      >
+
+      <label for="category">
+        カテゴリ
+      </label>
+
       <select id="category">
-        <option value="食費">食費</option>
-        <option value="日用品">日用品</option>
-        <option value="交通費">交通費</option>
-        <option value="娯楽">娯楽</option>
-        <option value="その他">その他</option>
-        <option value="固定費">固定費</option>
+
+        <option value="食費">
+          食費
+        </option>
+
+        <option value="日用品">
+          日用品
+        </option>
+
+        <option value="交通費">
+          交通費
+        </option>
+
+        <option value="娯楽">
+          娯楽
+        </option>
+
+        <option value="その他">
+          その他
+        </option>
+
+        <option value="固定費">
+          固定費
+        </option>
+
       </select>
 
-      <label for="shop">店名</label>
-      <input type="text" id="shop" placeholder="例：スーパー">
+      <label for="shop">
+        店名
+      </label>
 
-      <label for="memo">メモ</label>
-      <textarea id="memo" placeholder="任意"></textarea>
+      <input
+        type="text"
+        id="shop"
+        placeholder="例：スーパー"
+      >
 
-      <button onclick="addExpense()">登録する</button>
+      <label for="memo">
+        メモ
+      </label>
+
+      <textarea
+        id="memo"
+        placeholder="任意"
+      ></textarea>
+
+      <button onclick="addExpense()">
+        登録する
+      </button>
+
     </div>
 
     <div class="card">
+
       <h2>支出履歴</h2>
+
       <div id="history"></div>
+
     </div>
+
   </div>
 
   <script>
-    const STORAGE_KEY = "kakeibo_expenses_v1";
 
-    let expenses = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+    const STORAGE_KEY =
+      "kakeibo_expenses_v1";
+
+    let expenses =
+      JSON.parse(
+        localStorage.getItem(STORAGE_KEY)
+        || "[]"
+      );
+
+    let currentReceiptFile = null;
 
     const categories = [
       "食費",
@@ -245,196 +361,577 @@
     ];
 
     function formatMoney(value) {
-      return "¥" + Number(value).toLocaleString("ja-JP");
+
+      return "¥" +
+        Number(value)
+        .toLocaleString("ja-JP");
+
     }
 
-    function getCurrentPeriod(baseDate = new Date()) {
-      const year = baseDate.getFullYear();
-      const month = baseDate.getMonth();
-      const day = baseDate.getDate();
+    function getCurrentPeriod(
+      baseDate = new Date()
+    ) {
+
+      const year =
+        baseDate.getFullYear();
+
+      const month =
+        baseDate.getMonth();
+
+      const day =
+        baseDate.getDate();
 
       let start;
       let end;
 
       if (day >= 16) {
-        start = new Date(year, month, 16);
-        end = new Date(year, month + 1, 15, 23, 59, 59);
+
+        start =
+          new Date(
+            year,
+            month,
+            16
+          );
+
+        end =
+          new Date(
+            year,
+            month + 1,
+            15,
+            23,
+            59,
+            59
+          );
+
       } else {
-        start = new Date(year, month - 1, 16);
-        end = new Date(year, month, 15, 23, 59, 59);
+
+        start =
+          new Date(
+            year,
+            month - 1,
+            16
+          );
+
+        end =
+          new Date(
+            year,
+            month,
+            15,
+            23,
+            59,
+            59
+          );
+
       }
 
-      return { start, end };
+      return {
+        start,
+        end
+      };
+
     }
 
     function formatDateForInput(date) {
-      const y = date.getFullYear();
-      const m = String(date.getMonth() + 1).padStart(2, "0");
-      const d = String(date.getDate()).padStart(2, "0");
+
+      const y =
+        date.getFullYear();
+
+      const m =
+        String(
+          date.getMonth() + 1
+        )
+        .padStart(2, "0");
+
+      const d =
+        String(
+          date.getDate()
+        )
+        .padStart(2, "0");
+
       return `${y}-${m}-${d}`;
+
     }
 
     function formatShortDate(date) {
-      return `${date.getMonth() + 1}/${date.getDate()}`;
+
+      return `${
+        date.getMonth() + 1
+      }/${date.getDate()}`;
+
     }
 
-    function isInCurrentPeriod(dateString) {
-      const expenseDate = new Date(dateString + "T12:00:00");
-      const { start, end } = getCurrentPeriod();
+    function isInCurrentPeriod(
+      dateString
+    ) {
 
-      return expenseDate >= start && expenseDate <= end;
+      const expenseDate =
+        new Date(
+          dateString +
+          "T12:00:00"
+        );
+
+      const {
+        start,
+        end
+      } =
+        getCurrentPeriod();
+
+      return (
+        expenseDate >= start &&
+        expenseDate <= end
+      );
+
     }
 
     function saveExpenses() {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(expenses));
+
+      localStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify(expenses)
+      );
+
     }
 
     function addExpense() {
-      const amount = Number(document.getElementById("amount").value);
-      const date = document.getElementById("date").value;
-      const category = document.getElementById("category").value;
-      const shop = document.getElementById("shop").value.trim();
-      const memo = document.getElementById("memo").value.trim();
+
+      const amount =
+        Number(
+          document
+          .getElementById("amount")
+          .value
+        );
+
+      const date =
+        document
+        .getElementById("date")
+        .value;
+
+      const category =
+        document
+        .getElementById("category")
+        .value;
+
+      const shop =
+        document
+        .getElementById("shop")
+        .value
+        .trim();
+
+      const memo =
+        document
+        .getElementById("memo")
+        .value
+        .trim();
 
       if (!amount || amount <= 0) {
-        alert("金額を入力してください。");
+
+        alert(
+          "金額を入力してください。"
+        );
+
         return;
+
       }
 
       if (!date) {
-        alert("日付を入力してください。");
+
+        alert(
+          "日付を入力してください。"
+        );
+
         return;
+
       }
 
       const expense = {
+
         id: Date.now(),
+
         amount,
+
         date,
+
         category,
+
         shop,
+
         memo
+
       };
 
       expenses.push(expense);
+
       saveExpenses();
 
-      document.getElementById("amount").value = "";
-      document.getElementById("shop").value = "";
-      document.getElementById("memo").value = "";
+      document
+        .getElementById("amount")
+        .value = "";
+
+      document
+        .getElementById("shop")
+        .value = "";
+
+      document
+        .getElementById("memo")
+        .value = "";
 
       render();
+
     }
 
     function deleteExpense(id) {
-      if (!confirm("この支出を削除しますか？")) {
+
+      if (
+        !confirm(
+          "この支出を削除しますか？"
+        )
+      ) {
         return;
       }
 
-      expenses = expenses.filter(expense => expense.id !== id);
+      expenses =
+        expenses.filter(
+          expense =>
+            expense.id !== id
+        );
+
       saveExpenses();
+
       render();
+
+    }
+
+    async function readReceipt() {
+
+      if (!currentReceiptFile) {
+
+        alert(
+          "レシートを撮影してください。"
+        );
+
+        return;
+
+      }
+
+      const status =
+        document
+        .getElementById("ocrStatus");
+
+      const resultBox =
+        document
+        .getElementById("ocrResult");
+
+      status.textContent =
+        "文字を読み取っています…";
+
+      resultBox.style.display =
+        "none";
+
+      resultBox.textContent =
+        "";
+
+      try {
+
+        const worker =
+          await Tesseract.createWorker(
+            "jpn"
+          );
+
+        const result =
+          await worker.recognize(
+            currentReceiptFile
+          );
+
+        await worker.terminate();
+
+        const text =
+          result.data.text;
+
+        status.textContent =
+          "読み取り完了";
+
+        resultBox.textContent =
+          text;
+
+        resultBox.style.display =
+          "block";
+
+      } catch (error) {
+
+        console.error(error);
+
+        status.textContent =
+          "読み取りに失敗しました。";
+
+      }
+
     }
 
     function render() {
-      const { start, end } = getCurrentPeriod();
 
-      document.getElementById("periodText").textContent =
-        `${formatShortDate(start)} 〜 ${formatShortDate(end)}`;
+      const {
+        start,
+        end
+      } =
+        getCurrentPeriod();
 
-      const currentExpenses = expenses
-        .filter(expense => isInCurrentPeriod(expense.date))
-        .sort((a, b) => new Date(b.date) - new Date(a.date));
+      document
+        .getElementById(
+          "periodText"
+        )
+        .textContent =
+        `${
+          formatShortDate(start)
+        } 〜 ${
+          formatShortDate(end)
+        }`;
 
-      const total = currentExpenses.reduce(
-        (sum, expense) => sum + Number(expense.amount),
-        0
-      );
+      const currentExpenses =
+        expenses
+        .filter(
+          expense =>
+            isInCurrentPeriod(
+              expense.date
+            )
+        )
+        .sort(
+          (a, b) =>
+            new Date(b.date) -
+            new Date(a.date)
+        );
 
-      document.getElementById("totalAmount").textContent =
+      const total =
+        currentExpenses.reduce(
+          (sum, expense) =>
+            sum +
+            Number(
+              expense.amount
+            ),
+          0
+        );
+
+      document
+        .getElementById(
+          "totalAmount"
+        )
+        .textContent =
         formatMoney(total);
 
-      const categorySummary = document.getElementById("categorySummary");
-      categorySummary.innerHTML = "";
+      const categorySummary =
+        document
+        .getElementById(
+          "categorySummary"
+        );
 
-      categories.forEach(category => {
-        const categoryTotal = currentExpenses
-          .filter(expense => expense.category === category)
-          .reduce((sum, expense) => sum + Number(expense.amount), 0);
+      categorySummary.innerHTML =
+        "";
 
-        const row = document.createElement("div");
-        row.className = "category-row";
+      categories.forEach(
+        category => {
 
-        row.innerHTML = `
-          <span>${category}</span>
-          <strong>${formatMoney(categoryTotal)}</strong>
-        `;
+          const categoryTotal =
+            currentExpenses
+            .filter(
+              expense =>
+                expense.category
+                === category
+            )
+            .reduce(
+              (sum, expense) =>
+                sum +
+                Number(
+                  expense.amount
+                ),
+              0
+            );
 
-        categorySummary.appendChild(row);
-      });
+          const row =
+            document
+            .createElement("div");
 
-      const history = document.getElementById("history");
-      history.innerHTML = "";
+          row.className =
+            "category-row";
 
-      if (currentExpenses.length === 0) {
+          row.innerHTML = `
+            <span>
+              ${category}
+            </span>
+
+            <strong>
+              ${
+                formatMoney(
+                  categoryTotal
+                )
+              }
+            </strong>
+          `;
+
+          categorySummary
+            .appendChild(row);
+
+        }
+      );
+
+      const history =
+        document
+        .getElementById(
+          "history"
+        );
+
+      history.innerHTML =
+        "";
+
+      if (
+        currentExpenses.length
+        === 0
+      ) {
+
         history.innerHTML =
           '<div class="empty">まだ支出がありません</div>';
+
         return;
+
       }
 
-      currentExpenses.forEach(expense => {
-        const row = document.createElement("div");
-        row.className = "history-row";
+      currentExpenses.forEach(
+        expense => {
 
-        const description = [
-          expense.category,
-          expense.shop
-        ].filter(Boolean).join("・");
+          const row =
+            document
+            .createElement("div");
 
-        row.innerHTML = `
-          <div class="history-main">
-            <div class="history-title">
-              ${description || expense.category}
+          row.className =
+            "history-row";
+
+          const description =
+            [
+              expense.category,
+              expense.shop
+            ]
+            .filter(Boolean)
+            .join("・");
+
+          row.innerHTML = `
+
+            <div class="history-main">
+
+              <div class="history-title">
+                ${
+                  description
+                  || expense.category
+                }
+              </div>
+
+              <div class="history-sub">
+                ${expense.date}
+
+                ${
+                  expense.memo
+                  ? " / " +
+                    expense.memo
+                  : ""
+                }
+              </div>
+
             </div>
 
-            <div class="history-sub">
-              ${expense.date}
-              ${expense.memo ? " / " + expense.memo : ""}
+            <div>
+
+              <div class="history-price">
+                ${
+                  formatMoney(
+                    expense.amount
+                  )
+                }
+              </div>
+
+              <button
+                class="delete-button"
+                onclick="
+                  deleteExpense(
+                    ${expense.id}
+                  )
+                "
+              >
+                削除
+              </button>
+
             </div>
-          </div>
+          `;
 
-          <div>
-            <div class="history-price">
-              ${formatMoney(expense.amount)}
-            </div>
+          history
+            .appendChild(row);
 
-            <button
-              class="delete-button"
-              onclick="deleteExpense(${expense.id})">
-              削除
-            </button>
-          </div>
-        `;
+        }
+      );
 
-        history.appendChild(row);
-      });
     }
 
-    document.getElementById("receiptInput").addEventListener("change", function(event) {
-      const file = event.target.files[0];
+    document
+      .getElementById(
+        "receiptInput"
+      )
+      .addEventListener(
+        "change",
+        function(event) {
 
-      if (!file) {
-        return;
-      }
+          const file =
+            event.target.files[0];
 
-      const preview = document.getElementById("receiptPreview");
-      preview.src = URL.createObjectURL(file);
-      preview.style.display = "block";
-    });
+          if (!file) {
+            return;
+          }
 
-    document.getElementById("date").value =
-      formatDateForInput(new Date());
+          currentReceiptFile =
+            file;
+
+          const preview =
+            document
+            .getElementById(
+              "receiptPreview"
+            );
+
+          preview.src =
+            URL.createObjectURL(
+              file
+            );
+
+          preview.style.display =
+            "block";
+
+          document
+            .getElementById(
+              "ocrButton"
+            )
+            .style.display =
+            "block";
+
+          document
+            .getElementById(
+              "ocrStatus"
+            )
+            .textContent = "";
+
+          document
+            .getElementById(
+              "ocrResult"
+            )
+            .style.display =
+            "none";
+
+        }
+      );
+
+    document
+      .getElementById("date")
+      .value =
+      formatDateForInput(
+        new Date()
+      );
 
     render();
+
   </script>
+
 </body>
 </html>
