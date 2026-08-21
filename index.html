@@ -2,22 +2,9 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
-
-  <meta
-    name="apple-mobile-web-app-capable"
-    content="yes"
-  >
-
-  <meta
-    name="apple-mobile-web-app-status-bar-style"
-    content="default"
-  >
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <title>家計簿</title>
 
   <style>
@@ -27,63 +14,43 @@
 
     body {
       margin: 0;
-      padding: 0;
       background: #f5f5f7;
       color: #222;
-      font-family:
-        -apple-system,
-        BlinkMacSystemFont,
-        "Helvetica Neue",
-        sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
     }
 
     .app {
       max-width: 650px;
       margin: 0 auto;
-      padding:
-        20px
-        16px
-        100px;
+      padding: 20px 16px 100px;
     }
 
     h1 {
+      margin: 8px 0 4px;
       font-size: 30px;
-      margin:
-        8px
-        0
-        4px;
     }
 
     h2 {
+      margin: 0 0 14px;
       font-size: 20px;
-      margin:
-        0
-        0
-        14px;
     }
 
     h3 {
+      margin: 0 0 8px;
       font-size: 16px;
-      margin:
-        0
-        0
-        8px;
     }
 
     .period {
-      color: #777;
       margin-bottom: 18px;
+      color: #777;
     }
 
     .card {
+      margin-bottom: 16px;
+      padding: 18px;
       background: #fff;
       border-radius: 18px;
-      padding: 18px;
-      margin-bottom: 16px;
-
-      box-shadow:
-        0 2px 10px
-        rgba(0,0,0,0.05);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     }
 
     .total-label {
@@ -92,20 +59,17 @@
     }
 
     .total {
+      margin-top: 5px;
       font-size: 38px;
       font-weight: 700;
-      margin-top: 5px;
     }
 
     .category-row {
       display: flex;
       justify-content: space-between;
       align-items: center;
-
       padding: 12px 0;
-
-      border-bottom:
-        1px solid #eee;
+      border-bottom: 1px solid #eee;
     }
 
     .category-row:last-child {
@@ -122,11 +86,7 @@
 
     label {
       display: block;
-      margin:
-        13px
-        0
-        5px;
-
+      margin: 13px 0 5px;
       font-size: 14px;
       color: #555;
     }
@@ -135,17 +95,21 @@
     textarea,
     select {
       width: 100%;
-
-      border:
-        1px solid #ddd;
-
-      border-radius: 12px;
-
+      min-width: 0;
+      max-width: 100%;
       padding: 12px;
-
-      font-size: 16px;
-
+      border: 1px solid #ddd;
+      border-radius: 12px;
       background: #fff;
+      font-size: 16px;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    input[type="date"] {
+      width: 100%;
+      min-width: 0;
+      max-width: 100%;
     }
 
     textarea {
@@ -155,27 +119,20 @@
 
     button {
       width: 100%;
-
       margin-top: 14px;
-
       padding: 14px;
-
       border: none;
       border-radius: 14px;
-
+      background: #111;
+      color: #fff;
       font-size: 16px;
       font-weight: 700;
-
-      background: #111;
-      color: white;
     }
 
     button.secondary {
-      background: white;
+      background: #fff;
       color: #111;
-
-      border:
-        1px solid #ccc;
+      border: 1px solid #ccc;
     }
 
     button.danger {
@@ -184,21 +141,16 @@
 
     button.small {
       width: auto;
-
       margin: 0;
-
-      padding:
-        7px
-        10px;
-
+      padding: 7px 10px;
       font-size: 13px;
     }
 
     .hint {
+      margin-bottom: 10px;
       font-size: 13px;
       line-height: 1.6;
       color: #777;
-      margin-bottom: 10px;
     }
 
     .preview {
@@ -207,12 +159,8 @@
     }
 
     .preview-receipt {
-      padding:
-        12px
-        0;
-
-      border-bottom:
-        1px solid #eee;
+      padding: 12px 0;
+      border-bottom: 1px solid #eee;
     }
 
     .preview-receipt:last-child {
@@ -223,52 +171,35 @@
       display: flex;
       justify-content: space-between;
       gap: 8px;
-
-      padding:
-        6px
-        0;
-
+      padding: 6px 0;
       font-size: 14px;
     }
 
     .preview-item-left {
       flex: 1;
+      min-width: 0;
     }
 
     .badge {
       display: inline-block;
-
       margin-left: 5px;
-
-      padding:
-        2px
-        7px;
-
+      padding: 2px 7px;
       border-radius: 999px;
-
       background: #eee;
-
       font-size: 11px;
       color: #555;
     }
 
     .receipt-card {
-      background: #fff;
-
-      border-radius: 18px;
-
       margin-bottom: 14px;
-
       overflow: hidden;
-
-      box-shadow:
-        0 2px 10px
-        rgba(0,0,0,0.05);
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     }
 
     .receipt-header {
       padding: 16px;
-
       cursor: pointer;
     }
 
@@ -285,7 +216,6 @@
 
     .receipt-shop {
       margin-top: 3px;
-
       font-size: 17px;
       font-weight: 700;
     }
@@ -298,18 +228,13 @@
 
     .receipt-count {
       margin-top: 7px;
-
       font-size: 13px;
       color: #777;
     }
 
     .receipt-body {
       display: none;
-
-      padding:
-        0
-        16px
-        16px;
+      padding: 0 16px 16px;
     }
 
     .receipt-body.open {
@@ -317,11 +242,7 @@
     }
 
     .detail-category-title {
-      margin:
-        14px
-        0
-        5px;
-
+      margin: 14px 0 5px;
       font-size: 14px;
       font-weight: 700;
     }
@@ -330,17 +251,13 @@
       display: flex;
       align-items: center;
       gap: 8px;
-
-      padding:
-        9px
-        0;
-
-      border-bottom:
-        1px solid #eee;
+      padding: 9px 0;
+      border-bottom: 1px solid #eee;
     }
 
     .detail-item-name {
       flex: 1;
+      min-width: 0;
     }
 
     .detail-item-price {
@@ -349,60 +266,36 @@
     }
 
     .empty {
+      padding: 25px 0;
       text-align: center;
       color: #888;
-
-      padding:
-        25px
-        0;
     }
 
     .nav {
       position: fixed;
-
       left: 0;
       right: 0;
       bottom: 0;
-
       z-index: 100;
-
-      background:
-        rgba(255,255,255,0.96);
-
-      border-top:
-        1px solid #ddd;
-
       display: flex;
-
-      padding:
-        7px
-        8px
-        calc(
-          7px +
-          env(safe-area-inset-bottom)
-        );
+      padding: 7px 8px calc(7px + env(safe-area-inset-bottom));
+      background: rgba(255,255,255,0.96);
+      border-top: 1px solid #ddd;
     }
 
     .nav-button {
       flex: 1;
-
+      margin: 0;
+      padding: 9px 4px;
       background: transparent;
       color: #777;
-
-      margin: 0;
-
-      padding:
-        9px
-        4px;
-
-      font-size: 13px;
-
       border-radius: 10px;
+      font-size: 13px;
     }
 
     .nav-button.active {
-      color: #111;
       background: #eee;
+      color: #111;
     }
 
     .page {
@@ -415,37 +308,42 @@
 
     .success {
       display: none;
-
       margin-top: 12px;
-
       padding: 11px;
-
       border-radius: 10px;
-
       background: #f0f0f0;
-
       font-size: 14px;
     }
 
-    .manual-grid {
-      display: grid;
-
-      grid-template-columns:
-        1fr 1fr;
-
-      gap: 10px;
+    .manual-row {
+      display: flex;
+      gap: 12px;
+      width: 100%;
     }
 
-    .manual-grid > div {
+    .manual-row > div {
+      flex: 1 1 0;
       min-width: 0;
     }
 
-    @media (
-      max-width: 400px
-    ) {
-      .manual-grid {
-        grid-template-columns:
-          1fr;
+    .manual-row input,
+    .manual-row select {
+      width: 100%;
+      min-width: 0;
+      max-width: 100%;
+    }
+
+    @media (max-width: 420px) {
+      .manual-row {
+        display: block;
+      }
+
+      .manual-row > div {
+        width: 100%;
+      }
+
+      .manual-row > div + div {
+        margin-top: 10px;
       }
     }
   </style>
@@ -455,61 +353,32 @@
 
   <div class="app">
 
-    <!-- ホーム -->
-    <section
-      id="homePage"
-      class="page active"
-    >
-
+    <section id="homePage" class="page active">
       <h1>家計簿</h1>
 
-      <div
-        class="period"
-        id="homePeriod"
-      ></div>
+      <div class="period" id="homePeriod"></div>
 
       <div class="card">
-        <div class="total-label">
-          今月の支出
-        </div>
-
-        <div
-          class="total"
-          id="homeTotal"
-        >
-          ¥0
-        </div>
+        <div class="total-label">今月の支出</div>
+        <div class="total" id="homeTotal">¥0</div>
       </div>
 
       <div class="card">
         <h2>カテゴリ別</h2>
-
-        <div
-          id="categorySummary"
-        ></div>
+        <div id="categorySummary"></div>
       </div>
-
     </section>
 
 
-    <!-- 登録 -->
-    <section
-      id="inputPage"
-      class="page"
-    >
+    <section id="inputPage" class="page">
 
       <h1>登録</h1>
 
-      <div
-        class="period"
-        id="inputPeriod"
-      ></div>
+      <div class="period" id="inputPeriod"></div>
 
       <div class="card">
 
-        <h2>
-          ChatGPTからまとめて入力
-        </h2>
+        <h2>ChatGPTからまとめて入力</h2>
 
         <div class="hint">
           レシート画像をChatGPTに送って、
@@ -542,29 +411,19 @@
           内容を確認する
         </button>
 
-        <div
-          id="bulkPreview"
-          class="preview"
-        >
+        <div id="bulkPreview" class="preview">
 
           <h3>登録内容</h3>
 
-          <div
-            id="bulkPreviewContent"
-          ></div>
+          <div id="bulkPreviewContent"></div>
 
-          <button
-            onclick="registerBulkItems()"
-          >
+          <button onclick="registerBulkItems()">
             この内容を一括登録
           </button>
 
         </div>
 
-        <div
-          id="bulkSuccess"
-          class="success"
-        >
+        <div id="bulkSuccess" class="success">
           登録しました。
         </div>
 
@@ -573,28 +432,17 @@
 
       <div class="card">
 
-        <h2>
-          1商品だけ手入力
-        </h2>
+        <h2>1商品だけ手入力</h2>
 
-        <div class="manual-grid">
+        <div class="manual-row">
 
           <div>
-            <label for="manualDate">
-              日付
-            </label>
-
-            <input
-              type="date"
-              id="manualDate"
-            >
+            <label for="manualDate">日付</label>
+            <input type="date" id="manualDate">
           </div>
 
           <div>
-            <label for="manualShop">
-              店名
-            </label>
-
+            <label for="manualShop">店名</label>
             <input
               type="text"
               id="manualShop"
@@ -604,9 +452,7 @@
 
         </div>
 
-        <label for="manualProduct">
-          商品名
-        </label>
+        <label for="manualProduct">商品名</label>
 
         <input
           type="text"
@@ -614,12 +460,10 @@
           placeholder="例：牛乳"
         >
 
-        <div class="manual-grid">
+        <div class="manual-row">
 
           <div>
-            <label for="manualAmount">
-              金額
-            </label>
+            <label for="manualAmount">金額</label>
 
             <input
               type="number"
@@ -630,20 +474,14 @@
           </div>
 
           <div>
-            <label for="manualCategory">
-              カテゴリ
-            </label>
+            <label for="manualCategory">カテゴリ</label>
 
-            <select
-              id="manualCategory"
-            ></select>
+            <select id="manualCategory"></select>
           </div>
 
         </div>
 
-        <button
-          onclick="registerManualItem()"
-        >
+        <button onclick="registerManualItem()">
           登録する
         </button>
 
@@ -652,29 +490,19 @@
     </section>
 
 
-    <!-- 詳細 -->
-    <section
-      id="detailPage"
-      class="page"
-    >
+    <section id="detailPage" class="page">
 
       <h1>詳細</h1>
 
-      <div
-        class="period"
-        id="detailPeriod"
-      ></div>
+      <div class="period" id="detailPeriod"></div>
 
-      <div
-        id="receiptList"
-      ></div>
+      <div id="receiptList"></div>
 
     </section>
 
   </div>
 
 
-  <!-- 下部メニュー -->
   <nav class="nav">
 
     <button
@@ -706,12 +534,8 @@
 
   <script>
 
-    const STORAGE_KEY =
-      "kakeibo_items_v2";
-
-    const OLD_STORAGE_KEY =
-      "kakeibo_expenses_v1";
-
+    const STORAGE_KEY = "kakeibo_items_v2";
+    const OLD_STORAGE_KEY = "kakeibo_expenses_v1";
 
     const categories = [
       "食費",
@@ -724,408 +548,220 @@
       "その他"
     ];
 
-
     let items = [];
-
     let previewItems = [];
 
 
     function loadData() {
 
-      const newData =
-        localStorage.getItem(
-          STORAGE_KEY
-        );
+      const newData = localStorage.getItem(STORAGE_KEY);
 
       if (newData) {
 
         try {
-
-          items =
-            JSON.parse(
-              newData
-            );
-
+          items = JSON.parse(newData);
         } catch {
-
           items = [];
-
         }
 
         return;
       }
 
-
-      /*
-        旧バージョンのデータが
-        あれば可能な範囲で移行
-      */
-
-      const oldData =
-        localStorage.getItem(
-          OLD_STORAGE_KEY
-        );
+      const oldData = localStorage.getItem(OLD_STORAGE_KEY);
 
       if (!oldData) {
-
         items = [];
-
         return;
       }
 
-
       try {
 
-        const oldItems =
-          JSON.parse(
-            oldData
-          );
+        const oldItems = JSON.parse(oldData);
 
-        items =
-          oldItems.map(
-            old => ({
-
-              id:
-                "old_" +
-                old.id,
-
-              receiptId:
-                "old_receipt_" +
-                old.id,
-
-              date:
-                old.date || "",
-
-              shop:
-                old.shop ||
-                "旧データ",
-
-              product:
-                old.memo ||
-                "支出",
-
-              amount:
-                Number(
-                  old.amount
-                ) || 0,
-
-              category:
-                old.category ||
-                "その他",
-
-              createdAt:
-                old.id ||
-                Date.now()
-
-            })
-          );
+        items = oldItems.map(old => ({
+          id: "old_" + old.id,
+          receiptId: "old_receipt_" + old.id,
+          date: old.date || "",
+          shop: old.shop || "旧データ",
+          product: old.memo || "支出",
+          amount: Number(old.amount) || 0,
+          category: old.category || "その他",
+          createdAt: old.id || Date.now()
+        }));
 
         saveData();
 
       } catch {
-
         items = [];
-
       }
 
     }
 
 
     function saveData() {
-
       localStorage.setItem(
         STORAGE_KEY,
         JSON.stringify(items)
       );
-
     }
 
 
-    function formatMoney(
-      value
-    ) {
-
+    function formatMoney(value) {
       return "¥" +
-        Number(value)
-        .toLocaleString(
-          "ja-JP"
-        );
-
+        Number(value).toLocaleString("ja-JP");
     }
 
 
-    function getCurrentPeriod(
-      baseDate = new Date()
-    ) {
+    function getCurrentPeriod(baseDate = new Date()) {
 
-      const year =
-        baseDate.getFullYear();
-
-      const month =
-        baseDate.getMonth();
-
-      const day =
-        baseDate.getDate();
-
+      const year = baseDate.getFullYear();
+      const month = baseDate.getMonth();
+      const day = baseDate.getDate();
 
       let start;
       let end;
 
-
       if (day >= 16) {
 
-        start =
-          new Date(
-            year,
-            month,
-            16
-          );
+        start = new Date(year, month, 16);
 
-        end =
-          new Date(
-            year,
-            month + 1,
-            15,
-            23,
-            59,
-            59
-          );
+        end = new Date(
+          year,
+          month + 1,
+          15,
+          23,
+          59,
+          59
+        );
 
       } else {
 
-        start =
-          new Date(
-            year,
-            month - 1,
-            16
-          );
+        start = new Date(
+          year,
+          month - 1,
+          16
+        );
 
-        end =
-          new Date(
-            year,
-            month,
-            15,
-            23,
-            59,
-            59
-          );
+        end = new Date(
+          year,
+          month,
+          15,
+          23,
+          59,
+          59
+        );
 
       }
 
-
-      return {
-        start,
-        end
-      };
-
+      return { start, end };
     }
 
 
-    function formatDateInput(
-      date
-    ) {
+    function formatDateInput(date) {
 
-      const y =
-        date.getFullYear();
+      const y = date.getFullYear();
 
       const m =
-        String(
-          date.getMonth() + 1
-        )
-        .padStart(
-          2,
-          "0"
-        );
+        String(date.getMonth() + 1)
+        .padStart(2, "0");
 
       const d =
-        String(
-          date.getDate()
-        )
-        .padStart(
-          2,
-          "0"
-        );
+        String(date.getDate())
+        .padStart(2, "0");
 
       return `${y}-${m}-${d}`;
-
     }
 
 
-    function formatShortDate(
-      date
-    ) {
-
-      return `${
-        date.getMonth() + 1
-      }/${date.getDate()}`;
-
+    function formatShortDate(date) {
+      return `${date.getMonth() + 1}/${date.getDate()}`;
     }
 
 
-    function formatDisplayDate(
-      dateString
-    ) {
+    function formatDisplayDate(dateString) {
 
-      const parts =
-        dateString.split("-");
+      const parts = dateString.split("-");
 
-      if (
-        parts.length !== 3
-      ) {
-
+      if (parts.length !== 3) {
         return dateString;
-
       }
 
-      return `${
-        Number(parts[1])
-      }月${
-        Number(parts[2])
-      }日`;
-
+      return `${Number(parts[1])}月${Number(parts[2])}日`;
     }
 
 
-    function normalizeDate(
-      value
-    ) {
+    function normalizeDate(value) {
 
       if (!value) {
-
         return "";
-
       }
 
-
-      value =
-        value
+      value = value
         .trim()
-        .replace(
-          /[年月]/g,
-          "/"
-        )
-        .replace(
-          /日/g,
-          ""
-        )
-        .replace(
-          /-/g,
-          "/"
-        );
-
+        .replace(/[年月]/g, "/")
+        .replace(/日/g, "")
+        .replace(/-/g, "/");
 
       const parts =
         value
         .split("/")
         .filter(Boolean);
 
+      if (parts.length === 3) {
 
-      if (
-        parts.length === 3
-      ) {
-
-        const y =
-          parts[0];
+        const y = parts[0];
 
         const m =
-          String(
-            parts[1]
-          )
-          .padStart(
-            2,
-            "0"
-          );
+          String(parts[1]).padStart(2, "0");
 
         const d =
-          String(
-            parts[2]
-          )
-          .padStart(
-            2,
-            "0"
-          );
+          String(parts[2]).padStart(2, "0");
 
         return `${y}-${m}-${d}`;
-
       }
 
-
-      if (
-        parts.length === 2
-      ) {
+      if (parts.length === 2) {
 
         const year =
-          new Date()
-          .getFullYear();
+          new Date().getFullYear();
 
         const m =
-          String(
-            parts[0]
-          )
-          .padStart(
-            2,
-            "0"
-          );
+          String(parts[0]).padStart(2, "0");
 
         const d =
-          String(
-            parts[1]
-          )
-          .padStart(
-            2,
-            "0"
-          );
+          String(parts[1]).padStart(2, "0");
 
         return `${year}-${m}-${d}`;
-
       }
 
-
       return "";
-
     }
 
 
-    function isInCurrentPeriod(
-      dateString
-    ) {
+    function isInCurrentPeriod(dateString) {
 
       if (!dateString) {
-
         return false;
-
       }
 
       const target =
-        new Date(
-          dateString +
-          "T12:00:00"
-        );
+        new Date(dateString + "T12:00:00");
 
-      const {
-        start,
-        end
-      } =
+      const { start, end } =
         getCurrentPeriod();
 
       return (
         target >= start &&
         target <= end
       );
-
     }
 
 
     function currentItems() {
-
-      return items
-        .filter(
-          item =>
-            isInCurrentPeriod(
-              item.date
-            )
-        );
-
+      return items.filter(
+        item =>
+          isInCurrentPeriod(item.date)
+      );
     }
 
 
@@ -1136,197 +772,129 @@
         Date.now() +
         "_" +
         Math.random()
-        .toString(36)
-        .slice(2,8)
+          .toString(36)
+          .slice(2,8)
       );
-
     }
 
 
-    /*
-      ChatGPTテキスト解析
-    */
-
-    function parseBulkText(
-      text
-    ) {
+    function parseBulkText(text) {
 
       const lines =
         text
         .split(/\r?\n/)
-        .map(
-          line =>
-            line.trim()
-        );
-
+        .map(line => line.trim());
 
       let date = "";
-
       let shop = "";
-
       let product = "";
-
       let amount = "";
-
       let category = "";
 
       let result = [];
 
-
       function pushItem() {
 
-        if (
-          !product ||
-          !amount
-        ) {
+        if (!product || !amount) {
+          return;
+        }
+
+        const finalCategory =
+          categories.includes(category)
+          ? category
+          : "その他";
+
+        result.push({
+          date,
+          shop,
+          product,
+          amount:
+            Number(
+              String(amount)
+                .replace(/[¥￥円,\s]/g, "")
+                .replace(/[^\d]/g, "")
+            ),
+          category:
+            finalCategory
+        });
+
+        product = "";
+        amount = "";
+        category = "";
+      }
+
+      lines.forEach(line => {
+
+        if (!line) {
+          return;
+        }
+
+        let match;
+
+        match =
+          line.match(
+            /^日付\s*[：:]\s*(.+)$/
+          );
+
+        if (match) {
+          date =
+            normalizeDate(match[1]);
+          return;
+        }
+
+        match =
+          line.match(
+            /^店名\s*[：:]\s*(.+)$/
+          );
+
+        if (match) {
+          shop =
+            match[1].trim();
+          return;
+        }
+
+        match =
+          line.match(
+            /^商品\s*[：:]\s*(.+)$/
+          );
+
+        if (match) {
+
+          pushItem();
+
+          product =
+            match[1].trim();
 
           return;
         }
 
+        match =
+          line.match(
+            /^金額\s*[：:]\s*(.+)$/
+          );
 
-        let finalCategory =
-          categories.includes(
-            category
-          )
-          ? category
-          : "その他";
-
-
-        result.push({
-
-          date,
-
-          shop,
-
-          product,
-
-          amount:
-            Number(
-              String(amount)
-              .replace(
-                /[¥￥円,\s]/g,
-                ""
-              )
-              .replace(
-                /[^\d]/g,
-                ""
-              )
-            ),
-
-          category:
-            finalCategory
-
-        });
-
-
-        product = "";
-
-        amount = "";
-
-        category = "";
-
-      }
-
-
-      lines.forEach(
-        line => {
-
-          if (!line) {
-
-            return;
-
-          }
-
-
-          let match;
-
-
-          match =
-            line.match(
-              /^日付\s*[：:]\s*(.+)$/
-            );
-
-          if (match) {
-
-            date =
-              normalizeDate(
-                match[1]
-              );
-
-            return;
-          }
-
-
-          match =
-            line.match(
-              /^店名\s*[：:]\s*(.+)$/
-            );
-
-          if (match) {
-
-            shop =
-              match[1]
-              .trim();
-
-            return;
-          }
-
-
-          match =
-            line.match(
-              /^商品\s*[：:]\s*(.+)$/
-            );
-
-          if (match) {
-
-            pushItem();
-
-            product =
-              match[1]
-              .trim();
-
-            return;
-          }
-
-
-          match =
-            line.match(
-              /^金額\s*[：:]\s*(.+)$/
-            );
-
-          if (match) {
-
-            amount =
-              match[1]
-              .trim();
-
-            return;
-          }
-
-
-          match =
-            line.match(
-              /^カテゴリ\s*[：:]\s*(.+)$/
-            );
-
-          if (match) {
-
-            category =
-              match[1]
-              .trim();
-
-            return;
-          }
-
+        if (match) {
+          amount =
+            match[1].trim();
+          return;
         }
-      );
 
+        match =
+          line.match(
+            /^カテゴリ\s*[：:]\s*(.+)$/
+          );
+
+        if (match) {
+          category =
+            match[1].trim();
+          return;
+        }
+
+      });
 
       pushItem();
 
-
       return result;
-
     }
 
 
@@ -1334,34 +902,21 @@
 
       const text =
         document
-        .getElementById(
-          "bulkInput"
-        )
+        .getElementById("bulkInput")
         .value;
 
-
       previewItems =
-        parseBulkText(
-          text
-        );
-
+        parseBulkText(text);
 
       const preview =
         document
-        .getElementById(
-          "bulkPreview"
-        );
+        .getElementById("bulkPreview");
 
       const content =
         document
-        .getElementById(
-          "bulkPreviewContent"
-        );
+        .getElementById("bulkPreviewContent");
 
-
-      if (
-        previewItems.length === 0
-      ) {
+      if (previewItems.length === 0) {
 
         alert(
           "商品データを読み取れませんでした。"
@@ -1371,153 +926,95 @@
           "none";
 
         return;
-
       }
 
-
-      if (
-        !previewItems[0].date
-      ) {
+      if (!previewItems[0].date) {
 
         alert(
           "日付を読み取れませんでした。"
         );
 
         return;
-
       }
-
 
       const total =
         previewItems.reduce(
           (sum, item) =>
             sum +
-            Number(
-              item.amount
-            ),
+            Number(item.amount),
           0
         );
-
 
       const shop =
         previewItems[0].shop ||
         "店名なし";
 
-
       let html = `
-
         <div class="preview-receipt">
-
           <strong>
-            ${
-              formatDisplayDate(
-                previewItems[0].date
-              )
-            }
+            ${formatDisplayDate(previewItems[0].date)}
             ・
             ${escapeHtml(shop)}
           </strong>
 
-          <div
-            style="
-              margin-top:5px;
-              color:#777;
-              font-size:13px;
-            "
-          >
-            ${
-              previewItems.length
-            }商品
+          <div style="margin-top:5px;color:#777;font-size:13px;">
+            ${previewItems.length}商品
             ／
             ${formatMoney(total)}
           </div>
-
         </div>
       `;
 
+      previewItems.forEach(item => {
 
-      previewItems.forEach(
-        item => {
+        html += `
+          <div class="preview-item">
 
-          html += `
+            <div class="preview-item-left">
 
-            <div class="preview-item">
+              ${escapeHtml(item.product)}
 
-              <div
-                class="preview-item-left"
-              >
-                ${
-                  escapeHtml(
-                    item.product
-                  )
-                }
-
-                <span class="badge">
-                  ${
-                    escapeHtml(
-                      item.category
-                    )
-                  }
-                </span>
-
-              </div>
-
-              <strong>
-                ${
-                  formatMoney(
-                    item.amount
-                  )
-                }
-              </strong>
+              <span class="badge">
+                ${escapeHtml(item.category)}
+              </span>
 
             </div>
-          `;
 
-        }
-      );
+            <strong>
+              ${formatMoney(item.amount)}
+            </strong>
 
+          </div>
+        `;
+      });
 
-      content.innerHTML =
-        html;
-
+      content.innerHTML = html;
 
       preview.style.display =
         "block";
 
-
       document
-        .getElementById(
-          "bulkSuccess"
-        )
+        .getElementById("bulkSuccess")
         .style.display =
         "none";
-
     }
 
 
     function registerBulkItems() {
 
-      if (
-        previewItems.length === 0
-      ) {
-
+      if (previewItems.length === 0) {
         return;
-
       }
-
 
       const receiptId =
         createReceiptId();
 
-
       const now =
         Date.now();
-
 
       const newItems =
         previewItems.map(
           (item,index) => ({
-
             id:
               receiptId +
               "_" +
@@ -1535,152 +1032,90 @@
               item.product,
 
             amount:
-              Number(
-                item.amount
-              ),
+              Number(item.amount),
 
             category:
               item.category,
 
             createdAt:
               now + index
-
           })
         );
 
-
-      items.push(
-        ...newItems
-      );
-
+      items.push(...newItems);
 
       saveData();
 
+      document
+        .getElementById("bulkInput")
+        .value = "";
 
       document
-        .getElementById(
-          "bulkInput"
-        )
-        .value =
-        "";
-
-
-      document
-        .getElementById(
-          "bulkPreview"
-        )
+        .getElementById("bulkPreview")
         .style.display =
         "none";
 
-
       document
-        .getElementById(
-          "bulkSuccess"
-        )
+        .getElementById("bulkSuccess")
         .style.display =
         "block";
 
-
       previewItems = [];
 
-
       renderAll();
-
     }
 
-
-    /*
-      手入力
-    */
 
     function registerManualItem() {
 
       const date =
         document
-        .getElementById(
-          "manualDate"
-        )
+        .getElementById("manualDate")
         .value;
-
 
       const shop =
         document
-        .getElementById(
-          "manualShop"
-        )
+        .getElementById("manualShop")
         .value
         .trim();
-
 
       const product =
         document
-        .getElementById(
-          "manualProduct"
-        )
+        .getElementById("manualProduct")
         .value
         .trim();
-
 
       const amount =
         Number(
           document
-          .getElementById(
-            "manualAmount"
-          )
+          .getElementById("manualAmount")
           .value
         );
 
-
       const category =
         document
-        .getElementById(
-          "manualCategory"
-        )
+        .getElementById("manualCategory")
         .value;
 
-
       if (!date) {
-
-        alert(
-          "日付を入力してください。"
-        );
-
+        alert("日付を入力してください。");
         return;
-
       }
-
 
       if (!product) {
-
-        alert(
-          "商品名を入力してください。"
-        );
-
+        alert("商品名を入力してください。");
         return;
-
       }
 
-
-      if (
-        !amount ||
-        amount <= 0
-      ) {
-
-        alert(
-          "金額を入力してください。"
-        );
-
+      if (!amount || amount <= 0) {
+        alert("金額を入力してください。");
         return;
-
       }
-
 
       const receiptId =
         createReceiptId();
 
-
       items.push({
-
         id:
           receiptId +
           "_0",
@@ -1688,641 +1123,362 @@
         receiptId,
 
         date,
-
         shop,
-
         product,
-
         amount,
-
         category,
 
         createdAt:
           Date.now()
-
       });
-
 
       saveData();
 
+      document
+        .getElementById("manualShop")
+        .value = "";
 
       document
-        .getElementById(
-          "manualShop"
-        )
-        .value =
-        "";
-
+        .getElementById("manualProduct")
+        .value = "";
 
       document
-        .getElementById(
-          "manualProduct"
-        )
-        .value =
-        "";
-
-
-      document
-        .getElementById(
-          "manualAmount"
-        )
-        .value =
-        "";
-
+        .getElementById("manualAmount")
+        .value = "";
 
       renderAll();
 
-
-      alert(
-        "登録しました。"
-      );
-
+      alert("登録しました。");
     }
 
-
-    /*
-      ホーム
-    */
 
     function renderHome() {
 
       const current =
         currentItems();
 
-
       const total =
         current.reduce(
           (sum,item) =>
             sum +
-            Number(
-              item.amount
-            ),
+            Number(item.amount),
           0
         );
 
-
       document
-        .getElementById(
-          "homeTotal"
-        )
+        .getElementById("homeTotal")
         .textContent =
-        formatMoney(
-          total
-        );
-
+        formatMoney(total);
 
       const summary =
         document
-        .getElementById(
-          "categorySummary"
-        );
+        .getElementById("categorySummary");
 
+      summary.innerHTML = "";
 
-      summary.innerHTML =
-        "";
+      categories.forEach(category => {
 
+        const amount =
+          current
+          .filter(
+            item =>
+              item.category === category
+          )
+          .reduce(
+            (sum,item) =>
+              sum +
+              Number(item.amount),
+            0
+          );
 
-      categories.forEach(
-        category => {
-
-          const amount =
-            current
-            .filter(
-              item =>
-                item.category
-                === category
-            )
-            .reduce(
-              (sum,item) =>
-                sum +
-                Number(
-                  item.amount
-                ),
-              0
-            );
-
-
-          if (
-            amount === 0
-          ) {
-
-            return;
-
-          }
-
-
-          const row =
-            document
-            .createElement(
-              "div"
-            );
-
-
-          row.className =
-            "category-row";
-
-
-          row.innerHTML = `
-
-            <div
-              class="category-name"
-            >
-              ${
-                escapeHtml(
-                  category
-                )
-              }
-            </div>
-
-            <div
-              class="category-amount"
-            >
-              ${
-                formatMoney(
-                  amount
-                )
-              }
-            </div>
-          `;
-
-
-          summary
-            .appendChild(
-              row
-            );
-
+        if (amount === 0) {
+          return;
         }
-      );
 
+        const row =
+          document
+          .createElement("div");
 
-      if (
-        summary.children.length
-        === 0
-      ) {
+        row.className =
+          "category-row";
+
+        row.innerHTML = `
+          <div class="category-name">
+            ${escapeHtml(category)}
+          </div>
+
+          <div class="category-amount">
+            ${formatMoney(amount)}
+          </div>
+        `;
+
+        summary.appendChild(row);
+      });
+
+      if (summary.children.length === 0) {
 
         summary.innerHTML =
           '<div class="empty">まだ支出がありません</div>';
-
       }
-
     }
 
-
-    /*
-      詳細
-    */
 
     function renderDetails() {
 
       const current =
         currentItems();
 
-
       const receiptMap =
         new Map();
 
+      current.forEach(item => {
 
-      current.forEach(
-        item => {
-
-          if (
-            !receiptMap.has(
-              item.receiptId
-            )
-          ) {
-
-            receiptMap.set(
-              item.receiptId,
-              []
-            );
-
-          }
-
-
-          receiptMap
-            .get(
-              item.receiptId
-            )
-            .push(
-              item
-            );
-
+        if (
+          !receiptMap.has(item.receiptId)
+        ) {
+          receiptMap.set(
+            item.receiptId,
+            []
+          );
         }
-      );
 
+        receiptMap
+          .get(item.receiptId)
+          .push(item);
+      });
 
       const receipts =
-        Array.from(
-          receiptMap.entries()
-        )
+        Array
+        .from(receiptMap.entries())
         .map(
-          (
-            [
-              receiptId,
-              receiptItems
-            ]
-          ) => ({
-
+          ([receiptId, receiptItems]) => ({
             receiptId,
-
             items:
               receiptItems,
 
             date:
-              receiptItems[0]
-              .date,
+              receiptItems[0].date,
 
             shop:
-              receiptItems[0]
-              .shop,
+              receiptItems[0].shop,
 
             total:
               receiptItems.reduce(
                 (sum,item) =>
                   sum +
-                  Number(
-                    item.amount
-                  ),
+                  Number(item.amount),
                 0
               )
-
           })
         )
-        .sort(
-          (a,b) => {
+        .sort((a,b) => {
 
-            const dateDiff =
-              new Date(
-                b.date
-              ) -
-              new Date(
-                a.date
-              );
+          const dateDiff =
+            new Date(b.date) -
+            new Date(a.date);
 
-
-            if (
-              dateDiff !== 0
-            ) {
-
-              return dateDiff;
-
-            }
-
-
-            return (
-              Math.max(
-                ...b.items.map(
-                  x =>
-                    x.createdAt ||
-                    0
-                )
-              )
-              -
-              Math.max(
-                ...a.items.map(
-                  x =>
-                    x.createdAt ||
-                    0
-                )
-              )
-            );
-
+          if (dateDiff !== 0) {
+            return dateDiff;
           }
-        );
 
+          return (
+            Math.max(
+              ...b.items.map(
+                x =>
+                  x.createdAt || 0
+              )
+            )
+            -
+            Math.max(
+              ...a.items.map(
+                x =>
+                  x.createdAt || 0
+              )
+            )
+          );
+        });
 
       const list =
         document
-        .getElementById(
-          "receiptList"
-        );
+        .getElementById("receiptList");
 
+      list.innerHTML = "";
 
-      list.innerHTML =
-        "";
-
-
-      if (
-        receipts.length === 0
-      ) {
+      if (receipts.length === 0) {
 
         list.innerHTML =
           '<div class="card empty">まだ支出がありません</div>';
 
         return;
-
       }
 
+      receipts.forEach(receipt => {
 
-      receipts.forEach(
-        receipt => {
+        const card =
+          document
+          .createElement("div");
 
-          const card =
-            document
-            .createElement(
-              "div"
-            );
+        card.className =
+          "receipt-card";
 
-
-          card.className =
-            "receipt-card";
-
-
-          const bodyId =
-            "body_" +
-            receipt.receiptId
-            .replace(
-              /[^a-zA-Z0-9_]/g,
-              ""
-            );
-
-
-          const grouped =
-            {};
-
-
-          categories.forEach(
-            category => {
-
-              grouped[
-                category
-              ] = [];
-
-            }
+        const bodyId =
+          "body_" +
+          receipt.receiptId
+          .replace(
+            /[^a-zA-Z0-9_]/g,
+            ""
           );
 
+        const grouped = {};
 
-          receipt.items.forEach(
-            item => {
+        categories.forEach(category => {
+          grouped[category] = [];
+        });
 
-              if (
-                !grouped[
-                  item.category
-                ]
-              ) {
+        receipt.items.forEach(item => {
 
-                grouped[
-                  item.category
-                ] = [];
+          if (!grouped[item.category]) {
+            grouped[item.category] = [];
+          }
 
-              }
+          grouped[item.category]
+            .push(item);
+        });
 
+        let bodyHtml = "";
 
-              grouped[
-                item.category
-              ].push(
-                item
+        Object
+          .keys(grouped)
+          .forEach(category => {
+
+            const categoryItems =
+              grouped[category];
+
+            if (
+              categoryItems.length === 0
+            ) {
+              return;
+            }
+
+            const categoryTotal =
+              categoryItems
+              .reduce(
+                (sum,item) =>
+                  sum +
+                  Number(item.amount),
+                0
               );
 
-            }
-          );
+            bodyHtml += `
+              <div class="detail-category-title">
+                ${escapeHtml(category)}
+                ・
+                ${formatMoney(categoryTotal)}
+              </div>
+            `;
 
+            categoryItems.forEach(item => {
 
-          let bodyHtml =
-            "";
+              bodyHtml += `
+                <div class="detail-item">
 
-
-          Object
-            .keys(
-              grouped
-            )
-            .forEach(
-              category => {
-
-                const categoryItems =
-                  grouped[
-                    category
-                  ];
-
-
-                if (
-                  categoryItems.length
-                  === 0
-                ) {
-
-                  return;
-
-                }
-
-
-                const categoryTotal =
-                  categoryItems
-                  .reduce(
-                    (
-                      sum,
-                      item
-                    ) =>
-                      sum +
-                      Number(
-                        item.amount
-                      ),
-                    0
-                  );
-
-
-                bodyHtml += `
-
-                  <div
-                    class="detail-category-title"
-                  >
-                    ${
-                      escapeHtml(
-                        category
-                      )
-                    }
-
-                    ・
-
-                    ${
-                      formatMoney(
-                        categoryTotal
-                      )
-                    }
-                  </div>
-                `;
-
-
-                categoryItems
-                  .forEach(
-                    item => {
-
-                      bodyHtml += `
-
-                        <div
-                          class="detail-item"
-                        >
-
-                          <div
-                            class="detail-item-name"
-                          >
-                            ${
-                              escapeHtml(
-                                item.product
-                              )
-                            }
-                          </div>
-
-                          <div
-                            class="detail-item-price"
-                          >
-                            ${
-                              formatMoney(
-                                item.amount
-                              )
-                            }
-                          </div>
-
-                          <button
-                            class="danger small"
-                            onclick="
-                              event.stopPropagation();
-                              deleteItem(
-                                '${item.id}'
-                              );
-                            "
-                          >
-                            削除
-                          </button>
-
-                        </div>
-                      `;
-
-                    }
-                  );
-
-              }
-            );
-
-
-          card.innerHTML = `
-
-            <div
-              class="receipt-header"
-              onclick="
-                toggleReceipt(
-                  '${bodyId}'
-                )
-              "
-            >
-
-              <div
-                class="receipt-top"
-              >
-
-                <div>
-
-                  <div
-                    class="receipt-date"
-                  >
-                    ${
-                      formatDisplayDate(
-                        receipt.date
-                      )
-                    }
+                  <div class="detail-item-name">
+                    ${escapeHtml(item.product)}
                   </div>
 
-                  <div
-                    class="receipt-shop"
-                  >
-                    ${
-                      escapeHtml(
-                        receipt.shop ||
-                        "店名なし"
-                      )
-                    }
+                  <div class="detail-item-price">
+                    ${formatMoney(item.amount)}
                   </div>
+
+                  <button
+                    class="danger small"
+                    onclick="
+                      event.stopPropagation();
+                      deleteItem('${item.id}');
+                    "
+                  >
+                    削除
+                  </button>
 
                 </div>
+              `;
+            });
+          });
 
-                <div
-                  class="receipt-total"
-                >
-                  ${
-                    formatMoney(
-                      receipt.total
-                    )
-                  }
+        card.innerHTML = `
+          <div
+            class="receipt-header"
+            onclick="toggleReceipt('${bodyId}')"
+          >
+
+            <div class="receipt-top">
+
+              <div>
+
+                <div class="receipt-date">
+                  ${formatDisplayDate(receipt.date)}
+                </div>
+
+                <div class="receipt-shop">
+                  ${escapeHtml(receipt.shop || "店名なし")}
                 </div>
 
               </div>
 
-              <div
-                class="receipt-count"
-              >
-                ${
-                  receipt.items.length
-                }商品
-                ・タップして詳細
+              <div class="receipt-total">
+                ${formatMoney(receipt.total)}
               </div>
 
             </div>
 
-
-            <div
-              id="${bodyId}"
-              class="receipt-body"
-            >
-
-              ${bodyHtml}
-
-              <button
-                class="danger"
-                onclick="
-                  deleteReceipt(
-                    '${receipt.receiptId}'
-                  )
-                "
-              >
-                このレシートをすべて削除
-              </button>
-
+            <div class="receipt-count">
+              ${receipt.items.length}商品
+              ・タップして詳細
             </div>
-          `;
 
+          </div>
 
-          list
-            .appendChild(
-              card
-            );
+          <div
+            id="${bodyId}"
+            class="receipt-body"
+          >
 
-        }
-      );
+            ${bodyHtml}
 
+            <button
+              class="danger"
+              onclick="deleteReceipt('${receipt.receiptId}')"
+            >
+              このレシートをすべて削除
+            </button>
+
+          </div>
+        `;
+
+        list.appendChild(card);
+      });
     }
 
 
-    function toggleReceipt(
-      bodyId
-    ) {
+    function toggleReceipt(bodyId) {
 
       const body =
         document
-        .getElementById(
-          bodyId
-        );
+        .getElementById(bodyId);
 
-
-      body.classList.toggle(
-        "open"
-      );
-
+      body.classList.toggle("open");
     }
 
 
-    function deleteItem(
-      id
-    ) {
+    function deleteItem(id) {
 
       if (
         !confirm(
           "この商品を削除しますか？"
         )
       ) {
-
         return;
-
       }
-
 
       items =
         items.filter(
@@ -2330,28 +1486,20 @@
             item.id !== id
         );
 
-
       saveData();
-
       renderAll();
-
     }
 
 
-    function deleteReceipt(
-      receiptId
-    ) {
+    function deleteReceipt(receiptId) {
 
       if (
         !confirm(
           "このレシートの商品をすべて削除しますか？"
         )
       ) {
-
         return;
-
       }
-
 
       items =
         items.filter(
@@ -2360,200 +1508,102 @@
             !== receiptId
         );
 
-
       saveData();
-
       renderAll();
-
     }
 
 
-    /*
-      ページ切替
-    */
-
-    function showPage(
-      page
-    ) {
+    function showPage(page) {
 
       document
-        .querySelectorAll(
-          ".page"
-        )
+        .querySelectorAll(".page")
         .forEach(
           el =>
-            el.classList.remove(
-              "active"
-            )
+            el.classList.remove("active")
         );
-
 
       document
-        .querySelectorAll(
-          ".nav-button"
-        )
+        .querySelectorAll(".nav-button")
         .forEach(
           el =>
-            el.classList.remove(
-              "active"
-            )
+            el.classList.remove("active")
         );
 
-
-      if (
-        page === "home"
-      ) {
+      if (page === "home") {
 
         document
-          .getElementById(
-            "homePage"
-          )
-          .classList.add(
-            "active"
-          );
+          .getElementById("homePage")
+          .classList.add("active");
 
         document
-          .getElementById(
-            "navHome"
-          )
-          .classList.add(
-            "active"
-          );
-
+          .getElementById("navHome")
+          .classList.add("active");
       }
 
-
-      if (
-        page === "input"
-      ) {
+      if (page === "input") {
 
         document
-          .getElementById(
-            "inputPage"
-          )
-          .classList.add(
-            "active"
-          );
+          .getElementById("inputPage")
+          .classList.add("active");
 
         document
-          .getElementById(
-            "navInput"
-          )
-          .classList.add(
-            "active"
-          );
-
+          .getElementById("navInput")
+          .classList.add("active");
       }
 
-
-      if (
-        page === "detail"
-      ) {
+      if (page === "detail") {
 
         document
-          .getElementById(
-            "detailPage"
-          )
-          .classList.add(
-            "active"
-          );
+          .getElementById("detailPage")
+          .classList.add("active");
 
         document
-          .getElementById(
-            "navDetail"
-          )
-          .classList.add(
-            "active"
-          );
+          .getElementById("navDetail")
+          .classList.add("active");
 
         renderDetails();
-
       }
-
 
       window.scrollTo({
         top: 0,
         behavior: "smooth"
       });
-
     }
 
 
-    function escapeHtml(
-      value
-    ) {
+    function escapeHtml(value) {
 
-      return String(
-        value ?? ""
-      )
-      .replace(
-        /&/g,
-        "&amp;"
-      )
-      .replace(
-        /</g,
-        "&lt;"
-      )
-      .replace(
-        />/g,
-        "&gt;"
-      )
-      .replace(
-        /"/g,
-        "&quot;"
-      )
-      .replace(
-        /'/g,
-        "&#039;"
-      );
-
+      return String(value ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
     }
 
 
     function renderPeriods() {
 
-      const {
-        start,
-        end
-      } =
+      const { start, end } =
         getCurrentPeriod();
 
-
       const text =
-        `${
-          formatShortDate(
-            start
-          )
-        } 〜 ${
-          formatShortDate(
-            end
-          )
-        }`;
-
+        `${formatShortDate(start)} 〜 ${formatShortDate(end)}`;
 
       document
-        .getElementById(
-          "homePeriod"
-        )
+        .getElementById("homePeriod")
         .textContent =
         text;
 
-
       document
-        .getElementById(
-          "inputPeriod"
-        )
+        .getElementById("inputPeriod")
         .textContent =
         text;
 
-
       document
-        .getElementById(
-          "detailPeriod"
-        )
+        .getElementById("detailPeriod")
         .textContent =
         text;
-
     }
 
 
@@ -2561,68 +1611,38 @@
 
       const select =
         document
-        .getElementById(
-          "manualCategory"
-        );
+        .getElementById("manualCategory");
 
+      select.innerHTML = "";
 
-      select.innerHTML =
-        "";
+      categories.forEach(category => {
 
+        const option =
+          document
+          .createElement("option");
 
-      categories.forEach(
-        category => {
+        option.value = category;
+        option.textContent = category;
 
-          const option =
-            document
-            .createElement(
-              "option"
-            );
-
-
-          option.value =
-            category;
-
-
-          option.textContent =
-            category;
-
-
-          select.appendChild(
-            option
-          );
-
-        }
-      );
-
+        select.appendChild(option);
+      });
     }
 
 
     function renderAll() {
-
       renderPeriods();
-
       renderHome();
-
       renderDetails();
-
     }
 
 
     loadData();
-
     setupCategories();
 
-
     document
-      .getElementById(
-        "manualDate"
-      )
+      .getElementById("manualDate")
       .value =
-      formatDateInput(
-        new Date()
-      );
-
+      formatDateInput(new Date());
 
     renderAll();
 
