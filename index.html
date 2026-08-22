@@ -419,7 +419,6 @@ button.small{
 
 .calendar-day.empty-day{
   background:#fafafa;
-  cursor:default;
 }
 
 .calendar-date{
@@ -515,7 +514,6 @@ button.small{
 
 .receipt-header{
   padding:16px;
-  cursor:pointer;
 }
 
 .receipt-top{
@@ -598,23 +596,19 @@ button.small{
   border-bottom:1px solid #eee;
 }
 
-.search-result:last-child{
-  border-bottom:none;
-}
-
 .search-result-top{
   display:flex;
   justify-content:space-between;
   gap:10px;
 }
 
-.search-name{
+.search-name,
+.search-price{
   font-weight:700;
 }
 
 .search-price{
   white-space:nowrap;
-  font-weight:700;
 }
 
 
@@ -625,23 +619,19 @@ button.small{
   border-bottom:1px solid #eee;
 }
 
-.frequent-item:last-child{
-  border-bottom:none;
-}
-
 .frequent-top{
   display:flex;
   justify-content:space-between;
   gap:10px;
 }
 
-.frequent-name{
+.frequent-name,
+.frequent-count{
   font-weight:700;
 }
 
 .frequent-count{
   white-space:nowrap;
-  font-weight:700;
 }
 
 .product-history{
@@ -698,7 +688,7 @@ button.small{
 }
 
 
-/* 編集モーダル */
+/* 編集 */
 
 .modal-backdrop{
   display:none;
@@ -724,7 +714,7 @@ button.small{
 }
 
 
-/* 下部ナビ */
+/* 下部 */
 
 .nav{
   position:fixed;
@@ -786,23 +776,23 @@ button.small{
 <div id="homeMonthNav" class="month-nav"></div>
 
 <div class="card">
-  <div class="total-label">この月の支出</div>
-  <div id="homeTotal" class="total">¥0</div>
+<div class="total-label">この月の支出</div>
+<div id="homeTotal" class="total">¥0</div>
 </div>
 
 <div class="card">
-  <h2>予算</h2>
-  <div id="budgetHome"></div>
+<h2>予算</h2>
+<div id="budgetHome"></div>
 </div>
 
 <div class="card">
-  <h2>カテゴリ別</h2>
-  <div id="categorySummary"></div>
+<h2>カテゴリ別</h2>
+<div id="categorySummary"></div>
 </div>
 
 <div class="card">
-  <h2>円グラフ</h2>
-  <div id="pieArea" class="pie-area"></div>
+<h2>円グラフ</h2>
+<div id="pieArea" class="pie-area"></div>
 </div>
 
 </section>
@@ -820,17 +810,17 @@ button.small{
 
 <div class="calendar">
 
-  <div class="calendar-week">
-    <div>日</div>
-    <div>月</div>
-    <div>火</div>
-    <div>水</div>
-    <div>木</div>
-    <div>金</div>
-    <div>土</div>
-  </div>
+<div class="calendar-week">
+<div>日</div>
+<div>月</div>
+<div>火</div>
+<div>水</div>
+<div>木</div>
+<div>金</div>
+<div>土</div>
+</div>
 
-  <div id="calendarGrid" class="calendar-grid"></div>
+<div id="calendarGrid" class="calendar-grid"></div>
 
 </div>
 
@@ -856,22 +846,18 @@ button.small{
 </div>
 
 <textarea
-  id="bulkInput"
-  placeholder="日付：2026-08-22
+id="bulkInput"
+placeholder="日付：2026-08-22
 店名：スーパー
 
 商品：牛乳
 金額：218
-カテゴリ：食費
-
-商品：洗剤
-金額：398
-カテゴリ：日用品"
+カテゴリ：食費"
 ></textarea>
 
 <button
-  class="secondary"
-  onclick="previewBulkInput()"
+class="secondary"
+onclick="previewBulkInput()"
 >
 内容を確認する
 </button>
@@ -906,30 +892,17 @@ button.small{
 
 <div class="field">
 <label>店名</label>
-<input
-  id="manualShop"
-  type="text"
-  placeholder="例：スーパー"
->
+<input id="manualShop" type="text">
 </div>
 
 <div class="field">
 <label>商品名</label>
-<input
-  id="manualProduct"
-  type="text"
-  placeholder="例：牛乳"
->
+<input id="manualProduct" type="text">
 </div>
 
 <div class="field">
 <label>金額</label>
-<input
-  id="manualAmount"
-  type="number"
-  inputmode="numeric"
-  placeholder="例：218"
->
+<input id="manualAmount" type="number" inputmode="numeric">
 </div>
 
 <div class="field">
@@ -952,16 +925,15 @@ button.small{
 
 <h1>詳細</h1>
 
-
 <div class="card">
 
 <h2>検索</h2>
 
 <input
-  id="searchInput"
-  type="search"
-  placeholder="商品名・店名・カテゴリで検索"
-  oninput="renderSearchResults()"
+id="searchInput"
+type="search"
+placeholder="商品名・店名・カテゴリで検索"
+oninput="renderSearchResults()"
 >
 
 <div id="searchResults"></div>
@@ -999,29 +971,19 @@ button.small{
 
 <h1>設定</h1>
 
+
 <div class="card">
 
 <h2>月の予算</h2>
 
 <div class="field">
 <label>毎月の予算</label>
-
-<input
-  id="monthlyBudget"
-  type="number"
-  inputmode="numeric"
-  placeholder="例：150000"
->
-
+<input id="monthlyBudget" type="number" inputmode="numeric">
 </div>
 
 <button onclick="saveBudget()">
 予算を保存
 </button>
-
-<div class="setting-note">
-ホーム画面に残り予算と使用率が表示されます。
-</div>
 
 </div>
 
@@ -1032,23 +994,14 @@ button.small{
 
 <div class="field">
 <label>新しいカテゴリー</label>
-
-<input
-  id="newCategory"
-  type="text"
-  placeholder="例：美容"
->
-
+<input id="newCategory" type="text">
 </div>
 
 <button onclick="addCategory()">
 カテゴリーを追加
 </button>
 
-<div
-  id="categorySettingsList"
-  style="margin-top:16px;"
-></div>
+<div id="categorySettingsList" style="margin-top:16px;"></div>
 
 </div>
 
@@ -1059,55 +1012,65 @@ button.small{
 
 <div class="field">
 <label>固定費名</label>
-
-<input
-  id="fixedName"
-  type="text"
-  placeholder="例：家賃"
->
-
+<input id="fixedName" type="text">
 </div>
 
 <div class="field">
 <label>金額</label>
-
-<input
-  id="fixedAmount"
-  type="number"
-  inputmode="numeric"
->
-
+<input id="fixedAmount" type="number" inputmode="numeric">
 </div>
 
 <div class="field">
 <label>毎月の日付</label>
-
-<input
-  id="fixedDay"
-  type="number"
-  inputmode="numeric"
-  min="1"
-  max="31"
-  value="1"
->
-
+<input id="fixedDay" type="number" min="1" max="31" value="1">
 </div>
 
 <div class="field">
 <label>カテゴリー</label>
-
 <select id="fixedCategory"></select>
-
 </div>
 
 <button onclick="addFixedCost()">
 固定費を追加
 </button>
 
-<div
-  id="fixedCostList"
-  style="margin-top:16px;"
-></div>
+<div id="fixedCostList" style="margin-top:16px;"></div>
+
+</div>
+
+
+<!-- データ管理 -->
+
+<div class="card">
+
+<h2>データ管理</h2>
+
+<div class="subtext">
+iPhoneの買い替えやデータ消失に備えて、家計簿データをファイルとして保存できます。
+</div>
+
+<button onclick="exportBackup()">
+バックアップを保存
+</button>
+
+<button
+class="secondary"
+onclick="document.getElementById('backupFileInput').click()"
+>
+バックアップから復元
+</button>
+
+<input
+id="backupFileInput"
+type="file"
+accept=".json,application/json"
+style="display:none;"
+onchange="importBackup(event)"
+>
+
+<div class="setting-note">
+バックアップには支出・カテゴリー・固定費・予算が含まれます。iCloud Driveなどに保存しておくと、別のiPhoneでも復元できます。
+</div>
 
 </div>
 
@@ -1143,11 +1106,7 @@ button.small{
 
 <div class="field">
 <label>金額</label>
-<input
-  id="editAmount"
-  type="number"
-  inputmode="numeric"
->
+<input id="editAmount" type="number">
 </div>
 
 <div class="field">
@@ -1159,10 +1118,7 @@ button.small{
 変更を保存
 </button>
 
-<button
-  class="secondary"
-  onclick="closeEditModal()"
->
+<button class="secondary" onclick="closeEditModal()">
 キャンセル
 </button>
 
@@ -1171,50 +1127,50 @@ button.small{
 </div>
 
 
-<!-- 下部メニュー -->
+<!-- ナビ -->
 
 <nav class="nav">
 
 <button
-  id="navHome"
-  class="nav-button active"
-  onclick="showPage('home')"
+id="navHome"
+class="nav-button active"
+onclick="showPage('home')"
 >
 <span class="nav-icon">⌂</span>
 <span class="nav-label">ホーム</span>
 </button>
 
 <button
-  id="navCalendar"
-  class="nav-button"
-  onclick="showPage('calendar')"
+id="navCalendar"
+class="nav-button"
+onclick="showPage('calendar')"
 >
 <span class="nav-icon">▦</span>
 <span class="nav-label">カレンダー</span>
 </button>
 
 <button
-  id="navInput"
-  class="nav-button"
-  onclick="showPage('input')"
+id="navInput"
+class="nav-button"
+onclick="showPage('input')"
 >
 <span class="nav-icon">＋</span>
 <span class="nav-label">登録</span>
 </button>
 
 <button
-  id="navDetail"
-  class="nav-button"
-  onclick="showPage('detail')"
+id="navDetail"
+class="nav-button"
+onclick="showPage('detail')"
 >
 <span class="nav-icon">≡</span>
 <span class="nav-label">詳細</span>
 </button>
 
 <button
-  id="navSettings"
-  class="nav-button"
-  onclick="showPage('settings')"
+id="navSettings"
+class="nav-button"
+onclick="showPage('settings')"
 >
 <span class="nav-icon">⚙</span>
 <span class="nav-label">設定</span>
@@ -1232,29 +1188,29 @@ const FIXED_KEY="kakeibo_fixed_costs_v3";
 const BUDGET_KEY="kakeibo_budget_v1";
 
 const DEFAULT_CATEGORIES=[
-  "食費",
-  "お菓子",
-  "日用品",
-  "外食",
-  "交通費",
-  "娯楽",
-  "固定費",
-  "その他"
+"食費",
+"お菓子",
+"日用品",
+"外食",
+"交通費",
+"娯楽",
+"固定費",
+"その他"
 ];
 
 const PIE_COLORS=[
-  "#4A90E2",
-  "#F5A623",
-  "#7ED321",
-  "#D0021B",
-  "#9013FE",
-  "#50E3C2",
-  "#B8E986",
-  "#4A4A4A",
-  "#F8E71C",
-  "#417505",
-  "#BD10E0",
-  "#8B572A"
+"#4A90E2",
+"#F5A623",
+"#7ED321",
+"#D0021B",
+"#9013FE",
+"#50E3C2",
+"#B8E986",
+"#4A4A4A",
+"#F8E71C",
+"#417505",
+"#BD10E0",
+"#8B572A"
 ];
 
 let items=[];
@@ -1266,214 +1222,478 @@ let monthlyBudget=0;
 let pieMode="withFixed";
 
 let selectedMonth=
-  new Date(
-    new Date().getFullYear(),
-    new Date().getMonth(),
-    1
-  );
+new Date(
+new Date().getFullYear(),
+new Date().getMonth(),
+1
+);
 
 let selectedCalendarDay=null;
 
 
-/* データ読込 */
+/* 読込 */
 
 function loadData(){
-  loadItems();
-  loadCategories();
-  loadFixedCosts();
-  loadBudget();
+loadItems();
+loadCategories();
+loadFixedCosts();
+loadBudget();
 }
 
 function loadItems(){
 
-  const current=
-    localStorage.getItem(
-      ITEMS_KEY
-    );
+const current=
+localStorage.getItem(
+ITEMS_KEY
+);
 
-  if(current){
+if(current){
 
-    try{
-      items=
-        JSON.parse(
-          current
-        )||[];
-    }catch{
-      items=[];
-    }
+try{
+items=
+JSON.parse(
+current
+)||[];
+}catch{
+items=[];
+}
 
-    return;
-  }
+return;
+}
 
-  const old=
-    localStorage.getItem(
-      OLD_ITEMS_KEY
-    );
+const old=
+localStorage.getItem(
+OLD_ITEMS_KEY
+);
 
-  if(!old){
-    items=[];
-    return;
-  }
+if(!old){
+items=[];
+return;
+}
 
-  try{
+try{
 
-    const oldItems=
-      JSON.parse(
-        old
-      );
+const oldItems=
+JSON.parse(
+old
+);
 
-    items=
-      oldItems.map(
-        old=>({
+items=
+oldItems.map(
+old=>({
 
-          id:
-            "old_"+
-            old.id,
+id:
+"old_"+
+old.id,
 
-          receiptId:
-            "old_receipt_"+
-            old.id,
+receiptId:
+"old_receipt_"+
+old.id,
 
-          date:
-            old.date||
-            "",
+date:
+old.date||
+"",
 
-          shop:
-            old.shop||
-            "旧データ",
+shop:
+old.shop||
+"旧データ",
 
-          product:
-            old.memo||
-            "支出",
+product:
+old.memo||
+"支出",
 
-          amount:
-            Number(
-              old.amount
-            )||0,
+amount:
+Number(
+old.amount
+)||0,
 
-          category:
-            old.category||
-            "その他",
+category:
+old.category||
+"その他",
 
-          createdAt:
-            old.id||
-            Date.now()
+createdAt:
+old.id||
+Date.now()
 
-        })
-      );
+})
+);
 
-    saveItems();
+saveItems();
 
-  }catch{
-    items=[];
-  }
+}catch{
+items=[];
+}
 }
 
 function loadCategories(){
 
-  const data=
-    localStorage.getItem(
-      CATEGORY_KEY
-    );
+const data=
+localStorage.getItem(
+CATEGORY_KEY
+);
 
-  if(data){
+if(data){
 
-    try{
-      categories=
-        JSON.parse(
-          data
-        );
-    }catch{
-      categories=[
-        ...DEFAULT_CATEGORIES
-      ];
-    }
+try{
+categories=
+JSON.parse(
+data
+);
+}catch{
+categories=[
+...DEFAULT_CATEGORIES
+];
+}
 
-  }else{
+}else{
 
-    categories=[
-      ...DEFAULT_CATEGORIES
-    ];
+categories=[
+...DEFAULT_CATEGORIES
+];
 
-  }
+}
 
-  items.forEach(
-    item=>{
+items.forEach(
+item=>{
 
-      if(
-        item.category &&
-        !categories.includes(
-          item.category
-        )
-      ){
-        categories.push(
-          item.category
-        );
-      }
+if(
+item.category &&
+!categories.includes(
+item.category
+)
+){
+categories.push(
+item.category
+);
+}
 
-    }
-  );
+}
+);
 
-  saveCategories();
+saveCategories();
 }
 
 function loadFixedCosts(){
 
-  const data=
-    localStorage.getItem(
-      FIXED_KEY
-    );
+const data=
+localStorage.getItem(
+FIXED_KEY
+);
 
-  if(!data){
-    fixedCosts=[];
-    return;
-  }
+if(!data){
+fixedCosts=[];
+return;
+}
 
-  try{
-    fixedCosts=
-      JSON.parse(
-        data
-      )||[];
-  }catch{
-    fixedCosts=[];
-  }
+try{
+fixedCosts=
+JSON.parse(
+data
+)||[];
+}catch{
+fixedCosts=[];
+}
 }
 
 function loadBudget(){
 
-  monthlyBudget=
-    Number(
-      localStorage.getItem(
-        BUDGET_KEY
-      )
-    )||0;
+monthlyBudget=
+Number(
+localStorage.getItem(
+BUDGET_KEY
+)
+)||0;
 }
 
 function saveItems(){
-  localStorage.setItem(
-    ITEMS_KEY,
-    JSON.stringify(
-      items
-    )
-  );
+localStorage.setItem(
+ITEMS_KEY,
+JSON.stringify(
+items
+)
+);
 }
 
 function saveCategories(){
-  localStorage.setItem(
-    CATEGORY_KEY,
-    JSON.stringify(
-      categories
-    )
-  );
+localStorage.setItem(
+CATEGORY_KEY,
+JSON.stringify(
+categories
+)
+);
 }
 
 function saveFixedCosts(){
-  localStorage.setItem(
-    FIXED_KEY,
-    JSON.stringify(
-      fixedCosts
-    )
-  );
+localStorage.setItem(
+FIXED_KEY,
+JSON.stringify(
+fixedCosts
+)
+);
+}
+
+
+/* バックアップ */
+
+async function exportBackup(){
+
+const backupData={
+
+version:1,
+
+exportedAt:
+new Date().toISOString(),
+
+items:
+items,
+
+categories:
+categories,
+
+fixedCosts:
+fixedCosts,
+
+monthlyBudget:
+monthlyBudget
+};
+
+const json=
+JSON.stringify(
+backupData,
+null,
+2
+);
+
+const blob=
+new Blob(
+[json],
+{
+type:"application/json"
+}
+);
+
+const now=
+new Date();
+
+const fileName=
+"kakeibo-backup-"+
+now.getFullYear()+
+"-"+
+String(
+now.getMonth()+1
+).padStart(
+2,
+"0"
+)+
+"-"+
+String(
+now.getDate()
+).padStart(
+2,
+"0"
+)+
+".json";
+
+const file=
+new File(
+[blob],
+fileName,
+{
+type:"application/json"
+}
+);
+
+try{
+
+if(
+navigator.share &&
+navigator.canShare &&
+navigator.canShare({
+files:[file]
+})
+){
+
+await navigator.share({
+files:[file],
+title:"家計簿バックアップ"
+});
+
+return;
+}
+
+}catch(error){
+
+if(
+error &&
+error.name==="AbortError"
+){
+return;
+}
+
+}
+
+const url=
+URL.createObjectURL(
+blob
+);
+
+const link=
+document.createElement(
+"a"
+);
+
+link.href=
+url;
+
+link.download=
+fileName;
+
+document.body.appendChild(
+link
+);
+
+link.click();
+
+link.remove();
+
+setTimeout(
+()=>{
+URL.revokeObjectURL(
+url
+);
+},
+1000
+);
+}
+
+
+function importBackup(event){
+
+const file=
+event.target.files[0];
+
+if(!file){
+return;
+}
+
+const reader=
+new FileReader();
+
+reader.onload=
+function(){
+
+try{
+
+const data=
+JSON.parse(
+reader.result
+);
+
+if(
+!data ||
+typeof data!=="object"
+){
+
+throw new Error(
+"invalid"
+);
+}
+
+if(
+!Array.isArray(
+data.items
+)
+){
+
+throw new Error(
+"invalid"
+);
+}
+
+if(
+!Array.isArray(
+data.categories
+)
+){
+
+throw new Error(
+"invalid"
+);
+}
+
+if(
+!Array.isArray(
+data.fixedCosts
+)
+){
+
+throw new Error(
+"invalid"
+);
+}
+
+const ok=
+confirm(
+"現在の家計簿データをバックアップの内容で置き換えます。\nよろしいですか？"
+);
+
+if(!ok){
+
+event.target.value="";
+
+return;
+}
+
+items=
+data.items;
+
+categories=
+data.categories;
+
+fixedCosts=
+data.fixedCosts;
+
+monthlyBudget=
+Number(
+data.monthlyBudget
+)||0;
+
+saveItems();
+
+saveCategories();
+
+saveFixedCosts();
+
+localStorage.setItem(
+BUDGET_KEY,
+String(
+monthlyBudget
+)
+);
+
+setupCategorySelects();
+
+renderAll();
+
+alert(
+"バックアップから復元しました。"
+);
+
+}catch(error){
+
+alert(
+"このファイルは家計簿のバックアップとして読み込めませんでした。"
+);
+
+}
+
+event.target.value="";
+
+};
+
+reader.readAsText(
+file
+);
 }
 
 
@@ -1481,414 +1701,414 @@ function saveFixedCosts(){
 
 function formatMoney(value){
 
-  return "¥"+
-    Number(
-      value||0
-    )
-    .toLocaleString(
-      "ja-JP"
-    );
+return "¥"+
+Number(
+value||0
+)
+.toLocaleString(
+"ja-JP"
+);
 }
 
 function monthKey(date){
 
-  return (
-    date.getFullYear()
-    +"-"+
-    String(
-      date.getMonth()+1
-    )
-    .padStart(
-      2,
-      "0"
-    )
-  );
+return(
+date.getFullYear()
++"-"+
+String(
+date.getMonth()+1
+)
+.padStart(
+2,
+"0"
+)
+);
 }
 
 function selectedMonthKey(){
-  return monthKey(
-    selectedMonth
-  );
+return monthKey(
+selectedMonth
+);
 }
 
 function formatMonthTitle(date){
 
-  return (
-    date.getFullYear()
-    +"年"+
-    (date.getMonth()+1)
-    +"月"
-  );
+return(
+date.getFullYear()
++"年"+
+(date.getMonth()+1)
++"月"
+);
 }
 
 function formatDateInput(date){
 
-  return [
-    date.getFullYear(),
+return[
+date.getFullYear(),
 
-    String(
-      date.getMonth()+1
-    )
-    .padStart(
-      2,
-      "0"
-    ),
+String(
+date.getMonth()+1
+)
+.padStart(
+2,
+"0"
+),
 
-    String(
-      date.getDate()
-    )
-    .padStart(
-      2,
-      "0"
-    )
+String(
+date.getDate()
+)
+.padStart(
+2,
+"0"
+)
 
-  ].join(
-    "-"
-  );
+].join(
+"-"
+);
 }
 
 function formatDisplayDate(date){
 
-  if(!date){
-    return "";
-  }
+if(!date){
+return "";
+}
 
-  const parts=
-    date.split(
-      "-"
-    );
+const parts=
+date.split(
+"-"
+);
 
-  if(
-    parts.length!==3
-  ){
-    return date;
-  }
+if(
+parts.length!==3
+){
+return date;
+}
 
-  return (
-    Number(parts[1])
-    +"月"+
-    Number(parts[2])
-    +"日"
-  );
+return(
+Number(
+parts[1]
+)
++"月"+
+Number(
+parts[2]
+)
++"日"
+);
 }
 
 function normalizeDate(value){
 
-  if(!value){
-    return "";
-  }
+if(!value){
+return "";
+}
 
-  value=
-    value
-    .trim()
-    .replace(
-      /[年月]/g,
-      "/"
-    )
-    .replace(
-      /日/g,
-      ""
-    )
-    .replace(
-      /-/g,
-      "/"
-    );
+value=
+value
+.trim()
+.replace(
+/[年月]/g,
+"/"
+)
+.replace(
+/日/g,
+""
+)
+.replace(
+/-/g,
+"/"
+);
 
-  const parts=
-    value
-    .split(
-      "/"
-    )
-    .filter(
-      Boolean
-    );
+const parts=
+value
+.split(
+"/"
+)
+.filter(
+Boolean
+);
 
-  if(
-    parts.length===3
-  ){
+if(
+parts.length===3
+){
 
-    return [
-      parts[0],
+return[
+parts[0],
 
-      String(
-        parts[1]
-      )
-      .padStart(
-        2,
-        "0"
-      ),
+String(
+parts[1]
+)
+.padStart(
+2,
+"0"
+),
 
-      String(
-        parts[2]
-      )
-      .padStart(
-        2,
-        "0"
-      )
+String(
+parts[2]
+)
+.padStart(
+2,
+"0"
+)
 
-    ].join(
-      "-"
-    );
-  }
+].join(
+"-"
+);
+}
 
-  return "";
+return "";
 }
 
 function daysInMonth(
-  year,
-  month
+year,
+month
 ){
 
-  return new Date(
-    year,
-    month+1,
-    0
-  )
-  .getDate();
+return new Date(
+year,
+month+1,
+0
+)
+.getDate();
 }
 
 function escapeHtml(value){
 
-  return String(
-    value??""
-  )
-  .replace(
-    /&/g,
-    "&amp;"
-  )
-  .replace(
-    /</g,
-    "&lt;"
-  )
-  .replace(
-    />/g,
-    "&gt;"
-  )
-  .replace(
-    /"/g,
-    "&quot;"
-  )
-  .replace(
-    /'/g,
-    "&#039;"
-  );
+return String(
+value??""
+)
+.replace(
+/&/g,
+"&amp;"
+)
+.replace(
+/</g,
+"&lt;"
+)
+.replace(
+/>/g,
+"&gt;"
+)
+.replace(
+/"/g,
+"&quot;"
+)
+.replace(
+/'/g,
+"&#039;"
+);
 }
 
 function escapeJs(value){
 
-  return String(
-    value??""
-  )
-  .replace(
-    /\\/g,
-    "\\\\"
-  )
-  .replace(
-    /'/g,
-    "\\'"
-  )
-  .replace(
-    /\n/g,
-    " "
-  );
+return String(
+value??""
+)
+.replace(
+/\\/g,
+"\\\\"
+)
+.replace(
+/'/g,
+"\\'"
+)
+.replace(
+/\n/g,
+" "
+);
 }
 
 function changeMonth(diff){
 
-  selectedMonth=
-    new Date(
-      selectedMonth.getFullYear(),
-      selectedMonth.getMonth()+diff,
-      1
-    );
+selectedMonth=
+new Date(
+selectedMonth.getFullYear(),
+selectedMonth.getMonth()+diff,
+1
+);
 
-  selectedCalendarDay=null;
+selectedCalendarDay=null;
 
-  renderAll();
+renderAll();
 }
 
 function renderMonthNavigator(id){
 
-  document
-    .getElementById(
-      id
-    )
-    .innerHTML=`
+document
+.getElementById(
+id
+)
+.innerHTML=`
 
-      <button
-        onclick="changeMonth(-1)"
-      >
-        ‹
-      </button>
+<button onclick="changeMonth(-1)">
+‹
+</button>
 
-      <div class="month-label">
-        ${formatMonthTitle(selectedMonth)}
-      </div>
+<div class="month-label">
+${formatMonthTitle(selectedMonth)}
+</div>
 
-      <button
-        onclick="changeMonth(1)"
-      >
-        ›
-      </button>
+<button onclick="changeMonth(1)">
+›
+</button>
 
-    `;
+`;
 }
 
 
 /* 固定費 */
 
 function fixedCostActiveInMonth(
-  fixed,
-  key
+fixed,
+key
 ){
 
-  if(
-    fixed.startMonth &&
-    key<fixed.startMonth
-  ){
-    return false;
-  }
+if(
+fixed.startMonth &&
+key<fixed.startMonth
+){
+return false;
+}
 
-  if(
-    fixed.endMonth &&
-    key>fixed.endMonth
-  ){
-    return false;
-  }
+if(
+fixed.endMonth &&
+key>fixed.endMonth
+){
+return false;
+}
 
-  return true;
+return true;
 }
 
 function virtualFixedItemsForMonth(date){
 
-  const key=
-    monthKey(
-      date
-    );
+const key=
+monthKey(
+date
+);
 
-  const year=
-    date.getFullYear();
+const year=
+date.getFullYear();
 
-  const month=
-    date.getMonth();
+const month=
+date.getMonth();
 
-  const max=
-    daysInMonth(
-      year,
-      month
-    );
+const max=
+daysInMonth(
+year,
+month
+);
 
-  return fixedCosts
+return fixedCosts
 
-    .filter(
-      fixed=>
-        fixedCostActiveInMonth(
-          fixed,
-          key
-        )
-    )
+.filter(
+fixed=>
+fixedCostActiveInMonth(
+fixed,
+key
+)
+)
 
-    .map(
-      fixed=>{
+.map(
+fixed=>{
 
-        const day=
-          Math.min(
+const day=
+Math.min(
 
-            Math.max(
-              Number(
-                fixed.day
-              )||1,
-              1
-            ),
+Math.max(
+Number(
+fixed.day
+)||1,
+1
+),
 
-            max
-          );
+max
+);
 
-        const dateString=
-          year
-          +"-"+
-          String(
-            month+1
-          )
-          .padStart(
-            2,
-            "0"
-          )
-          +"-"+
-          String(
-            day
-          )
-          .padStart(
-            2,
-            "0"
-          );
+const dateString=
+year+
+"-"+
+String(
+month+1
+)
+.padStart(
+2,
+"0"
+)
++"-"+
+String(
+day
+)
+.padStart(
+2,
+"0"
+);
 
-        return{
+return{
 
-          id:
-            "fixed_"+
-            fixed.id+
-            "_"+
-            key,
+id:
+"fixed_"+
+fixed.id+
+"_"+
+key,
 
-          receiptId:
-            "fixed_receipt_"+
-            fixed.id+
-            "_"+
-            key,
+receiptId:
+"fixed_receipt_"+
+fixed.id+
+"_"+
+key,
 
-          date:
-            dateString,
+date:
+dateString,
 
-          shop:
-            "固定費",
+shop:
+"固定費",
 
-          product:
-            fixed.name,
+product:
+fixed.name,
 
-          amount:
-            Number(
-              fixed.amount
-            ),
+amount:
+Number(
+fixed.amount
+),
 
-          category:
-            fixed.category,
+category:
+fixed.category,
 
-          createdAt:
-            0,
+createdAt:
+0,
 
-          isFixed:
-            true,
+isFixed:
+true,
 
-          fixedId:
-            fixed.id
+fixedId:
+fixed.id
+};
 
-        };
-      }
-    );
+}
+);
 }
 
 function monthItems(){
 
-  const key=
-    selectedMonthKey();
+const key=
+selectedMonthKey();
 
-  const normal=
-    items.filter(
-      item=>
-        item.date &&
-        item.date.slice(
-          0,
-          7
-        )===key
-    );
+const normal=
+items.filter(
+item=>
+item.date &&
+item.date.slice(
+0,
+7
+)===key
+);
 
-  return[
-    ...normal,
-    ...virtualFixedItemsForMonth(
-      selectedMonth
-    )
-  ];
+return[
+...normal,
+...virtualFixedItemsForMonth(
+selectedMonth
+)
+];
 }
 
 
@@ -1896,547 +2116,536 @@ function monthItems(){
 
 function saveBudget(){
 
-  const value=
-    Number(
-      document
-      .getElementById(
-        "monthlyBudget"
-      )
-      .value
-    );
+const value=
+Number(
+document
+.getElementById(
+"monthlyBudget"
+)
+.value
+);
 
-  if(
-    value<0
-  ){
+if(
+value<0
+){
 
-    alert(
-      "0円以上で入力してください。"
-    );
+alert(
+"0円以上で入力してください。"
+);
 
-    return;
-  }
+return;
+}
 
-  monthlyBudget=value;
+monthlyBudget=value;
 
-  localStorage.setItem(
-    BUDGET_KEY,
-    String(
-      monthlyBudget
-    )
-  );
+localStorage.setItem(
+BUDGET_KEY,
+String(
+monthlyBudget
+)
+);
 
-  renderHome();
+renderHome();
 
-  alert(
-    "予算を保存しました。"
-  );
+alert(
+"予算を保存しました。"
+);
 }
 
 function renderBudget(){
 
-  const area=
-    document
-    .getElementById(
-      "budgetHome"
-    );
+const area=
+document
+.getElementById(
+"budgetHome"
+);
 
-  const spending=
-    monthItems()
-    .reduce(
-      (sum,item)=>
-        sum+
-        Number(
-          item.amount
-        ),
-      0
-    );
+const spending=
+monthItems()
+.reduce(
+(sum,item)=>
+sum+
+Number(
+item.amount
+),
+0
+);
 
-  if(
-    !monthlyBudget
-  ){
+if(
+!monthlyBudget
+){
 
-    area.innerHTML=`
-      <div class="empty">
-        予算が設定されていません。
-        <br>
-        設定画面から登録できます。
-      </div>
-    `;
+area.innerHTML=`
+<div class="empty">
+予算が設定されていません。
+<br>
+設定画面から登録できます。
+</div>
+`;
 
-    return;
-  }
+return;
+}
 
-  const remaining=
-    monthlyBudget-
-    spending;
+const remaining=
+monthlyBudget-
+spending;
 
-  const percent=
-    Math.round(
-      spending/
-      monthlyBudget*
-      100
-    );
+const percent=
+Math.round(
+spending/
+monthlyBudget*
+100
+);
 
-  const width=
-    Math.min(
-      percent,
-      100
-    );
+const width=
+Math.min(
+percent,
+100
+);
 
-  area.innerHTML=`
+area.innerHTML=`
 
-    <div
-      class="${
-        remaining<0
-        ?"budget-over"
-        :""
-      }"
-    >
+<div
+class="${
+remaining<0
+?"budget-over"
+:""
+}"
+>
 
-      <div class="budget-top">
+<div class="budget-top">
 
-        <div>
+<div>
 
-          <div class="subtext">
-            ${
-              remaining>=0
-              ?"あと使える金額"
-              :"予算オーバー"
-            }
-          </div>
+<div class="subtext">
+${
+remaining>=0
+?"あと使える金額"
+:"予算オーバー"
+}
+</div>
 
-          <div class="budget-main">
-            ${
-              formatMoney(
-                Math.abs(
-                  remaining
-                )
-              )
-            }
-          </div>
+<div class="budget-main">
+${
+formatMoney(
+Math.abs(
+remaining
+)
+)
+}
+</div>
 
-        </div>
+</div>
 
-        <div class="subtext">
-          ${percent}%使用
-        </div>
+<div class="subtext">
+${percent}%使用
+</div>
 
-      </div>
+</div>
 
-      <div class="budget-progress">
-        <div
-          class="budget-progress-bar"
-          style="width:${width}%;"
-        ></div>
-      </div>
+<div class="budget-progress">
 
-      <div
-        class="subtext"
-        style="margin-top:9px;"
-      >
-        ${formatMoney(spending)}
-        ／
-        ${formatMoney(monthlyBudget)}
-      </div>
+<div
+class="budget-progress-bar"
+style="width:${width}%;"
+></div>
 
-    </div>
-  `;
+</div>
+
+<div
+class="subtext"
+style="margin-top:9px;"
+>
+${formatMoney(spending)}
+／
+${formatMoney(monthlyBudget)}
+</div>
+
+</div>
+`;
 }
 
 
-/* ChatGPT一括入力 */
+/* 一括入力 */
 
 function parseBulkText(text){
 
-  const lines=
-    text
-    .split(
-      /\r?\n/
-    )
-    .map(
-      line=>
-        line.trim()
-    );
+const lines=
+text
+.split(
+/\r?\n/
+)
+.map(
+line=>
+line.trim()
+);
 
-  let date="";
-  let shop="";
-  let product="";
-  let amount="";
-  let category="";
+let date="";
+let shop="";
+let product="";
+let amount="";
+let category="";
 
-  const result=[];
+const result=[];
 
-  function push(){
+function push(){
 
-    if(
-      !product||
-      !amount
-    ){
-      return;
-    }
+if(
+!product||
+!amount
+){
+return;
+}
 
-    const number=
-      Number(
-        String(
-          amount
-        )
-        .replace(
-          /[¥￥円,\s]/g,
-          ""
-        )
-        .replace(
-          /[^\d]/g,
-          ""
-        )
-      );
+const number=
+Number(
+String(
+amount
+)
+.replace(
+/[¥￥円,\s]/g,
+""
+)
+.replace(
+/[^\d]/g,
+""
+)
+);
 
-    if(
-      !number
-    ){
-      return;
-    }
+if(
+!number
+){
+return;
+}
 
-    result.push({
-      date,
-      shop,
-      product,
-      amount:number,
-      category:
-        category||
-        "その他"
-    });
+result.push({
+date,
+shop,
+product,
+amount:number,
+category:
+category||
+"その他"
+});
 
-    product="";
-    amount="";
-    category="";
-  }
+product="";
+amount="";
+category="";
+}
 
-  lines.forEach(
-    line=>{
+lines.forEach(
+line=>{
 
-      let match;
+let match;
 
-      match=
-        line.match(
-          /^日付\s*[：:]\s*(.+)$/
-        );
+match=
+line.match(
+/^日付\s*[：:]\s*(.+)$/
+);
 
-      if(match){
-        date=
-          normalizeDate(
-            match[1]
-          );
-        return;
-      }
+if(match){
+date=
+normalizeDate(
+match[1]
+);
+return;
+}
 
-      match=
-        line.match(
-          /^店名\s*[：:]\s*(.+)$/
-        );
+match=
+line.match(
+/^店名\s*[：:]\s*(.+)$/
+);
 
-      if(match){
-        shop=
-          match[1]
-          .trim();
-        return;
-      }
+if(match){
+shop=
+match[1]
+.trim();
+return;
+}
 
-      match=
-        line.match(
-          /^商品\s*[：:]\s*(.+)$/
-        );
+match=
+line.match(
+/^商品\s*[：:]\s*(.+)$/
+);
 
-      if(match){
-        push();
+if(match){
+push();
 
-        product=
-          match[1]
-          .trim();
+product=
+match[1]
+.trim();
 
-        return;
-      }
+return;
+}
 
-      match=
-        line.match(
-          /^金額\s*[：:]\s*(.+)$/
-        );
+match=
+line.match(
+/^金額\s*[：:]\s*(.+)$/
+);
 
-      if(match){
-        amount=
-          match[1]
-          .trim();
-        return;
-      }
+if(match){
+amount=
+match[1]
+.trim();
+return;
+}
 
-      match=
-        line.match(
-          /^カテゴリ\s*[：:]\s*(.+)$/
-        );
+match=
+line.match(
+/^カテゴリ\s*[：:]\s*(.+)$/
+);
 
-      if(match){
-        category=
-          match[1]
-          .trim();
-      }
+if(match){
+category=
+match[1]
+.trim();
+}
 
-    }
-  );
+}
+);
 
-  push();
+push();
 
-  return result;
+return result;
 }
 
 function previewBulkInput(){
 
-  previewItems=
-    parseBulkText(
-      document
-      .getElementById(
-        "bulkInput"
-      )
-      .value
-    );
+previewItems=
+parseBulkText(
+document
+.getElementById(
+"bulkInput"
+)
+.value
+);
 
-  if(
-    !previewItems.length
-  ){
+if(
+!previewItems.length
+){
 
-    alert(
-      "商品データを読み取れませんでした。"
-    );
+alert(
+"商品データを読み取れませんでした。"
+);
 
-    return;
-  }
+return;
+}
 
-  if(
-    !previewItems[0].date
-  ){
+if(
+!previewItems[0].date
+){
 
-    alert(
-      "日付を読み取れませんでした。"
-    );
+alert(
+"日付を読み取れませんでした。"
+);
 
-    return;
-  }
+return;
+}
 
-  const total=
-    previewItems
-    .reduce(
-      (sum,item)=>
-        sum+
-        Number(
-          item.amount
-        ),
-      0
-    );
+const total=
+previewItems
+.reduce(
+(sum,item)=>
+sum+
+Number(
+item.amount
+),
+0
+);
 
-  let html=`
+let html=`
 
-    <div
-      style="margin-bottom:10px;"
-    >
+<div style="margin-bottom:10px;">
 
-      <strong>
-        ${
-          formatDisplayDate(
-            previewItems[0].date
-          )
-        }
-        ・
-        ${
-          escapeHtml(
-            previewItems[0].shop||
-            "店名なし"
-          )
-        }
-      </strong>
+<strong>
 
-      <div class="subtext">
-        ${previewItems.length}商品
-        ／
-        ${formatMoney(total)}
-      </div>
+${formatDisplayDate(previewItems[0].date)}
 
-    </div>
-  `;
+・
 
-  previewItems.forEach(
-    item=>{
+${escapeHtml(
+previewItems[0].shop||
+"店名なし"
+)}
 
-      const isNew=
-        !categories.includes(
-          item.category
-        );
+</strong>
 
-      html+=`
+<div class="subtext">
+${previewItems.length}商品
+／
+${formatMoney(total)}
+</div>
 
-        <div class="preview-item">
+</div>
+`;
 
-          <div class="preview-item-left">
+previewItems.forEach(
+item=>{
 
-            ${
-              escapeHtml(
-                item.product
-              )
-            }
+const isNew=
+!categories.includes(
+item.category
+);
 
-            <span
-              class="
-                badge
-                ${
-                  isNew
-                  ?"new-badge"
-                  :""
-                }
-              "
-            >
-              ${
-                escapeHtml(
-                  item.category
-                )
-              }
-            </span>
+html+=`
 
-          </div>
+<div class="preview-item">
 
-          <strong>
-            ${formatMoney(item.amount)}
-          </strong>
+<div class="preview-item-left">
 
-        </div>
-      `;
-    }
-  );
+${escapeHtml(item.product)}
 
-  document
-    .getElementById(
-      "bulkPreviewContent"
-    )
-    .innerHTML=
-    html;
+<span
+class="badge ${
+isNew
+?"new-badge"
+:""
+}"
+>
 
-  document
-    .getElementById(
-      "bulkPreview"
-    )
-    .style.display=
-    "block";
+${escapeHtml(item.category)}
+
+</span>
+
+</div>
+
+<strong>
+${formatMoney(item.amount)}
+</strong>
+
+</div>
+`;
+}
+);
+
+document
+.getElementById(
+"bulkPreviewContent"
+)
+.innerHTML=
+html;
+
+document
+.getElementById(
+"bulkPreview"
+)
+.style.display=
+"block";
 }
 
 function createReceiptId(){
 
-  return(
-    "r_"+
-    Date.now()+
-    "_"+
-    Math.random()
-    .toString(
-      36
-    )
-    .slice(
-      2,
-      8
-    )
-  );
+return(
+"r_"+
+Date.now()+
+"_"+
+Math.random()
+.toString(
+36
+)
+.slice(
+2,
+8
+)
+);
 }
 
 function registerBulkItems(){
 
-  if(
-    !previewItems.length
-  ){
-    return;
-  }
+if(
+!previewItems.length
+){
+return;
+}
 
-  previewItems.forEach(
-    item=>{
+previewItems.forEach(
+item=>{
 
-      if(
-        !categories.includes(
-          item.category
-        )
-      ){
-        categories.push(
-          item.category
-        );
-      }
+if(
+!categories.includes(
+item.category
+)
+){
+categories.push(
+item.category
+);
+}
 
-    }
-  );
+}
+);
 
-  saveCategories();
+saveCategories();
 
-  const receiptId=
-    createReceiptId();
+const receiptId=
+createReceiptId();
 
-  const now=
-    Date.now();
+const now=
+Date.now();
 
-  previewItems.forEach(
-    (item,index)=>{
+previewItems.forEach(
+(item,index)=>{
 
-      items.push({
+items.push({
 
-        id:
-          receiptId+
-          "_"+
-          index,
+id:
+receiptId+
+"_"+
+index,
 
-        receiptId,
+receiptId,
 
-        date:
-          item.date,
+date:
+item.date,
 
-        shop:
-          item.shop,
+shop:
+item.shop,
 
-        product:
-          item.product,
+product:
+item.product,
 
-        amount:
-          Number(
-            item.amount
-          ),
+amount:
+Number(
+item.amount
+),
 
-        category:
-          item.category,
+category:
+item.category,
 
-        createdAt:
-          now+
-          index
-      });
+createdAt:
+now+
+index
+});
 
-    }
-  );
+}
+);
 
-  saveItems();
+saveItems();
 
-  previewItems=[];
+previewItems=[];
 
-  document
-    .getElementById(
-      "bulkInput"
-    )
-    .value="";
+document
+.getElementById(
+"bulkInput"
+)
+.value="";
 
-  document
-    .getElementById(
-      "bulkPreview"
-    )
-    .style.display=
-    "none";
+document
+.getElementById(
+"bulkPreview"
+)
+.style.display=
+"none";
 
-  document
-    .getElementById(
-      "bulkSuccess"
-    )
-    .style.display=
-    "block";
+document
+.getElementById(
+"bulkSuccess"
+)
+.style.display=
+"block";
 
-  setupCategorySelects();
+setupCategorySelects();
 
-  renderAll();
+renderAll();
 }
 
 
@@ -2444,298 +2653,215 @@ function registerBulkItems(){
 
 function registerManualItem(){
 
-  const date=
-    document
-    .getElementById(
-      "manualDate"
-    )
-    .value;
+const date=
+document
+.getElementById(
+"manualDate"
+)
+.value;
 
-  const shop=
-    document
-    .getElementById(
-      "manualShop"
-    )
-    .value
-    .trim();
+const shop=
+document
+.getElementById(
+"manualShop"
+)
+.value
+.trim();
 
-  const product=
-    document
-    .getElementById(
-      "manualProduct"
-    )
-    .value
-    .trim();
+const product=
+document
+.getElementById(
+"manualProduct"
+)
+.value
+.trim();
 
-  const amount=
-    Number(
-      document
-      .getElementById(
-        "manualAmount"
-      )
-      .value
-    );
+const amount=
+Number(
+document
+.getElementById(
+"manualAmount"
+)
+.value
+);
 
-  const category=
-    document
-    .getElementById(
-      "manualCategory"
-    )
-    .value;
+const category=
+document
+.getElementById(
+"manualCategory"
+)
+.value;
 
-  if(
-    !date
-  ){
+if(
+!date
+){
 
-    alert(
-      "日付を入力してください。"
-    );
+alert(
+"日付を入力してください。"
+);
 
-    return;
-  }
+return;
+}
 
-  if(
-    !product
-  ){
+if(
+!product
+){
 
-    alert(
-      "商品名を入力してください。"
-    );
+alert(
+"商品名を入力してください。"
+);
 
-    return;
-  }
+return;
+}
 
-  if(
-    !amount||
-    amount<=0
-  ){
+if(
+!amount||
+amount<=0
+){
 
-    alert(
-      "金額を入力してください。"
-    );
+alert(
+"金額を入力してください。"
+);
 
-    return;
-  }
+return;
+}
 
-  const receiptId=
-    createReceiptId();
+const receiptId=
+createReceiptId();
 
-  items.push({
+items.push({
 
-    id:
-      receiptId+
-      "_0",
+id:
+receiptId+
+"_0",
 
-    receiptId,
-    date,
-    shop,
-    product,
-    amount,
-    category,
+receiptId,
+date,
+shop,
+product,
+amount,
+category,
 
-    createdAt:
-      Date.now()
-  });
+createdAt:
+Date.now()
+});
 
-  saveItems();
+saveItems();
 
-  document
-    .getElementById(
-      "manualShop"
-    )
-    .value="";
+document.getElementById("manualShop").value="";
+document.getElementById("manualProduct").value="";
+document.getElementById("manualAmount").value="";
 
-  document
-    .getElementById(
-      "manualProduct"
-    )
-    .value="";
+renderAll();
 
-  document
-    .getElementById(
-      "manualAmount"
-    )
-    .value="";
-
-  renderAll();
-
-  alert(
-    "登録しました。"
-  );
+alert(
+"登録しました。"
+);
 }
 
 
-/* 支出編集 */
+/* 編集 */
 
 function openEditModal(id){
 
-  const item=
-    items.find(
-      item=>
-        item.id===id
-    );
+const item=
+items.find(
+item=>
+item.id===id
+);
 
-  if(
-    !item
-  ){
-    return;
-  }
+if(
+!item
+){
+return;
+}
 
-  document
-    .getElementById(
-      "editItemId"
-    )
-    .value=
-    item.id;
+document.getElementById("editItemId").value=item.id;
+document.getElementById("editDate").value=item.date;
+document.getElementById("editShop").value=item.shop||"";
+document.getElementById("editProduct").value=item.product||"";
+document.getElementById("editAmount").value=item.amount;
 
-  document
-    .getElementById(
-      "editDate"
-    )
-    .value=
-    item.date;
+setupCategorySelect(
+document.getElementById("editCategory"),
+item.category
+);
 
-  document
-    .getElementById(
-      "editShop"
-    )
-    .value=
-    item.shop||
-    "";
-
-  document
-    .getElementById(
-      "editProduct"
-    )
-    .value=
-    item.product||
-    "";
-
-  document
-    .getElementById(
-      "editAmount"
-    )
-    .value=
-    item.amount;
-
-  setupCategorySelect(
-    document
-    .getElementById(
-      "editCategory"
-    ),
-    item.category
-  );
-
-  document
-    .getElementById(
-      "editModal"
-    )
-    .classList
-    .add(
-      "open"
-    );
+document
+.getElementById(
+"editModal"
+)
+.classList
+.add(
+"open"
+);
 }
 
 function closeEditModal(){
 
-  document
-    .getElementById(
-      "editModal"
-    )
-    .classList
-    .remove(
-      "open"
-    );
+document
+.getElementById(
+"editModal"
+)
+.classList
+.remove(
+"open"
+);
 }
 
 function saveEditedItem(){
 
-  const id=
-    document
-    .getElementById(
-      "editItemId"
-    )
-    .value;
+const id=
+document.getElementById("editItemId").value;
 
-  const item=
-    items.find(
-      item=>
-        item.id===id
-    );
+const item=
+items.find(
+item=>
+item.id===id
+);
 
-  if(
-    !item
-  ){
-    return;
-  }
+if(
+!item
+){
+return;
+}
 
-  const date=
-    document
-    .getElementById(
-      "editDate"
-    )
-    .value;
+const date=
+document.getElementById("editDate").value;
 
-  const product=
-    document
-    .getElementById(
-      "editProduct"
-    )
-    .value
-    .trim();
+const product=
+document.getElementById("editProduct").value.trim();
 
-  const amount=
-    Number(
-      document
-      .getElementById(
-        "editAmount"
-      )
-      .value
-    );
+const amount=
+Number(
+document.getElementById("editAmount").value
+);
 
-  if(
-    !date||
-    !product||
-    !amount||
-    amount<=0
-  ){
+if(
+!date||
+!product||
+!amount||
+amount<=0
+){
 
-    alert(
-      "日付・商品名・金額を確認してください。"
-    );
+alert(
+"日付・商品名・金額を確認してください。"
+);
 
-    return;
-  }
+return;
+}
 
-  item.date=
-    date;
+item.date=date;
+item.shop=document.getElementById("editShop").value.trim();
+item.product=product;
+item.amount=amount;
+item.category=document.getElementById("editCategory").value;
 
-  item.shop=
-    document
-    .getElementById(
-      "editShop"
-    )
-    .value
-    .trim();
+saveItems();
 
-  item.product=
-    product;
+closeEditModal();
 
-  item.amount=
-    amount;
-
-  item.category=
-    document
-    .getElementById(
-      "editCategory"
-    )
-    .value;
-
-  saveItems();
-
-  closeEditModal();
-
-  renderAll();
+renderAll();
 }
 
 
@@ -2743,139 +2869,135 @@ function saveEditedItem(){
 
 function renderSearchResults(){
 
-  const area=
-    document
-    .getElementById(
-      "searchResults"
-    );
+const area=
+document.getElementById(
+"searchResults"
+);
 
-  const input=
-    document
-    .getElementById(
-      "searchInput"
-    );
+const input=
+document.getElementById(
+"searchInput"
+);
 
-  if(
-    !area||
-    !input
-  ){
-    return;
-  }
+if(
+!area||
+!input
+){
+return;
+}
 
-  const keyword=
-    input.value
-    .trim()
-    .toLowerCase();
+const keyword=
+input.value
+.trim()
+.toLowerCase();
 
-  if(
-    !keyword
-  ){
+if(
+!keyword
+){
 
-    area.innerHTML=`
-      <div
-        class="subtext"
-        style="margin-top:12px;"
-      >
-        商品名・店名・カテゴリを入力してください。
-      </div>
-    `;
+area.innerHTML=`
+<div
+class="subtext"
+style="margin-top:12px;"
+>
+商品名・店名・カテゴリを入力してください。
+</div>
+`;
 
-    return;
-  }
+return;
+}
 
-  const result=
-    items
+const result=
+items
 
-    .filter(
-      item=>{
+.filter(
+item=>{
 
-        return[
-          item.product,
-          item.shop,
-          item.category
-        ]
-        .some(
-          value=>
-            String(
-              value||
-              ""
-            )
-            .toLowerCase()
-            .includes(
-              keyword
-            )
-        );
-      }
-    )
+return[
+item.product,
+item.shop,
+item.category
+]
+.some(
+value=>
+String(
+value||
+""
+)
+.toLowerCase()
+.includes(
+keyword
+)
+);
+}
+)
 
-    .sort(
-      (a,b)=>
-        b.date.localeCompare(
-          a.date
-        )
-    )
+.sort(
+(a,b)=>
+b.date.localeCompare(
+a.date
+)
+)
 
-    .slice(
-      0,
-      100
-    );
+.slice(
+0,
+100
+);
 
-  if(
-    !result.length
-  ){
+if(
+!result.length
+){
 
-    area.innerHTML=
-      '<div class="empty">該当する支出はありません</div>';
+area.innerHTML=
+'<div class="empty">該当する支出はありません</div>';
 
-    return;
-  }
+return;
+}
 
-  area.innerHTML=
-    result.map(
-      item=>`
+area.innerHTML=
+result.map(
+item=>`
 
-        <div class="search-result">
+<div class="search-result">
 
-          <div class="search-result-top">
+<div class="search-result-top">
 
-            <div>
+<div>
 
-              <div class="search-name">
-                ${escapeHtml(item.product)}
-              </div>
+<div class="search-name">
+${escapeHtml(item.product)}
+</div>
 
-              <div class="subtext">
+<div class="subtext">
+${escapeHtml(item.date)}
+・
+${escapeHtml(item.shop||"")}
+・
+${escapeHtml(item.category||"")}
+</div>
 
-                ${escapeHtml(item.date)}
-                ・
-                ${escapeHtml(item.shop||"")}
-                ・
-                ${escapeHtml(item.category||"")}
+</div>
 
-              </div>
+<div class="search-price">
+${formatMoney(item.amount)}
+</div>
 
-            </div>
+</div>
 
-            <div class="search-price">
-              ${formatMoney(item.amount)}
-            </div>
+<button
+class="secondary small"
+style="margin-top:8px;"
+onclick="openEditModal('${item.id}')"
+>
+編集
+</button>
 
-          </div>
-
-          <button
-            class="secondary small"
-            style="margin-top:8px;"
-            onclick="openEditModal('${item.id}')"
-          >
-            編集
-          </button>
-
-        </div>
-      `
-    )
-    .join(
-      ""
-    );
+</div>
+`
+)
+.join(
+""
+);
 }
 
 
@@ -2883,377 +3005,368 @@ function renderSearchResults(){
 
 function renderFrequentProducts(){
 
-  const area=
-    document
-    .getElementById(
-      "frequentProducts"
-    );
+const area=
+document.getElementById(
+"frequentProducts"
+);
 
-  if(
-    !area
-  ){
-    return;
-  }
+if(
+!area
+){
+return;
+}
 
-  const map={};
+const map={};
 
-  items.forEach(
-    item=>{
+items.forEach(
+item=>{
 
-      const name=
-        (
-          item.product||
-          ""
-        )
-        .trim();
+const name=
+(
+item.product||
+""
+)
+.trim();
 
-      if(
-        !name
-      ){
-        return;
-      }
+if(
+!name
+){
+return;
+}
 
-      if(
-        !map[name]
-      ){
-        map[name]=[];
-      }
+if(
+!map[name]
+){
+map[name]=[];
+}
 
-      map[name]
-      .push(
-        item
-      );
-    }
-  );
+map[name]
+.push(
+item
+);
+}
+);
 
-  const list=
-    Object.entries(
-      map
-    )
+const list=
+Object.entries(
+map
+)
 
-    .map(
-      ([name,purchases])=>({
+.map(
+([name,purchases])=>({
 
-        name,
-        purchases,
-        count:
-          purchases.length,
+name,
+purchases,
 
-        latest:
-          [
-            ...purchases
-          ]
-          .sort(
-            (a,b)=>
-              b.date.localeCompare(
-                a.date
-              )
-          )[0]
-      })
-    )
+count:
+purchases.length,
 
-    .sort(
-      (a,b)=>{
+latest:
+[
+...purchases
+]
+.sort(
+(a,b)=>
+b.date.localeCompare(
+a.date
+)
+)[0]
+})
+)
 
-        if(
-          b.count!==a.count
-        ){
-          return b.count-a.count;
-        }
+.sort(
+(a,b)=>{
 
-        return b.latest.date
-        .localeCompare(
-          a.latest.date
-        );
-      }
-    )
+if(
+b.count!==a.count
+){
+return b.count-a.count;
+}
 
-    .slice(
-      0,
-      10
-    );
+return b.latest.date.localeCompare(
+a.latest.date
+);
+}
+)
 
-  if(
-    !list.length
-  ){
+.slice(
+0,
+10
+);
 
-    area.innerHTML=
-      '<div class="empty">まだ購入履歴がありません</div>';
+if(
+!list.length
+){
 
-    return;
-  }
+area.innerHTML=
+'<div class="empty">まだ購入履歴がありません</div>';
 
-  area.innerHTML=
-    list.map(
-      (entry,index)=>{
+return;
+}
 
-        const history=
-          [
-            ...entry.purchases
-          ]
+area.innerHTML=
+list.map(
+(entry,index)=>{
 
-          .sort(
-            (a,b)=>
-              b.date.localeCompare(
-                a.date
-              )
-          )
+const history=
+[
+...entry.purchases
+]
 
-          .slice(
-            0,
-            20
-          )
+.sort(
+(a,b)=>
+b.date.localeCompare(
+a.date
+)
+)
 
-          .map(
-            item=>`
+.slice(
+0,
+20
+)
 
-              <div class="history-row">
+.map(
+item=>`
 
-                <div>
-                  ${escapeHtml(item.date)}
-                  ・
-                  ${escapeHtml(item.shop||"")}
-                </div>
+<div class="history-row">
 
-                <strong>
-                  ${formatMoney(item.amount)}
-                </strong>
+<div>
+${escapeHtml(item.date)}
+・
+${escapeHtml(item.shop||"")}
+</div>
 
-              </div>
-            `
-          )
+<strong>
+${formatMoney(item.amount)}
+</strong>
 
-          .join(
-            ""
-          );
+</div>
+`
+)
 
-        return`
+.join(
+""
+);
 
-          <div class="frequent-item">
+return`
 
-            <div
-              onclick="
-                toggleProductHistory(
-                  'history_${index}'
-                )
-              "
-            >
+<div class="frequent-item">
 
-              <div class="frequent-top">
+<div
+onclick="toggleProductHistory('history_${index}')"
+>
 
-                <div>
+<div class="frequent-top">
 
-                  <div class="frequent-name">
-                    ${escapeHtml(entry.name)}
-                  </div>
+<div>
 
-                  <div class="subtext">
-                    最新
-                    ${formatMoney(entry.latest.amount)}
-                    ・
-                    ${escapeHtml(entry.latest.date)}
-                  </div>
+<div class="frequent-name">
+${escapeHtml(entry.name)}
+</div>
 
-                </div>
+<div class="subtext">
+最新
+${formatMoney(entry.latest.amount)}
+・
+${escapeHtml(entry.latest.date)}
+</div>
 
-                <div class="frequent-count">
-                  ${entry.count}回
-                </div>
+</div>
 
-              </div>
+<div class="frequent-count">
+${entry.count}回
+</div>
 
-              <div
-                class="subtext"
-                style="margin-top:5px;"
-              >
-                タップして購入履歴
-              </div>
+</div>
 
-            </div>
+<div
+class="subtext"
+style="margin-top:5px;"
+>
+タップして購入履歴
+</div>
 
-            <div
-              id="history_${index}"
-              class="product-history"
-            >
-              ${history}
-            </div>
+</div>
 
-          </div>
-        `;
-      }
-    )
+<div
+id="history_${index}"
+class="product-history"
+>
+${history}
+</div>
 
-    .join(
-      ""
-    );
+</div>
+`;
+}
+)
+
+.join(
+""
+);
 }
 
 function toggleProductHistory(id){
 
-  document
-    .getElementById(
-      id
-    )
-    ?.classList
-    .toggle(
-      "open"
-    );
+document
+.getElementById(
+id
+)
+?.classList
+.toggle(
+"open"
+);
 }
 
 
 /* カテゴリー */
 
 function setupCategorySelect(
-  select,
-  currentValue
+select,
+currentValue
 ){
 
-  if(
-    !select
-  ){
-    return;
-  }
+if(
+!select
+){
+return;
+}
 
-  const previous=
-    currentValue||
-    select.value;
+const previous=
+currentValue||
+select.value;
 
-  select.innerHTML="";
+select.innerHTML="";
 
-  categories.forEach(
-    category=>{
+categories.forEach(
+category=>{
 
-      const option=
-        document.createElement(
-          "option"
-        );
+const option=
+document.createElement(
+"option"
+);
 
-      option.value=
-        category;
+option.value=
+category;
 
-      option.textContent=
-        category;
+option.textContent=
+category;
 
-      select.appendChild(
-        option
-      );
-    }
-  );
+select.appendChild(
+option
+);
+}
+);
 
-  if(
-    categories.includes(
-      previous
-    )
-  ){
-    select.value=
-      previous;
-  }
+if(
+categories.includes(
+previous
+)
+){
+select.value=
+previous;
+}
 }
 
 function setupCategorySelects(){
 
-  setupCategorySelect(
-    document
-    .getElementById(
-      "manualCategory"
-    )
-  );
+setupCategorySelect(
+document.getElementById(
+"manualCategory"
+)
+);
 
-  setupCategorySelect(
-    document
-    .getElementById(
-      "fixedCategory"
-    )
-  );
+setupCategorySelect(
+document.getElementById(
+"fixedCategory"
+)
+);
 
-  setupCategorySelect(
-    document
-    .getElementById(
-      "editCategory"
-    )
-  );
+setupCategorySelect(
+document.getElementById(
+"editCategory"
+)
+);
 }
 
 function addCategory(){
 
-  const input=
-    document
-    .getElementById(
-      "newCategory"
-    );
+const input=
+document.getElementById(
+"newCategory"
+);
 
-  const value=
-    input.value
-    .trim();
+const value=
+input.value
+.trim();
 
-  if(
-    !value
-  ){
+if(
+!value
+){
 
-    alert(
-      "カテゴリー名を入力してください。"
-    );
+alert(
+"カテゴリー名を入力してください。"
+);
 
-    return;
-  }
+return;
+}
 
-  if(
-    categories.includes(
-      value
-    )
-  ){
+if(
+categories.includes(
+value
+)
+){
 
-    alert(
-      "同じカテゴリーがあります。"
-    );
+alert(
+"同じカテゴリーがあります。"
+);
 
-    return;
-  }
+return;
+}
 
-  categories.push(
-    value
-  );
+categories.push(
+value
+);
 
-  saveCategories();
+saveCategories();
 
-  input.value="";
+input.value="";
 
-  setupCategorySelects();
+setupCategorySelects();
 
-  renderAll();
+renderAll();
 }
 
 function deleteCategory(category){
 
-  if(
-    !confirm(
-      "「"+
-      category+
-      "」をカテゴリー一覧から削除しますか？"
-    )
-  ){
-    return;
-  }
+if(
+!confirm(
+"「"+
+category+
+"」をカテゴリー一覧から削除しますか？"
+)
+){
+return;
+}
 
-  categories=
-    categories.filter(
-      item=>
-        item!==category
-    );
+categories=
+categories.filter(
+item=>
+item!==category
+);
 
-  if(
-    !categories.length
-  ){
-    categories=[
-      "その他"
-    ];
-  }
+if(
+!categories.length
+){
+categories=[
+"その他"
+];
+}
 
-  saveCategories();
+saveCategories();
 
-  setupCategorySelects();
+setupCategorySelects();
 
-  renderAll();
+renderAll();
 }
 
 
@@ -3261,200 +3374,166 @@ function deleteCategory(category){
 
 function addFixedCost(){
 
-  const name=
-    document
-    .getElementById(
-      "fixedName"
-    )
-    .value
-    .trim();
+const name=
+document.getElementById("fixedName").value.trim();
 
-  const amount=
-    Number(
-      document
-      .getElementById(
-        "fixedAmount"
-      )
-      .value
-    );
+const amount=
+Number(
+document.getElementById("fixedAmount").value
+);
 
-  const day=
-    Number(
-      document
-      .getElementById(
-        "fixedDay"
-      )
-      .value
-    );
+const day=
+Number(
+document.getElementById("fixedDay").value
+);
 
-  const category=
-    document
-    .getElementById(
-      "fixedCategory"
-    )
-    .value;
+const category=
+document.getElementById("fixedCategory").value;
 
-  if(
-    !name
-  ){
+if(
+!name
+){
 
-    alert(
-      "固定費名を入力してください。"
-    );
+alert(
+"固定費名を入力してください。"
+);
 
-    return;
-  }
+return;
+}
 
-  if(
-    !amount||
-    amount<=0
-  ){
+if(
+!amount||
+amount<=0
+){
 
-    alert(
-      "金額を入力してください。"
-    );
+alert(
+"金額を入力してください。"
+);
 
-    return;
-  }
+return;
+}
 
-  if(
-    day<1||
-    day>31
-  ){
+if(
+day<1||
+day>31
+){
 
-    alert(
-      "日付は1〜31で入力してください。"
-    );
+alert(
+"日付は1〜31で入力してください。"
+);
 
-    return;
-  }
+return;
+}
 
-  fixedCosts.push({
+fixedCosts.push({
 
-    id:
-      "f_"+
-      Date.now()+
-      "_"+
-      Math.random()
-      .toString(
-        36
-      )
-      .slice(
-        2,
-        7
-      ),
+id:
+"f_"+
+Date.now()+
+"_"+
+Math.random()
+.toString(
+36
+)
+.slice(
+2,
+7
+),
 
-    name,
-    amount,
-    day,
-    category,
+name,
+amount,
+day,
+category,
 
-    startMonth:
-      monthKey(
-        new Date()
-      ),
+startMonth:
+monthKey(
+new Date()
+),
 
-    endMonth:
-      null
-  });
+endMonth:
+null
+});
 
-  saveFixedCosts();
+saveFixedCosts();
 
-  document
-    .getElementById(
-      "fixedName"
-    )
-    .value="";
+document.getElementById("fixedName").value="";
+document.getElementById("fixedAmount").value="";
+document.getElementById("fixedDay").value="1";
 
-  document
-    .getElementById(
-      "fixedAmount"
-    )
-    .value="";
-
-  document
-    .getElementById(
-      "fixedDay"
-    )
-    .value="1";
-
-  renderAll();
+renderAll();
 }
 
 function previousMonthKey(key){
 
-  const parts=
-    key
-    .split(
-      "-"
-    )
-    .map(
-      Number
-    );
+const parts=
+key
+.split(
+"-"
+)
+.map(
+Number
+);
 
-  const date=
-    new Date(
-      parts[0],
-      parts[1]-2,
-      1
-    );
-
-  return monthKey(
-    date
-  );
+return monthKey(
+new Date(
+parts[0],
+parts[1]-2,
+1
+)
+);
 }
 
 function deleteFixedCost(id){
 
-  const fixed=
-    fixedCosts.find(
-      item=>
-        item.id===id
-    );
+const fixed=
+fixedCosts.find(
+item=>
+item.id===id
+);
 
-  if(
-    !fixed
-  ){
-    return;
-  }
+if(
+!fixed
+){
+return;
+}
 
-  if(
-    !confirm(
-      "「"+
-      fixed.name+
-      "」を今月以降の固定費から削除しますか？"
-    )
-  ){
-    return;
-  }
+if(
+!confirm(
+"「"+
+fixed.name+
+"」を今月以降の固定費から削除しますか？"
+)
+){
+return;
+}
 
-  const currentKey=
-    monthKey(
-      new Date()
-    );
+const currentKey=
+monthKey(
+new Date()
+);
 
-  if(
-    fixed.startMonth===
-    currentKey
-  ){
+if(
+fixed.startMonth===
+currentKey
+){
 
-    fixedCosts=
-      fixedCosts.filter(
-        item=>
-          item.id!==id
-      );
+fixedCosts=
+fixedCosts.filter(
+item=>
+item.id!==id
+);
 
-  }else{
+}else{
 
-    fixed.endMonth=
-      previousMonthKey(
-        currentKey
-      );
-  }
+fixed.endMonth=
+previousMonthKey(
+currentKey
+);
+}
 
-  saveFixedCosts();
+saveFixedCosts();
 
-  renderAll();
+renderAll();
 }
 
 
@@ -3462,115 +3541,111 @@ function deleteFixedCost(id){
 
 function categoryTotals(){
 
-  const totals={};
+const totals={};
 
-  monthItems()
-  .forEach(
-    item=>{
+monthItems()
+.forEach(
+item=>{
 
-      const category=
-        item.category||
-        "その他";
+const category=
+item.category||
+"その他";
 
-      totals[category]=
-        (
-          totals[category]||
-          0
-        )
-        +
-        Number(
-          item.amount
-        );
-    }
-  );
+totals[category]=
+(
+totals[category]||
+0
+)
++
+Number(
+item.amount
+);
+}
+);
 
-  return totals;
+return totals;
 }
 
 function renderHome(){
 
-  renderMonthNavigator(
-    "homeMonthNav"
-  );
+renderMonthNavigator(
+"homeMonthNav"
+);
 
-  const data=
-    monthItems();
+const data=
+monthItems();
 
-  const total=
-    data.reduce(
-      (sum,item)=>
-        sum+
-        Number(
-          item.amount
-        ),
-      0
-    );
+const total=
+data.reduce(
+(sum,item)=>
+sum+
+Number(
+item.amount
+),
+0
+);
 
-  document
-    .getElementById(
-      "homeTotal"
-    )
-    .textContent=
-    formatMoney(
-      total
-    );
+document
+.getElementById(
+"homeTotal"
+)
+.textContent=
+formatMoney(
+total
+);
 
-  renderBudget();
+renderBudget();
 
-  const totals=
-    categoryTotals();
+const entries=
+Object.entries(
+categoryTotals()
+)
+.filter(
+item=>
+item[1]>0
+)
+.sort(
+(a,b)=>
+b[1]-a[1]
+);
 
-  const area=
-    document
-    .getElementById(
-      "categorySummary"
-    );
+const area=
+document.getElementById(
+"categorySummary"
+);
 
-  const entries=
-    Object.entries(
-      totals
-    )
-    .filter(
-      item=>
-        item[1]>0
-    )
-    .sort(
-      (a,b)=>
-        b[1]-a[1]
-    );
+if(
+!entries.length
+){
 
-  if(
-    !entries.length
-  ){
+area.innerHTML=
+'<div class="empty">まだ支出がありません</div>';
 
-    area.innerHTML=
-      '<div class="empty">まだ支出がありません</div>';
+}else{
 
-  }else{
+area.innerHTML=
+entries.map(
+([category,amount])=>`
 
-    area.innerHTML=
-      entries.map(
-        ([category,amount])=>`
+<div class="category-row">
 
-          <div class="category-row">
+<div>
+${escapeHtml(category)}
+</div>
 
-            <div>
-              ${escapeHtml(category)}
-            </div>
+<div class="category-amount">
+${formatMoney(amount)}
+</div>
 
-            <div class="category-amount">
-              ${formatMoney(amount)}
-            </div>
+</div>
+`
+)
+.join(
+""
+);
+}
 
-          </div>
-        `
-      )
-      .join(
-        ""
-      );
-  }
-
-  renderPie();
+renderPie();
 }
 
 
@@ -3578,221 +3653,220 @@ function renderHome(){
 
 function setPieMode(mode){
 
-  pieMode=
-    mode;
+pieMode=
+mode;
 
-  renderPie();
+renderPie();
 }
 
 function renderPie(){
 
-  const area=
-    document
-    .getElementById(
-      "pieArea"
-    );
+const area=
+document.getElementById(
+"pieArea"
+);
 
-  let data=
-    monthItems();
+let data=
+monthItems();
 
-  if(
-    pieMode===
-    "withoutFixed"
-  ){
+if(
+pieMode===
+"withoutFixed"
+){
 
-    data=
-      data.filter(
-        item=>
-          !item.isFixed
-      );
-  }
+data=
+data.filter(
+item=>
+!item.isFixed
+);
+}
 
-  const totals={};
+const totals={};
 
-  data.forEach(
-    item=>{
+data.forEach(
+item=>{
 
-      const category=
-        item.category||
-        "その他";
+const category=
+item.category||
+"その他";
 
-      totals[category]=
-        (
-          totals[category]||
-          0
-        )
-        +
-        Number(
-          item.amount
-        );
-    }
-  );
+totals[category]=
+(
+totals[category]||
+0
+)
++
+Number(
+item.amount
+);
+}
+);
 
-  const entries=
-    Object.entries(
-      totals
-    )
-    .filter(
-      item=>
-        item[1]>0
-    )
-    .sort(
-      (a,b)=>
-        b[1]-a[1]
-    );
+const entries=
+Object.entries(
+totals
+)
+.filter(
+item=>
+item[1]>0
+)
+.sort(
+(a,b)=>
+b[1]-a[1]
+);
 
-  const total=
-    entries.reduce(
-      (sum,entry)=>
-        sum+
-        Number(
-          entry[1]
-        ),
-      0
-    );
+const total=
+entries.reduce(
+(sum,entry)=>
+sum+
+Number(
+entry[1]
+),
+0
+);
 
-  const toggleHtml=`
+const toggleHtml=`
 
-    <div class="pie-toggle">
+<div class="pie-toggle">
 
-      <button
-        class="${
-          pieMode==="withFixed"
-          ?"active"
-          :""
-        }"
-        onclick="setPieMode('withFixed')"
-      >
-        固定費込み
-      </button>
+<button
+class="${
+pieMode==="withFixed"
+?"active"
+:""
+}"
+onclick="setPieMode('withFixed')"
+>
+固定費込み
+</button>
 
-      <button
-        class="${
-          pieMode==="withoutFixed"
-          ?"active"
-          :""
-        }"
-        onclick="setPieMode('withoutFixed')"
-      >
-        固定費を除く
-      </button>
+<button
+class="${
+pieMode==="withoutFixed"
+?"active"
+:""
+}"
+onclick="setPieMode('withoutFixed')"
+>
+固定費を除く
+</button>
 
-    </div>
-  `;
+</div>
+`;
 
-  if(
-    !total
-  ){
+if(
+!total
+){
 
-    area.innerHTML=
-      toggleHtml+
-      '<div class="empty">表示できる支出がありません</div>';
+area.innerHTML=
+toggleHtml+
+'<div class="empty">表示できる支出がありません</div>';
 
-    return;
-  }
+return;
+}
 
-  let degree=0;
+let degree=0;
 
-  const gradients=
-    entries.map(
-      ([category,amount],index)=>{
+const gradients=
+entries.map(
+([category,amount],index)=>{
 
-        const start=
-          degree;
+const start=
+degree;
 
-        degree+=
-          amount/
-          total*
-          360;
+degree+=
+amount/
+total*
+360;
 
-        return(
-          PIE_COLORS[
-            index%
-            PIE_COLORS.length
-          ]
-          +" "+
-          start+
-          "deg "+
-          degree+
-          "deg"
-        );
-      }
-    );
+return(
+PIE_COLORS[
+index%
+PIE_COLORS.length
+]
++" "+
+start+
+"deg "+
+degree+
+"deg"
+);
+}
+);
 
-  const legend=
-    entries.map(
-      ([category,amount],index)=>{
+const legend=
+entries.map(
+([category,amount],index)=>{
 
-        const percent=
-          Math.round(
-            amount/
-            total*
-            100
-          );
+const percent=
+Math.round(
+amount/
+total*
+100
+);
 
-        return`
+return`
 
-          <div class="legend-row">
+<div class="legend-row">
 
-            <div class="legend-left">
+<div class="legend-left">
 
-              <span
-                class="legend-dot"
-                style="
-                  background:
-                  ${
-                    PIE_COLORS[
-                      index%
-                      PIE_COLORS.length
-                    ]
-                  };
-                "
-              ></span>
+<span
+class="legend-dot"
+style="
+background:
+${
+PIE_COLORS[
+index%
+PIE_COLORS.length
+]
+};
+"
+></span>
 
-              <span>
-                ${escapeHtml(category)}
-              </span>
+<span>
+${escapeHtml(category)}
+</span>
 
-            </div>
+</div>
 
-            <div class="legend-value">
-              ${formatMoney(amount)}
-              ・
-              ${percent}%
-            </div>
+<div class="legend-value">
+${formatMoney(amount)}
+・
+${percent}%
+</div>
 
-          </div>
-        `;
-      }
-    )
-    .join(
-      ""
-    );
+</div>
+`;
+}
+)
+.join(
+""
+);
 
-  area.innerHTML=`
+area.innerHTML=`
 
-    ${toggleHtml}
+${toggleHtml}
 
-    <div
-      class="pie-chart"
-      style="
-        background:
-        conic-gradient(
-          ${gradients.join(",")}
-        );
-      "
-    >
+<div
+class="pie-chart"
+style="
+background:
+conic-gradient(
+${gradients.join(",")}
+);
+"
+>
 
-      <div class="pie-hole">
-        ${formatMoney(total)}
-      </div>
+<div class="pie-hole">
+${formatMoney(total)}
+</div>
 
-    </div>
+</div>
 
-    <div class="pie-legend">
-      ${legend}
-    </div>
-  `;
+<div class="pie-legend">
+${legend}
+</div>
+`;
 }
 
 
@@ -3800,248 +3874,233 @@ function renderPie(){
 
 function renderCalendar(){
 
-  renderMonthNavigator(
-    "calendarMonthNav"
-  );
+renderMonthNavigator(
+"calendarMonthNav"
+);
 
-  const grid=
-    document
-    .getElementById(
-      "calendarGrid"
-    );
+const grid=
+document.getElementById(
+"calendarGrid"
+);
 
-  grid.innerHTML="";
+grid.innerHTML="";
 
-  const year=
-    selectedMonth
-    .getFullYear();
+const year=
+selectedMonth.getFullYear();
 
-  const month=
-    selectedMonth
-    .getMonth();
+const month=
+selectedMonth.getMonth();
 
-  const firstDay=
-    new Date(
-      year,
-      month,
-      1
-    )
-    .getDay();
+const firstDay=
+new Date(
+year,
+month,
+1
+)
+.getDay();
 
-  const max=
-    daysInMonth(
-      year,
-      month
-    );
+const max=
+daysInMonth(
+year,
+month
+);
 
-  const totals={};
+const totals={};
 
-  monthItems()
-  .forEach(
-    item=>{
+monthItems()
+.forEach(
+item=>{
 
-      const day=
-        Number(
-          item.date
-          .slice(
-            8,
-            10
-          )
-        );
+const day=
+Number(
+item.date
+.slice(
+8,
+10
+)
+);
 
-      totals[day]=
-        (
-          totals[day]||
-          0
-        )
-        +
-        Number(
-          item.amount
-        );
-    }
-  );
+totals[day]=
+(
+totals[day]||
+0
+)
++
+Number(
+item.amount
+);
+}
+);
 
-  for(
-    let i=0;
-    i<firstDay;
-    i++
-  ){
+for(
+let i=0;
+i<firstDay;
+i++
+){
 
-    grid.innerHTML+=
-      '<div class="calendar-day empty-day"></div>';
-  }
+grid.innerHTML+=
+'<div class="calendar-day empty-day"></div>';
+}
 
-  for(
-    let day=1;
-    day<=max;
-    day++
-  ){
+for(
+let day=1;
+day<=max;
+day++
+){
 
-    const total=
-      totals[day]||
-      0;
+const total=
+totals[day]||
+0;
 
-    grid.innerHTML+=`
+grid.innerHTML+=`
 
-      <div
-        class="
-          calendar-day
-          ${
-            total
-            ?"has-spending"
-            :""
-          }
-          ${
-            selectedCalendarDay===day
-            ?"selected-day"
-            :""
-          }
-        "
-        onclick="selectCalendarDay(${day})"
-      >
+<div
+class="
+calendar-day
+${total?"has-spending":""}
+${selectedCalendarDay===day?"selected-day":""}
+"
+onclick="selectCalendarDay(${day})"
+>
 
-        <div class="calendar-date">
-          ${day}
-        </div>
+<div class="calendar-date">
+${day}
+</div>
 
-        ${
-          total
-          ?`
-            <div class="calendar-money">
-              ${formatMoney(total)}
-            </div>
-          `
-          :""
-        }
+${
+total
+?`
+<div class="calendar-money">
+${formatMoney(total)}
+</div>
+`
+:""
+}
 
-      </div>
-    `;
-  }
+</div>
+`;
+}
 
-  if(
-    selectedCalendarDay
-  ){
+if(
+selectedCalendarDay
+){
 
-    renderDayDetail(
-      selectedCalendarDay
-    );
+renderDayDetail(
+selectedCalendarDay
+);
 
-  }else{
+}else{
 
-    document
-      .getElementById(
-        "dayDetail"
-      )
-      .innerHTML=
-      '<div class="subtext">日付をタップすると明細を確認できます。</div>';
-  }
+document.getElementById(
+"dayDetail"
+)
+.innerHTML=
+'<div class="subtext">日付をタップすると明細を確認できます。</div>';
+}
 }
 
 function selectCalendarDay(day){
 
-  selectedCalendarDay=
-    day;
+selectedCalendarDay=
+day;
 
-  renderCalendar();
+renderCalendar();
 }
 
 function renderDayDetail(day){
 
-  const year=
-    selectedMonth
-    .getFullYear();
+const year=
+selectedMonth.getFullYear();
 
-  const month=
-    selectedMonth
-    .getMonth()+1;
+const month=
+selectedMonth.getMonth()+1;
 
-  const date=
-    year
-    +"-"+
-    String(
-      month
-    )
-    .padStart(
-      2,
-      "0"
-    )
-    +"-"+
-    String(
-      day
-    )
-    .padStart(
-      2,
-      "0"
-    );
+const date=
+year+
+"-"+
+String(
+month
+)
+.padStart(
+2,
+"0"
+)
++"-"+
+String(
+day
+)
+.padStart(
+2,
+"0"
+);
 
-  const data=
-    monthItems()
-    .filter(
-      item=>
-        item.date===date
-    );
+const data=
+monthItems()
+.filter(
+item=>
+item.date===date
+);
 
-  const total=
-    data.reduce(
-      (sum,item)=>
-        sum+
-        Number(
-          item.amount
-        ),
-      0
-    );
+const total=
+data.reduce(
+(sum,item)=>
+sum+
+Number(
+item.amount
+),
+0
+);
 
-  let html=`
+let html=`
 
-    <div class="day-detail-title">
-      ${month}月${day}日
-      ・
-      ${formatMoney(total)}
-    </div>
-  `;
+<div class="day-detail-title">
+${month}月${day}日
+・
+${formatMoney(total)}
+</div>
+`;
 
-  data.forEach(
-    item=>{
+data.forEach(
+item=>{
 
-      html+=`
+html+=`
 
-        <div class="detail-item">
+<div class="detail-item">
 
-          <div class="detail-item-name">
+<div class="detail-item-name">
 
-            ${escapeHtml(item.product)}
+${escapeHtml(item.product)}
 
-            <div class="subtext">
+<div class="subtext">
 
-              ${escapeHtml(item.shop||"")}
-              ・
-              ${escapeHtml(item.category||"")}
+${escapeHtml(item.shop||"")}
+・
+${escapeHtml(item.category||"")}
 
-              ${
-                item.isFixed
-                ?'<span class="fixed-tag">固定費</span>'
-                :""
-              }
+${
+item.isFixed
+?'<span class="fixed-tag">固定費</span>'
+:""
+}
 
-            </div>
+</div>
 
-          </div>
+</div>
 
-          <div class="detail-item-price">
-            ${formatMoney(item.amount)}
-          </div>
+<div class="detail-item-price">
+${formatMoney(item.amount)}
+</div>
 
-        </div>
-      `;
-    }
-  );
+</div>
+`;
+}
+);
 
-  document
-    .getElementById(
-      "dayDetail"
-    )
-    .innerHTML=
-    html;
+document.getElementById(
+"dayDetail"
+)
+.innerHTML=
+html;
 }
 
 
@@ -4049,281 +4108,275 @@ function renderDayDetail(day){
 
 function renderDetails(){
 
-  renderMonthNavigator(
-    "detailMonthNav"
-  );
+renderMonthNavigator(
+"detailMonthNav"
+);
 
-  const data=
-    monthItems();
+const data=
+monthItems();
 
-  const map=
-    new Map();
+const map=
+new Map();
 
-  data.forEach(
-    item=>{
+data.forEach(
+item=>{
 
-      if(
-        !map.has(
-          item.receiptId
-        )
-      ){
-        map.set(
-          item.receiptId,
-          []
-        );
-      }
+if(
+!map.has(
+item.receiptId
+)
+){
+map.set(
+item.receiptId,
+[]
+);
+}
 
-      map
-      .get(
-        item.receiptId
-      )
-      .push(
-        item
-      );
-    }
-  );
+map.get(
+item.receiptId
+)
+.push(
+item
+);
+}
+);
 
-  const receipts=
-    Array.from(
-      map.entries()
-    )
+const receipts=
+Array.from(
+map.entries()
+)
 
-    .map(
-      ([receiptId,list])=>({
+.map(
+([receiptId,list])=>({
 
-        receiptId,
+receiptId,
 
-        items:
-          list,
+items:
+list,
 
-        date:
-          list[0].date,
+date:
+list[0].date,
 
-        shop:
-          list[0].shop,
+shop:
+list[0].shop,
 
-        total:
-          list.reduce(
-            (sum,item)=>
-              sum+
-              Number(
-                item.amount
-              ),
-            0
-          ),
+total:
+list.reduce(
+(sum,item)=>
+sum+
+Number(
+item.amount
+),
+0
+),
 
-        isFixed:
-          list.every(
-            item=>
-              item.isFixed
-          )
-      })
-    )
+isFixed:
+list.every(
+item=>
+item.isFixed
+)
+})
+)
 
-    .sort(
-      (a,b)=>
-        b.date.localeCompare(
-          a.date
-        )
-    );
+.sort(
+(a,b)=>
+b.date.localeCompare(
+a.date
+)
+);
 
-  const area=
-    document
-    .getElementById(
-      "receiptList"
-    );
+const area=
+document.getElementById(
+"receiptList"
+);
 
-  if(
-    !receipts.length
-  ){
+if(
+!receipts.length
+){
 
-    area.innerHTML=
-      '<div class="card empty">この月の支出はありません</div>';
+area.innerHTML=
+'<div class="card empty">この月の支出はありません</div>';
 
-    return;
-  }
+return;
+}
 
-  area.innerHTML=
-    receipts.map(
-      (receipt,index)=>{
+area.innerHTML=
+receipts.map(
+(receipt,index)=>{
 
-        const groups={};
+const groups={};
 
-        receipt.items.forEach(
-          item=>{
+receipt.items.forEach(
+item=>{
 
-            const category=
-              item.category||
-              "その他";
+const category=
+item.category||
+"その他";
 
-            if(
-              !groups[category]
-            ){
-              groups[category]=[];
-            }
+if(
+!groups[category]
+){
+groups[category]=[];
+}
 
-            groups[category]
-            .push(
-              item
-            );
-          }
-        );
+groups[category]
+.push(
+item
+);
+}
+);
 
-        let body="";
+let body="";
 
-        Object.entries(
-          groups
-        )
-        .forEach(
-          ([category,list])=>{
+Object.entries(
+groups
+)
+.forEach(
+([category,list])=>{
 
-            body+=`
+body+=`
 
-              <div class="detail-category-title">
-                ${escapeHtml(category)}
-              </div>
-            `;
+<div class="detail-category-title">
+${escapeHtml(category)}
+</div>
+`;
 
-            list.forEach(
-              item=>{
+list.forEach(
+item=>{
 
-                body+=`
+body+=`
 
-                  <div class="detail-item">
+<div class="detail-item">
 
-                    <div class="detail-item-name">
+<div class="detail-item-name">
 
-                      ${escapeHtml(item.product)}
+${escapeHtml(item.product)}
 
-                      ${
-                        item.isFixed
-                        ?'<span class="fixed-tag">固定費</span>'
-                        :""
-                      }
+${
+item.isFixed
+?'<span class="fixed-tag">固定費</span>'
+:""
+}
 
-                    </div>
+</div>
 
-                    <div class="detail-item-price">
-                      ${formatMoney(item.amount)}
-                    </div>
+<div class="detail-item-price">
+${formatMoney(item.amount)}
+</div>
 
-                    ${
-                      !item.isFixed
-                      ?`
+${
+!item.isFixed
+?`
 
-                        <button
-                          class="secondary small"
-                          onclick="openEditModal('${item.id}')"
-                        >
-                          編集
-                        </button>
+<button
+class="secondary small"
+onclick="openEditModal('${item.id}')"
+>
+編集
+</button>
 
-                        <button
-                          class="danger small"
-                          onclick="deleteItem('${item.id}')"
-                        >
-                          削除
-                        </button>
+<button
+class="danger small"
+onclick="deleteItem('${item.id}')"
+>
+削除
+</button>
 
-                      `
-                      :""
-                    }
+`
+:""
+}
 
-                  </div>
-                `;
-              }
-            );
-          }
-        );
+</div>
+`;
+}
+);
+}
+);
 
-        return`
+return`
 
-          <div class="receipt-card">
+<div class="receipt-card">
 
-            <div
-              class="receipt-header"
-              onclick="
-                toggleReceipt(
-                  'receiptBody${index}'
-                )
-              "
-            >
+<div
+class="receipt-header"
+onclick="toggleReceipt('receiptBody${index}')"
+>
 
-              <div class="receipt-top">
+<div class="receipt-top">
 
-                <div>
+<div>
 
-                  <div class="receipt-date">
-                    ${formatDisplayDate(receipt.date)}
-                  </div>
+<div class="receipt-date">
+${formatDisplayDate(receipt.date)}
+</div>
 
-                  <div class="receipt-shop">
-                    ${escapeHtml(receipt.shop||"店名なし")}
-                  </div>
+<div class="receipt-shop">
+${escapeHtml(receipt.shop||"店名なし")}
+</div>
 
-                </div>
+</div>
 
-                <div class="receipt-total">
-                  ${formatMoney(receipt.total)}
-                </div>
+<div class="receipt-total">
+${formatMoney(receipt.total)}
+</div>
 
-              </div>
+</div>
 
-              <div class="receipt-count">
-                ${receipt.items.length}商品
-                ・
-                タップして詳細
-              </div>
+<div class="receipt-count">
+${receipt.items.length}商品
+・
+タップして詳細
+</div>
 
-            </div>
+</div>
 
-            <div
-              id="receiptBody${index}"
-              class="receipt-body"
-            >
-              ${body}
-            </div>
+<div
+id="receiptBody${index}"
+class="receipt-body"
+>
+${body}
+</div>
 
-          </div>
-        `;
-      }
-    )
-    .join(
-      ""
-    );
+</div>
+`;
+}
+)
+.join(
+""
+);
 }
 
 function toggleReceipt(id){
 
-  document
-    .getElementById(
-      id
-    )
-    ?.classList
-    .toggle(
-      "open"
-    );
+document
+.getElementById(
+id
+)
+?.classList
+.toggle(
+"open"
+);
 }
 
 function deleteItem(id){
 
-  if(
-    !confirm(
-      "この商品を削除しますか？"
-    )
-  ){
-    return;
-  }
+if(
+!confirm(
+"この商品を削除しますか？"
+)
+){
+return;
+}
 
-  items=
-    items.filter(
-      item=>
-        item.id!==id
-    );
+items=
+items.filter(
+item=>
+item.id!==id
+);
 
-  saveItems();
+saveItems();
 
-  renderAll();
+renderAll();
 }
 
 
@@ -4331,107 +4384,104 @@ function deleteItem(id){
 
 function renderSettings(){
 
-  document
-    .getElementById(
-      "monthlyBudget"
-    )
-    .value=
-    monthlyBudget||
-    "";
+document.getElementById(
+"monthlyBudget"
+)
+.value=
+monthlyBudget||
+"";
 
-  document
-    .getElementById(
-      "categorySettingsList"
-    )
-    .innerHTML=
-    categories.map(
-      category=>`
+document.getElementById(
+"categorySettingsList"
+)
+.innerHTML=
+categories.map(
+category=>`
 
-        <div class="setting-item">
+<div class="setting-item">
 
-          <div class="setting-main">
+<div class="setting-main">
 
-            <div class="setting-title">
-              ${escapeHtml(category)}
-            </div>
+<div class="setting-title">
+${escapeHtml(category)}
+</div>
 
-          </div>
+</div>
 
-          <button
-            class="danger small"
-            onclick="
-              deleteCategory(
-                '${escapeJs(category)}'
-              )
-            "
-          >
-            削除
-          </button>
+<button
+class="danger small"
+onclick="
+deleteCategory(
+'${escapeJs(category)}'
+)
+"
+>
+削除
+</button>
 
-        </div>
-      `
-    )
-    .join(
-      ""
-    );
+</div>
+`
+)
+.join(
+""
+);
 
-  const active=
-    fixedCosts.filter(
-      fixed=>
-        !fixed.endMonth
-    );
+const active=
+fixedCosts.filter(
+fixed=>
+!fixed.endMonth
+);
 
-  document
-    .getElementById(
-      "fixedCostList"
-    )
-    .innerHTML=
-    active.length
+document.getElementById(
+"fixedCostList"
+)
+.innerHTML=
+active.length
 
-    ?active.map(
-      fixed=>`
+?active.map(
+fixed=>`
 
-        <div class="setting-item">
+<div class="setting-item">
 
-          <div class="setting-main">
+<div class="setting-main">
 
-            <div class="setting-title">
+<div class="setting-title">
 
-              ${escapeHtml(fixed.name)}
-              ・
-              ${formatMoney(fixed.amount)}
+${escapeHtml(fixed.name)}
+・
+${formatMoney(fixed.amount)}
 
-            </div>
+</div>
 
-            <div class="setting-sub">
+<div class="setting-sub">
 
-              毎月${fixed.day}日
-              ／
-              ${escapeHtml(fixed.category)}
+毎月${fixed.day}日
+／
+${escapeHtml(fixed.category)}
 
-            </div>
+</div>
 
-          </div>
+</div>
 
-          <button
-            class="danger small"
-            onclick="
-              deleteFixedCost(
-                '${fixed.id}'
-              )
-            "
-          >
-            削除
-          </button>
+<button
+class="danger small"
+onclick="
+deleteFixedCost(
+'${fixed.id}'
+)
+"
+>
+削除
+</button>
 
-        </div>
-      `
-    )
-    .join(
-      ""
-    )
+</div>
+`
+)
+.join(
+""
+)
 
-    :'<div class="empty">固定費はまだありません</div>';
+:'<div class="empty">固定費はまだありません</div>';
 }
 
 
@@ -4439,129 +4489,129 @@ function renderSettings(){
 
 function showPage(page){
 
-  document
-    .querySelectorAll(
-      ".page"
-    )
-    .forEach(
-      element=>
-        element
-        .classList
-        .remove(
-          "active"
-        )
-    );
+document
+.querySelectorAll(
+".page"
+)
+.forEach(
+element=>
+element
+.classList
+.remove(
+"active"
+)
+);
 
-  document
-    .querySelectorAll(
-      ".nav-button"
-    )
-    .forEach(
-      element=>
-        element
-        .classList
-        .remove(
-          "active"
-        )
-    );
+document
+.querySelectorAll(
+".nav-button"
+)
+.forEach(
+element=>
+element
+.classList
+.remove(
+"active"
+)
+);
 
-  const map={
+const map={
 
-    home:[
-      "homePage",
-      "navHome"
-    ],
+home:[
+"homePage",
+"navHome"
+],
 
-    calendar:[
-      "calendarPage",
-      "navCalendar"
-    ],
+calendar:[
+"calendarPage",
+"navCalendar"
+],
 
-    input:[
-      "inputPage",
-      "navInput"
-    ],
+input:[
+"inputPage",
+"navInput"
+],
 
-    detail:[
-      "detailPage",
-      "navDetail"
-    ],
+detail:[
+"detailPage",
+"navDetail"
+],
 
-    settings:[
-      "settingsPage",
-      "navSettings"
-    ]
-  };
+settings:[
+"settingsPage",
+"navSettings"
+]
+};
 
-  const target=
-    map[page];
+const target=
+map[page];
 
-  document
-    .getElementById(
-      target[0]
-    )
-    .classList
-    .add(
-      "active"
-    );
+document.getElementById(
+target[0]
+)
+.classList
+.add(
+"active"
+);
 
-  document
-    .getElementById(
-      target[1]
-    )
-    .classList
-    .add(
-      "active"
-    );
+document.getElementById(
+target[1]
+)
+.classList
+.add(
+"active"
+);
 
-  if(
-    page===
-    "detail"
-  ){
+if(
+page===
+"detail"
+){
 
-    renderSearchResults();
-    renderDetails();
-    renderFrequentProducts();
-  }
+renderSearchResults();
 
-  if(
-    page===
-    "calendar"
-  ){
-    renderCalendar();
-  }
+renderDetails();
 
-  if(
-    page===
-    "settings"
-  ){
-    renderSettings();
-  }
+renderFrequentProducts();
+}
 
-  window.scrollTo(
-    0,
-    0
-  );
+if(
+page===
+"calendar"
+){
+renderCalendar();
+}
+
+if(
+page===
+"settings"
+){
+renderSettings();
+}
+
+window.scrollTo(
+0,
+0
+);
 }
 
 
-/* 全体描画 */
+/* 全描画 */
 
 function renderAll(){
 
-  renderHome();
+renderHome();
 
-  renderCalendar();
+renderCalendar();
 
-  renderDetails();
+renderDetails();
 
-  renderFrequentProducts();
+renderFrequentProducts();
 
-  renderSearchResults();
+renderSearchResults();
 
-  renderSettings();
+renderSettings();
 
-  setupCategorySelects();
+setupCategorySelects();
 }
 
 
@@ -4571,14 +4621,13 @@ loadData();
 
 setupCategorySelects();
 
-document
-  .getElementById(
-    "manualDate"
-  )
-  .value=
-  formatDateInput(
-    new Date()
-  );
+document.getElementById(
+"manualDate"
+)
+.value=
+formatDateInput(
+new Date()
+);
 
 renderAll();
 
