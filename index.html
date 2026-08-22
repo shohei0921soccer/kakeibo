@@ -34,10 +34,17 @@
       --danger: #e5484d;
     }
 
+    html,
+    body {
+      width: 100%;
+      overflow-x: hidden;
+    }
+
     body {
       margin: 0;
       background: var(--bg);
       color: var(--text);
+
       font-family:
         -apple-system,
         BlinkMacSystemFont,
@@ -53,13 +60,15 @@
     }
 
     .app {
+      width: 100%;
       max-width: 650px;
+
       margin: 0 auto;
 
       padding:
         18px
         16px
-        115px;
+        120px;
     }
 
     h1 {
@@ -84,14 +93,17 @@
     }
 
     .card {
+      width: 100%;
+
       margin-bottom: 16px;
       padding: 18px;
+
       background: var(--card);
       border-radius: 18px;
 
       box-shadow:
         0 2px 10px
-        rgba(0, 0, 0, 0.05);
+        rgba(0,0,0,0.05);
     }
 
     .page {
@@ -113,15 +125,13 @@
       justify-content: space-between;
       gap: 8px;
 
-      margin:
-        14px
-        0
-        18px;
+      margin: 14px 0 18px;
     }
 
     .month-nav button {
       width: 48px;
       height: 44px;
+
       margin: 0;
       padding: 0;
 
@@ -136,23 +146,22 @@
 
     .month-label {
       flex: 1;
+
       text-align: center;
+
       font-size: 18px;
       font-weight: 700;
     }
 
 
     /* =========================
-       共通フォーム
+       フォーム
     ========================= */
 
     label {
       display: block;
 
-      margin:
-        13px
-        0
-        5px;
+      margin: 15px 0 6px;
 
       color: #555;
       font-size: 14px;
@@ -161,11 +170,13 @@
     input,
     textarea,
     select {
-      width: 100%;
-      min-width: 0;
-      max-width: 100%;
+      display: block;
 
-      padding: 12px;
+      width: 100% !important;
+      min-width: 0 !important;
+      max-width: 100% !important;
+
+      padding: 13px;
 
       border:
         1px solid
@@ -173,14 +184,27 @@
 
       border-radius: 12px;
 
-      background: #fff;
+      background: #ffffff;
 
       font-size: 16px;
     }
 
-    input[type="date"],
-    input[type="number"] {
-      min-width: 0;
+    input[type="date"] {
+      width: 100% !important;
+      min-width: 0 !important;
+      max-width: 100% !important;
+
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    input[type="number"],
+    input[type="text"] {
+      min-width: 0 !important;
+    }
+
+    select {
+      min-height: 49px;
     }
 
     textarea {
@@ -214,12 +238,12 @@
     }
 
     button.danger {
-      background:
-        var(--danger);
+      background: var(--danger);
     }
 
     button.small {
       width: auto;
+
       margin: 0;
 
       padding:
@@ -229,14 +253,8 @@
       font-size: 13px;
     }
 
-    .form-row {
-      display: flex;
-      gap: 12px;
+    .field {
       width: 100%;
-    }
-
-    .form-row > div {
-      flex: 1 1 0;
       min-width: 0;
     }
 
@@ -290,19 +308,19 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+
       gap: 18px;
     }
 
     .pie-chart {
+      position: relative;
+
       width: 220px;
       height: 220px;
 
       border-radius: 50%;
 
-      background:
-        #eeeeee;
-
-      position: relative;
+      background: #eeeeee;
     }
 
     .pie-hole {
@@ -339,6 +357,7 @@
     .legend-left {
       display: flex;
       align-items: center;
+
       gap: 8px;
     }
 
@@ -373,11 +392,11 @@
 
     .calendar-week {
       display: grid;
+
       grid-template-columns:
         repeat(7, 1fr);
 
-      background:
-        #f6f6f6;
+      background: #f6f6f6;
 
       border-bottom:
         1px solid
@@ -390,6 +409,7 @@
       text-align: center;
 
       color: var(--sub);
+
       font-size: 12px;
       font-weight: 600;
     }
@@ -402,11 +422,10 @@
     }
 
     .calendar-day {
+      min-width: 0;
       min-height: 72px;
 
-      padding:
-        7px
-        4px;
+      padding: 7px 3px;
 
       background: white;
 
@@ -426,9 +445,7 @@
     }
 
     .calendar-day.empty-day {
-      background:
-        #fafafa;
-
+      background: #fafafa;
       cursor: default;
     }
 
@@ -440,15 +457,14 @@
     .calendar-money {
       margin-top: 6px;
 
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 700;
 
       word-break: break-all;
     }
 
     .calendar-day.has-spending {
-      background:
-        #fafafa;
+      background: #fafafa;
     }
 
     .calendar-day.selected-day {
@@ -456,8 +472,7 @@
         2px solid
         #222;
 
-      outline-offset:
-        -2px;
+      outline-offset: -2px;
     }
 
     .day-detail {
@@ -502,6 +517,7 @@
     .preview-item {
       display: flex;
       justify-content: space-between;
+
       gap: 8px;
 
       padding: 7px 0;
@@ -519,9 +535,7 @@
 
       margin-left: 5px;
 
-      padding:
-        2px
-        7px;
+      padding: 2px 7px;
 
       border-radius: 999px;
 
@@ -533,9 +547,7 @@
     }
 
     .new-badge {
-      background:
-        #222;
-
+      background: #222;
       color: white;
     }
 
@@ -543,7 +555,6 @@
       display: none;
 
       margin-top: 12px;
-
       padding: 11px;
 
       border-radius: 10px;
@@ -563,7 +574,7 @@
 
       margin-bottom: 14px;
 
-      background: #fff;
+      background: #ffffff;
 
       border-radius: 18px;
 
@@ -574,13 +585,13 @@
 
     .receipt-header {
       padding: 16px;
-
       cursor: pointer;
     }
 
     .receipt-top {
       display: flex;
       justify-content: space-between;
+
       gap: 10px;
     }
 
@@ -607,6 +618,7 @@
       margin-top: 7px;
 
       color: var(--sub);
+
       font-size: 13px;
     }
 
@@ -636,6 +648,7 @@
     .detail-item {
       display: flex;
       align-items: center;
+
       gap: 8px;
 
       padding: 9px 0;
@@ -681,6 +694,7 @@
     .setting-item {
       display: flex;
       align-items: center;
+
       gap: 8px;
 
       padding: 11px 0;
@@ -729,13 +743,13 @@
       padding: 25px 0;
 
       text-align: center;
+
       color: #888;
     }
 
 
     /* =========================
        下部ナビ
-       前より少し大きめ
     ========================= */
 
     .nav {
@@ -748,6 +762,7 @@
       z-index: 1000;
 
       display: flex;
+
       gap: 3px;
 
       padding:
@@ -781,34 +796,29 @@
       flex: 1;
 
       min-width: 0;
-      min-height: 56px;
+      min-height: 60px;
 
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
 
-      gap: 3px;
+      gap: 4px;
 
       margin: 0;
 
-      padding:
-        7px
-        2px;
+      padding: 7px 2px;
 
       border-radius: 13px;
 
-      background:
-        transparent;
-
+      background: transparent;
       color: #777;
 
-      font-size: 13px;
       font-weight: 600;
     }
 
     .nav-icon {
-      font-size: 20px;
+      font-size: 21px;
       line-height: 1;
     }
 
@@ -818,35 +828,27 @@
     }
 
     .nav-button.active {
-      background:
-        #eeeeee;
-
-      color:
-        #111;
+      background: #eeeeee;
+      color: #111;
     }
 
 
-    @media (
-      max-width: 420px
-    ) {
-      .form-row {
-        display: block;
+    @media (max-width: 420px) {
+      .app {
+        padding-left: 14px;
+        padding-right: 14px;
       }
 
-      .form-row > div + div {
-        margin-top: 10px;
+      .card {
+        padding: 17px;
       }
 
       .calendar-day {
-        min-height: 67px;
-
-        padding:
-          6px
-          2px;
+        min-height: 65px;
       }
 
       .calendar-money {
-        font-size: 10px;
+        font-size: 9px;
       }
     }
   </style>
@@ -858,9 +860,7 @@
   <div class="app">
 
 
-    <!-- =========================
-         ホーム
-    ========================== -->
+    <!-- ホーム -->
 
     <section
       id="homePage"
@@ -920,9 +920,8 @@
     </section>
 
 
-    <!-- =========================
-         カレンダー
-    ========================== -->
+
+    <!-- カレンダー -->
 
     <section
       id="calendarPage"
@@ -973,9 +972,8 @@
     </section>
 
 
-    <!-- =========================
-         登録
-    ========================== -->
+
+    <!-- 登録 -->
 
     <section
       id="inputPage"
@@ -1053,6 +1051,8 @@
       </div>
 
 
+      <!-- すべて縦1列 -->
+
       <div class="card">
 
         <h2>
@@ -1060,89 +1060,85 @@
         </h2>
 
 
-        <div class="form-row">
+        <div class="field">
 
-          <div>
+          <label
+            for="manualDate"
+          >
+            日付
+          </label>
 
-            <label
-              for="manualDate"
-            >
-              日付
-            </label>
-
-            <input
-              id="manualDate"
-              type="date"
-            >
-
-          </div>
-
-
-          <div>
-
-            <label
-              for="manualShop"
-            >
-              店名
-            </label>
-
-            <input
-              id="manualShop"
-              type="text"
-              placeholder="例：スーパー"
-            >
-
-          </div>
+          <input
+            id="manualDate"
+            type="date"
+          >
 
         </div>
 
 
-        <label
-          for="manualProduct"
-        >
-          商品名
-        </label>
+        <div class="field">
 
-        <input
-          id="manualProduct"
-          type="text"
-          placeholder="例：牛乳"
-        >
+          <label
+            for="manualShop"
+          >
+            店名
+          </label>
 
+          <input
+            id="manualShop"
+            type="text"
+            placeholder="例：スーパー"
+          >
 
-        <div class="form-row">
-
-          <div>
-
-            <label
-              for="manualAmount"
-            >
-              金額
-            </label>
-
-            <input
-              id="manualAmount"
-              type="number"
-              inputmode="numeric"
-              placeholder="例：218"
-            >
-
-          </div>
+        </div>
 
 
-          <div>
+        <div class="field">
 
-            <label
-              for="manualCategory"
-            >
-              カテゴリ
-            </label>
+          <label
+            for="manualProduct"
+          >
+            商品名
+          </label>
 
-            <select
-              id="manualCategory"
-            ></select>
+          <input
+            id="manualProduct"
+            type="text"
+            placeholder="例：牛乳"
+          >
 
-          </div>
+        </div>
+
+
+        <div class="field">
+
+          <label
+            for="manualAmount"
+          >
+            金額
+          </label>
+
+          <input
+            id="manualAmount"
+            type="number"
+            inputmode="numeric"
+            placeholder="例：218"
+          >
+
+        </div>
+
+
+        <div class="field">
+
+          <label
+            for="manualCategory"
+          >
+            カテゴリ
+          </label>
+
+          <select
+            id="manualCategory"
+          ></select>
 
         </div>
 
@@ -1158,9 +1154,8 @@
     </section>
 
 
-    <!-- =========================
-         詳細
-    ========================== -->
+
+    <!-- 詳細 -->
 
     <section
       id="detailPage"
@@ -1181,9 +1176,8 @@
     </section>
 
 
-    <!-- =========================
-         設定
-    ========================== -->
+
+    <!-- 設定 -->
 
     <section
       id="settingsPage"
@@ -1199,23 +1193,20 @@
           カテゴリー
         </h2>
 
-        <div class="form-row">
 
-          <div>
+        <div class="field">
 
-            <label
-              for="newCategory"
-            >
-              新しいカテゴリー
-            </label>
+          <label
+            for="newCategory"
+          >
+            新しいカテゴリー
+          </label>
 
-            <input
-              id="newCategory"
-              type="text"
-              placeholder="例：美容"
-            >
-
-          </div>
+          <input
+            id="newCategory"
+            type="text"
+            placeholder="例：美容"
+          >
 
         </div>
 
@@ -1241,6 +1232,8 @@
       </div>
 
 
+      <!-- 固定費も全部縦1列 -->
+
       <div class="card">
 
         <h2>
@@ -1248,70 +1241,74 @@
         </h2>
 
 
-        <label
-          for="fixedName"
-        >
-          固定費名
-        </label>
+        <div class="field">
 
-        <input
-          id="fixedName"
-          type="text"
-          placeholder="例：家賃"
-        >
+          <label
+            for="fixedName"
+          >
+            固定費名
+          </label>
 
-
-        <div class="form-row">
-
-          <div>
-
-            <label
-              for="fixedAmount"
-            >
-              金額
-            </label>
-
-            <input
-              id="fixedAmount"
-              type="number"
-              inputmode="numeric"
-              placeholder="例：70000"
-            >
-
-          </div>
-
-
-          <div>
-
-            <label
-              for="fixedDay"
-            >
-              毎月の日付
-            </label>
-
-            <input
-              id="fixedDay"
-              type="number"
-              inputmode="numeric"
-              min="1"
-              max="31"
-              value="1"
-            >
-
-          </div>
+          <input
+            id="fixedName"
+            type="text"
+            placeholder="例：家賃"
+          >
 
         </div>
 
 
-        <label
-          for="fixedCategory"
-        >
-          カテゴリー
-        </label>
+        <div class="field">
 
-        <select
-          id="fixedCategory"
-        ></select>
+          <label
+            for="fixedAmount"
+          >
+            金額
+          </label>
+
+          <input
+            id="fixedAmount"
+            type="number"
+            inputmode="numeric"
+            placeholder="例：70000"
+          >
+
+        </div>
+
+
+        <div class="field">
+
+          <label
+            for="fixedDay"
+          >
+            毎月の日付
+          </label>
+
+          <input
+            id="fixedDay"
+            type="number"
+            inputmode="numeric"
+            min="1"
+            max="31"
+            value="1"
+          >
+
+        </div>
+
+
+        <div class="field">
+
+          <label
+            for="fixedCategory"
+          >
+            カテゴリー
+          </label>
+
+          <select
+            id="fixedCategory"
+          ></select>
+
+        </div>
 
 
         <button
@@ -1339,9 +1336,8 @@
   </div>
 
 
-  <!-- =========================
-       下部ナビ
-  ========================== -->
+
+  <!-- 下部メニュー -->
 
   <nav class="nav">
 
@@ -1435,10 +1431,6 @@
 
   <script>
 
-    /* =========================
-       保存キー
-    ========================== */
-
     const ITEMS_KEY =
       "kakeibo_items_v2";
 
@@ -1481,11 +1473,8 @@
 
 
     let items = [];
-
     let categories = [];
-
     let fixedCosts = [];
-
     let previewItems = [];
 
     let selectedMonth =
@@ -1499,19 +1488,15 @@
       null;
 
 
-    /* =========================
-       初期読み込み
-    ========================== */
 
     function loadData() {
 
       loadItems();
-
       loadCategories();
-
       loadFixedCosts();
 
     }
+
 
 
     function loadItems() {
@@ -1578,8 +1563,7 @@
                 old.id,
 
               date:
-                old.date ||
-                "",
+                old.date || "",
 
               shop:
                 old.shop ||
@@ -1615,6 +1599,7 @@
       }
 
     }
+
 
 
     function loadCategories() {
@@ -1674,6 +1659,7 @@
     }
 
 
+
     function loadFixedCosts() {
 
       const data =
@@ -1707,6 +1693,7 @@
     }
 
 
+
     function saveItems() {
 
       localStorage.setItem(
@@ -1717,6 +1704,7 @@
       );
 
     }
+
 
 
     function saveCategories() {
@@ -1731,6 +1719,7 @@
     }
 
 
+
     function saveFixedCosts() {
 
       localStorage.setItem(
@@ -1743,9 +1732,6 @@
     }
 
 
-    /* =========================
-       日付関連
-    ========================== */
 
     function monthKey(
       date
@@ -1768,6 +1754,7 @@
     }
 
 
+
     function monthKeyFromString(
       dateString
     ) {
@@ -1781,6 +1768,7 @@
     }
 
 
+
     function selectedMonthKey() {
 
       return monthKey(
@@ -1788,6 +1776,7 @@
       );
 
     }
+
 
 
     function formatMonthTitle(
@@ -1801,6 +1790,7 @@
       }月`;
 
     }
+
 
 
     function formatDateInput(
@@ -1833,6 +1823,7 @@
     }
 
 
+
     function formatDisplayDate(
       dateString
     ) {
@@ -1862,6 +1853,7 @@
       }日`;
 
     }
+
 
 
     function normalizeDate(
@@ -1966,6 +1958,7 @@
     }
 
 
+
     function daysInMonth(
       year,
       monthIndex
@@ -1981,6 +1974,7 @@
     }
 
 
+
     function previousMonthKey(
       key
     ) {
@@ -1991,7 +1985,9 @@
       ] =
         key
         .split("-")
-        .map(Number);
+        .map(
+          Number
+        );
 
 
       const d =
@@ -2009,6 +2005,7 @@
     }
 
 
+
     function compareMonthKeys(
       a,
       b
@@ -2021,9 +2018,6 @@
     }
 
 
-    /* =========================
-       月切り替え
-    ========================== */
 
     function changeMonth(
       diff
@@ -2046,6 +2040,7 @@
     }
 
 
+
     function renderMonthNavigator(
       elementId
     ) {
@@ -2061,7 +2056,6 @@
 
         <button
           onclick="changeMonth(-1)"
-          aria-label="前の月"
         >
           ‹
         </button>
@@ -2078,7 +2072,6 @@
 
         <button
           onclick="changeMonth(1)"
-          aria-label="次の月"
         >
           ›
         </button>
@@ -2087,9 +2080,6 @@
     }
 
 
-    /* =========================
-       金額
-    ========================== */
 
     function formatMoney(
       value
@@ -2106,9 +2096,6 @@
     }
 
 
-    /* =========================
-       固定費生成
-    ========================== */
 
     function fixedCostActiveInMonth(
       fixed,
@@ -2146,6 +2133,7 @@
     }
 
 
+
     function virtualFixedItemsForMonth(
       date
     ) {
@@ -2161,6 +2149,7 @@
 
       const month =
         date.getMonth();
+
 
       const maxDay =
         daysInMonth(
@@ -2254,9 +2243,6 @@
     }
 
 
-    /* =========================
-       選択月の全支出
-    ========================== */
 
     function monthItems() {
 
@@ -2285,6 +2271,7 @@
       ];
 
     }
+
 
 
     function allVisibleCategories(
@@ -2320,9 +2307,6 @@
     }
 
 
-    /* =========================
-       ChatGPT一括入力
-    ========================== */
 
     function parseBulkText(
       text
@@ -2340,13 +2324,9 @@
 
 
       let date = "";
-
       let shop = "";
-
       let product = "";
-
       let amount = "";
-
       let category = "";
 
       const result = [];
@@ -2525,6 +2505,7 @@
     }
 
 
+
     function previewBulkInput() {
 
       const text =
@@ -2682,6 +2663,7 @@
                       item.category
                     )
                   }
+
                   ${
                     isNew
                     ? "・新規"
@@ -2722,6 +2704,7 @@
         "none";
 
     }
+
 
 
     function registerBulkItems() {
@@ -2848,6 +2831,7 @@
     }
 
 
+
     function createReceiptId() {
 
       return (
@@ -2867,9 +2851,6 @@
     }
 
 
-    /* =========================
-       手入力
-    ========================== */
 
     function registerManualItem() {
 
@@ -2966,13 +2947,9 @@
         receiptId,
 
         date,
-
         shop,
-
         product,
-
         amount,
-
         category,
 
         createdAt:
@@ -3018,9 +2995,6 @@
     }
 
 
-    /* =========================
-       カテゴリー設定
-    ========================== */
 
     function addCategory() {
 
@@ -3077,11 +3051,10 @@
 
       setupCategorySelects();
 
-      renderSettings();
-
-      renderHome();
+      renderAll();
 
     }
+
 
 
     function deleteCategory(
@@ -3124,16 +3097,11 @@
 
       setupCategorySelects();
 
-      renderSettings();
-
-      renderHome();
+      renderAll();
 
     }
 
 
-    /* =========================
-       固定費
-    ========================== */
 
     function addFixedCost() {
 
@@ -3156,7 +3124,7 @@
         );
 
 
-      let day =
+      const day =
         Number(
           document
           .getElementById(
@@ -3280,6 +3248,7 @@
     }
 
 
+
     function deleteFixedCost(
       id
     ) {
@@ -3343,9 +3312,6 @@
     }
 
 
-    /* =========================
-       ホーム
-    ========================== */
 
     function categoryTotals() {
 
@@ -3384,6 +3350,7 @@
       return totals;
 
     }
+
 
 
     function renderHome() {
@@ -3524,9 +3491,6 @@
     }
 
 
-    /* =========================
-       円グラフ
-    ========================== */
 
     function renderPie() {
 
@@ -3755,9 +3719,6 @@
     }
 
 
-    /* =========================
-       カレンダー
-    ========================== */
 
     function renderCalendar() {
 
@@ -3944,10 +3905,6 @@
 
             renderCalendar();
 
-            renderDayDetail(
-              day
-            );
-
           };
 
 
@@ -3978,6 +3935,7 @@
       }
 
     }
+
 
 
     function renderDayDetail(
@@ -4158,9 +4116,6 @@
     }
 
 
-    /* =========================
-       詳細
-    ========================== */
 
     function renderDetails() {
 
@@ -4613,6 +4568,7 @@
     }
 
 
+
     function toggleReceipt(
       bodyId
     ) {
@@ -4631,6 +4587,7 @@
         );
 
     }
+
 
 
     function deleteItem(
@@ -4660,6 +4617,7 @@
       renderAll();
 
     }
+
 
 
     function deleteReceipt(
@@ -4692,9 +4650,6 @@
     }
 
 
-    /* =========================
-       設定画面
-    ========================== */
 
     function setupCategorySelects() {
 
@@ -4775,6 +4730,7 @@
       );
 
     }
+
 
 
     function renderSettings() {
@@ -4951,9 +4907,6 @@
     }
 
 
-    /* =========================
-       ページ移動
-    ========================== */
 
     function showPage(
       page
@@ -5085,9 +5038,6 @@
     }
 
 
-    /* =========================
-       エスケープ
-    ========================== */
 
     function escapeHtml(
       value
@@ -5120,6 +5070,7 @@
     }
 
 
+
     function escapeJs(
       value
     ) {
@@ -5143,28 +5094,18 @@
     }
 
 
-    /* =========================
-       全画面更新
-    ========================== */
 
     function renderAll() {
 
       renderHome();
-
       renderCalendar();
-
       renderDetails();
-
       renderSettings();
-
       setupCategorySelects();
 
     }
 
 
-    /* =========================
-       起動
-    ========================== */
 
     loadData();
 
