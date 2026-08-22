@@ -21,7 +21,6 @@
 <title>家計簿</title>
 
 <style>
-
 *{
   box-sizing:border-box;
 }
@@ -43,10 +42,8 @@ body{
 
 body{
   margin:0;
-
   background:var(--bg);
   color:var(--text);
-
   font-family:
     -apple-system,
     BlinkMacSystemFont,
@@ -64,13 +61,8 @@ select{
 .app{
   width:100%;
   max-width:650px;
-
   margin:0 auto;
-
-  padding:
-    18px
-    14px
-    120px;
+  padding:18px 14px 120px;
 }
 
 h1{
@@ -90,17 +82,11 @@ h3{
 
 .card{
   width:100%;
-
   margin-bottom:16px;
   padding:18px;
-
   background:#fff;
-
   border-radius:18px;
-
-  box-shadow:
-    0 2px 10px
-    rgba(0,0,0,.05);
+  box-shadow:0 2px 10px rgba(0,0,0,.05);
 }
 
 .page{
@@ -113,84 +99,59 @@ h3{
 
 .subtext{
   color:var(--sub);
-
   font-size:13px;
   line-height:1.6;
 }
 
 .empty{
   padding:22px 0;
-
   text-align:center;
-
   color:#888;
 }
 
 
-
-/* =========================
-   月切り替え
-========================= */
+/* 月切り替え */
 
 .month-nav{
   display:flex;
   align-items:center;
-
   gap:8px;
-
   margin:14px 0 18px;
 }
 
 .month-nav button{
   flex:0 0 48px;
-
   width:48px;
   height:44px;
-
   margin:0;
   padding:0;
-
   background:#fff;
   color:#222;
-
-  border:
-    1px solid
-    var(--border);
-
+  border:1px solid var(--border);
   border-radius:12px;
-
   font-size:22px;
 }
 
 .month-label{
   flex:1;
-
   text-align:center;
-
   font-size:18px;
   font-weight:700;
 }
 
 
-
-/* =========================
-   フォーム
-========================= */
+/* フォーム */
 
 .field{
   width:100%;
   min-width:0;
-
   margin-top:14px;
 }
 
 label{
   display:block;
-
   margin-bottom:6px;
-
   color:#555;
-
   font-size:14px;
 }
 
@@ -198,27 +159,15 @@ input,
 textarea,
 select{
   display:block;
-
   width:100%!important;
   min-width:0!important;
   max-width:100%!important;
-
   margin:0;
-
-  padding:
-    13px
-    12px;
-
-  border:
-    1px solid
-    #ddd;
-
+  padding:13px 12px;
+  border:1px solid #ddd;
   border-radius:12px;
-
   background:#fff;
-
   color:#222;
-
   font-size:16px;
 }
 
@@ -226,30 +175,23 @@ input[type="date"]{
   width:100%!important;
   min-width:0!important;
   max-width:100%!important;
-
   -webkit-appearance:none;
   appearance:none;
 }
 
 textarea{
   min-height:170px;
-
   resize:vertical;
 }
 
 button{
   width:100%;
-
   margin-top:14px;
-
   padding:14px;
-
   border:none;
   border-radius:14px;
-
   background:#111;
   color:#fff;
-
   font-size:16px;
   font-weight:700;
 }
@@ -257,10 +199,7 @@ button{
 button.secondary{
   background:#fff;
   color:#111;
-
-  border:
-    1px solid
-    #ccc;
+  border:1px solid #ccc;
 }
 
 button.danger{
@@ -269,31 +208,21 @@ button.danger{
 
 button.small{
   width:auto;
-
   margin:0;
-
-  padding:
-    8px
-    10px;
-
+  padding:8px 10px;
   font-size:12px;
 }
 
 
-
-/* =========================
-   ホーム
-========================= */
+/* ホーム */
 
 .total-label{
   color:var(--sub);
-
   font-size:14px;
 }
 
 .total{
   margin-top:4px;
-
   font-size:38px;
   font-weight:700;
 }
@@ -302,14 +231,9 @@ button.small{
   display:flex;
   align-items:center;
   justify-content:space-between;
-
   gap:12px;
-
   padding:12px 0;
-
-  border-bottom:
-    1px solid
-    #eee;
+  border-bottom:1px solid #eee;
 }
 
 .category-row:last-child{
@@ -318,28 +242,21 @@ button.small{
 
 .category-amount{
   white-space:nowrap;
-
   font-weight:700;
 }
 
 
-
-/* =========================
-   予算
-========================= */
+/* 予算 */
 
 .budget-top{
   display:flex;
-
   justify-content:space-between;
   align-items:flex-end;
-
   gap:10px;
 }
 
 .budget-main{
   margin-top:4px;
-
   font-size:27px;
   font-weight:700;
 }
@@ -347,74 +264,50 @@ button.small{
 .budget-progress{
   width:100%;
   height:12px;
-
   margin-top:13px;
-
   overflow:hidden;
-
   background:#eee;
-
   border-radius:999px;
 }
 
 .budget-progress-bar{
   width:0;
   height:100%;
-
   background:#222;
-
   border-radius:999px;
 }
 
-.budget-over
-.budget-progress-bar{
+.budget-over .budget-progress-bar{
   background:#e5484d;
 }
 
 
-
-/* =========================
-   円グラフ
-========================= */
+/* 円グラフ */
 
 .pie-area{
   display:flex;
   flex-direction:column;
   align-items:center;
-
   gap:18px;
 }
 
 .pie-toggle{
   display:flex;
-
   width:100%;
-
   gap:5px;
-
   padding:4px;
-
   background:#f1f1f1;
-
   border-radius:13px;
 }
 
 .pie-toggle button{
   flex:1;
-
   width:auto;
-
   margin:0;
-
-  padding:
-    10px
-    5px;
-
+  padding:10px 5px;
   border-radius:10px;
-
   background:transparent;
   color:#777;
-
   font-size:14px;
   font-weight:700;
 }
@@ -422,43 +315,29 @@ button.small{
 .pie-toggle button.active{
   background:#fff;
   color:#111;
-
-  box-shadow:
-    0 1px 5px
-    rgba(0,0,0,.09);
+  box-shadow:0 1px 5px rgba(0,0,0,.09);
 }
 
 .pie-chart{
   position:relative;
-
   width:220px;
   height:220px;
-
   max-width:75vw;
   max-height:75vw;
-
   border-radius:50%;
-
   background:#eee;
 }
 
 .pie-hole{
   position:absolute;
-
   inset:22%;
-
   display:flex;
   align-items:center;
   justify-content:center;
-
   padding:10px;
-
   background:#fff;
-
   border-radius:50%;
-
   text-align:center;
-
   font-size:14px;
   font-weight:700;
 }
@@ -469,84 +348,56 @@ button.small{
 
 .legend-row{
   display:flex;
-
   align-items:center;
   justify-content:space-between;
-
   gap:10px;
-
   padding:7px 0;
 }
 
 .legend-left{
   display:flex;
   align-items:center;
-
   gap:8px;
-
   min-width:0;
 }
 
 .legend-dot{
   width:12px;
   height:12px;
-
   flex:0 0 auto;
-
   border-radius:50%;
 }
 
 .legend-value{
   white-space:nowrap;
-
   font-size:14px;
   font-weight:600;
 }
 
 
-
-/* =========================
-   カレンダー
-========================= */
+/* カレンダー */
 
 .calendar{
   overflow:hidden;
-
-  border:
-    1px solid
-    var(--border);
-
+  border:1px solid var(--border);
   border-radius:14px;
 }
 
 .calendar-week,
 .calendar-grid{
   display:grid;
-
-  grid-template-columns:
-    repeat(
-      7,
-      minmax(0,1fr)
-    );
+  grid-template-columns:repeat(7,minmax(0,1fr));
 }
 
 .calendar-week{
   background:#f6f6f6;
-
-  border-bottom:
-    1px solid
-    var(--border);
+  border-bottom:1px solid var(--border);
 }
 
 .calendar-week div{
-  padding:
-    9px
-    2px;
-
+  padding:9px 2px;
   text-align:center;
-
   color:var(--sub);
-
   font-size:12px;
   font-weight:600;
 }
@@ -554,23 +405,11 @@ button.small{
 .calendar-day{
   min-width:0;
   min-height:68px;
-
-  padding:
-    7px
-    3px;
-
+  padding:7px 3px;
   overflow:hidden;
-
   background:#fff;
-
-  border-right:
-    1px solid
-    #eee;
-
-  border-bottom:
-    1px solid
-    #eee;
-
+  border-right:1px solid #eee;
+  border-bottom:1px solid #eee;
   cursor:pointer;
 }
 
@@ -580,7 +419,6 @@ button.small{
 
 .calendar-day.empty-day{
   background:#fafafa;
-
   cursor:default;
 }
 
@@ -591,9 +429,7 @@ button.small{
 
 .calendar-money{
   margin-top:6px;
-
   overflow-wrap:anywhere;
-
   font-size:9px;
   font-weight:700;
 }
@@ -603,10 +439,7 @@ button.small{
 }
 
 .calendar-day.selected-day{
-  outline:
-    2px solid
-    #222;
-
+  outline:2px solid #222;
   outline-offset:-2px;
 }
 
@@ -616,61 +449,43 @@ button.small{
 
 .day-detail-title{
   margin-bottom:10px;
-
   font-size:17px;
   font-weight:700;
 }
 
 
-
-/* =========================
-   ChatGPT一括入力
-========================= */
+/* 一括入力 */
 
 .hint{
   margin-bottom:10px;
-
   color:var(--sub);
-
   font-size:13px;
   line-height:1.6;
 }
 
 .preview{
   display:none;
-
   margin-top:18px;
 }
 
 .preview-item{
   display:flex;
-
   justify-content:space-between;
-
   gap:8px;
-
   padding:7px 0;
 }
 
 .preview-item-left{
   flex:1;
-
   min-width:0;
 }
 
 .badge{
   display:inline-block;
-
   margin-left:5px;
-
-  padding:
-    2px
-    7px;
-
+  padding:2px 7px;
   background:#eee;
-
   border-radius:999px;
-
   font-size:11px;
 }
 
@@ -681,85 +496,60 @@ button.small{
 
 .success{
   display:none;
-
   margin-top:12px;
-
   padding:11px;
-
   background:#f0f0f0;
-
   border-radius:10px;
 }
 
 
-
-/* =========================
-   詳細
-========================= */
+/* 詳細 */
 
 .receipt-card{
   margin-bottom:14px;
-
   overflow:hidden;
-
   background:#fff;
-
   border-radius:18px;
-
-  box-shadow:
-    0 2px 10px
-    rgba(0,0,0,.05);
+  box-shadow:0 2px 10px rgba(0,0,0,.05);
 }
 
 .receipt-header{
   padding:16px;
-
   cursor:pointer;
 }
 
 .receipt-top{
   display:flex;
-
   justify-content:space-between;
-
   gap:10px;
 }
 
 .receipt-date{
   color:var(--sub);
-
   font-size:13px;
 }
 
 .receipt-shop{
   margin-top:3px;
-
   font-size:17px;
   font-weight:700;
 }
 
 .receipt-total{
   white-space:nowrap;
-
   font-size:18px;
   font-weight:700;
 }
 
 .receipt-count{
   margin-top:7px;
-
   color:var(--sub);
-
   font-size:13px;
 }
 
 .receipt-body{
   display:none;
-
-  padding:
-    0
-    16px
-    16px;
+  padding:0 16px 16px;
 }
 
 .receipt-body.open{
@@ -767,71 +557,45 @@ button.small{
 }
 
 .detail-category-title{
-  margin:
-    14px
-    0
-    5px;
-
+  margin:14px 0 5px;
   font-size:14px;
   font-weight:700;
 }
 
 .detail-item{
   display:flex;
-
   align-items:center;
-
   gap:7px;
-
   padding:10px 0;
-
-  border-bottom:
-    1px solid
-    #eee;
+  border-bottom:1px solid #eee;
 }
 
 .detail-item-name{
   flex:1;
-
   min-width:0;
 }
 
 .detail-item-price{
   white-space:nowrap;
-
   font-weight:600;
 }
 
 .fixed-tag{
   display:inline-block;
-
   margin-left:4px;
-
-  padding:
-    2px
-    6px;
-
+  padding:2px 6px;
   background:#eee;
-
   border-radius:999px;
-
   color:#555;
-
   font-size:10px;
 }
 
 
-
-/* =========================
-   検索
-========================= */
+/* 検索 */
 
 .search-result{
   padding:12px 0;
-
-  border-bottom:
-    1px solid
-    #eee;
+  border-bottom:1px solid #eee;
 }
 
 .search-result:last-child{
@@ -840,9 +604,7 @@ button.small{
 
 .search-result-top{
   display:flex;
-
   justify-content:space-between;
-
   gap:10px;
 }
 
@@ -852,22 +614,15 @@ button.small{
 
 .search-price{
   white-space:nowrap;
-
   font-weight:700;
 }
 
 
-
-/* =========================
-   よく買う商品
-========================= */
+/* よく買う商品 */
 
 .frequent-item{
   padding:13px 0;
-
-  border-bottom:
-    1px solid
-    #eee;
+  border-bottom:1px solid #eee;
 }
 
 .frequent-item:last-child{
@@ -876,9 +631,7 @@ button.small{
 
 .frequent-top{
   display:flex;
-
   justify-content:space-between;
-
   gap:10px;
 }
 
@@ -888,21 +641,14 @@ button.small{
 
 .frequent-count{
   white-space:nowrap;
-
   font-weight:700;
 }
 
 .product-history{
   display:none;
-
   margin-top:10px;
-
-  padding:
-    10px
-    12px;
-
+  padding:10px 12px;
   background:#f6f6f6;
-
   border-radius:12px;
 }
 
@@ -912,39 +658,25 @@ button.small{
 
 .history-row{
   display:flex;
-
   justify-content:space-between;
-
   gap:10px;
-
   padding:6px 0;
-
   font-size:13px;
 }
 
 
-
-/* =========================
-   設定
-========================= */
+/* 設定 */
 
 .setting-item{
   display:flex;
-
   align-items:center;
-
   gap:8px;
-
   padding:11px 0;
-
-  border-bottom:
-    1px solid
-    #eee;
+  border-bottom:1px solid #eee;
 }
 
 .setting-main{
   flex:1;
-
   min-width:0;
 }
 
@@ -954,49 +686,28 @@ button.small{
 
 .setting-sub{
   margin-top:3px;
-
   color:var(--sub);
-
   font-size:12px;
 }
 
 .setting-note{
   margin-top:10px;
-
   color:var(--sub);
-
   font-size:12px;
   line-height:1.5;
 }
 
 
-
-/* =========================
-   編集画面
-========================= */
+/* 編集モーダル */
 
 .modal-backdrop{
   display:none;
-
   position:fixed;
-
   inset:0;
-
   z-index:2000;
-
-  padding:
-    20px
-    14px;
-
+  padding:20px 14px;
   overflow:auto;
-
-  background:
-    rgba(
-      0,
-      0,
-      0,
-      .45
-    );
+  background:rgba(0,0,0,.45);
 }
 
 .modal-backdrop.open{
@@ -1006,91 +717,48 @@ button.small{
 .modal{
   width:100%;
   max-width:520px;
-
   margin:30px auto;
-
   padding:18px;
-
   background:#fff;
-
   border-radius:20px;
 }
 
 
-
-/* =========================
-   下部ナビ
-========================= */
+/* 下部ナビ */
 
 .nav{
   position:fixed;
-
   left:0;
   right:0;
   bottom:0;
-
   z-index:1000;
-
   display:flex;
-
   gap:3px;
-
-  padding:
-    8px
-    8px
-    calc(
-      8px
-      +
-      env(safe-area-inset-bottom)
-    );
-
-  background:
-    rgba(
-      255,
-      255,
-      255,
-      .97
-    );
-
-  border-top:
-    1px solid
-    #ddd;
-
-  backdrop-filter:
-    blur(12px);
-
-  -webkit-backdrop-filter:
-    blur(12px);
+  padding:8px 8px calc(8px + env(safe-area-inset-bottom));
+  background:rgba(255,255,255,.97);
+  border-top:1px solid #ddd;
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
 }
 
 .nav-button{
   flex:1;
-
   min-width:0;
   min-height:60px;
-
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
-
   gap:4px;
-
   margin:0;
-
-  padding:
-    7px
-    2px;
-
+  padding:7px 2px;
   background:transparent;
   color:#777;
-
   border-radius:13px;
 }
 
 .nav-icon{
   font-size:21px;
-
   line-height:1;
 }
 
@@ -1102,119 +770,57 @@ button.small{
   background:#eee;
   color:#111;
 }
-
 </style>
 </head>
-
 
 <body>
 
 <div class="app">
 
+<!-- ホーム -->
 
-<!-- =========================
-     ホーム
-========================= -->
+<section id="homePage" class="page active">
 
-<section
-  id="homePage"
-  class="page active"
->
+<h1>家計簿</h1>
 
-<h1>
-  家計簿
-</h1>
-
-<div
-  id="homeMonthNav"
-  class="month-nav"
-></div>
-
+<div id="homeMonthNav" class="month-nav"></div>
 
 <div class="card">
-
-  <div class="total-label">
-    この月の支出
-  </div>
-
-  <div
-    id="homeTotal"
-    class="total"
-  >
-    ¥0
-  </div>
-
+  <div class="total-label">この月の支出</div>
+  <div id="homeTotal" class="total">¥0</div>
 </div>
 
-
 <div class="card">
-
-  <h2>
-    予算
-  </h2>
-
-  <div
-    id="budgetHome"
-  ></div>
-
+  <h2>予算</h2>
+  <div id="budgetHome"></div>
 </div>
 
-
 <div class="card">
-
-  <h2>
-    カテゴリ別
-  </h2>
-
-  <div
-    id="categorySummary"
-  ></div>
-
+  <h2>カテゴリ別</h2>
+  <div id="categorySummary"></div>
 </div>
 
-
 <div class="card">
-
-  <h2>
-    円グラフ
-  </h2>
-
-  <div
-    id="pieArea"
-    class="pie-area"
-  ></div>
-
+  <h2>円グラフ</h2>
+  <div id="pieArea" class="pie-area"></div>
 </div>
 
 </section>
 
 
+<!-- カレンダー -->
 
-<!-- =========================
-     カレンダー
-========================= -->
+<section id="calendarPage" class="page">
 
-<section
-  id="calendarPage"
-  class="page"
->
+<h1>カレンダー</h1>
 
-<h1>
-  カレンダー
-</h1>
-
-<div
-  id="calendarMonthNav"
-  class="month-nav"
-></div>
-
+<div id="calendarMonthNav" class="month-nav"></div>
 
 <div class="card">
 
 <div class="calendar">
 
   <div class="calendar-week">
-
     <div>日</div>
     <div>月</div>
     <div>火</div>
@@ -1222,54 +828,32 @@ button.small{
     <div>木</div>
     <div>金</div>
     <div>土</div>
-
   </div>
 
-
-  <div
-    id="calendarGrid"
-    class="calendar-grid"
-  ></div>
+  <div id="calendarGrid" class="calendar-grid"></div>
 
 </div>
 
-
-<div
-  id="dayDetail"
-  class="day-detail"
-></div>
+<div id="dayDetail" class="day-detail"></div>
 
 </div>
 
 </section>
 
 
+<!-- 登録 -->
 
-<!-- =========================
-     登録
-========================= -->
+<section id="inputPage" class="page">
 
-<section
-  id="inputPage"
-  class="page"
->
-
-<h1>
-  登録
-</h1>
-
+<h1>登録</h1>
 
 <div class="card">
 
-<h2>
-  ChatGPTからまとめて入力
-</h2>
+<h2>ChatGPTからまとめて入力</h2>
 
 <div class="hint">
-  レシート画像をChatGPTに送り、
-  返ってきた内容をそのまま貼り付けてください。
+レシート画像をChatGPTに送り、返ってきた内容をそのまま貼り付けてください。
 </div>
-
 
 <textarea
   id="bulkInput"
@@ -1285,132 +869,76 @@ button.small{
 カテゴリ：日用品"
 ></textarea>
 
-
 <button
   class="secondary"
   onclick="previewBulkInput()"
 >
-  内容を確認する
+内容を確認する
 </button>
 
+<div id="bulkPreview" class="preview">
 
-<div
-  id="bulkPreview"
-  class="preview"
->
+<h3>登録内容</h3>
 
-<h3>
-  登録内容
-</h3>
+<div id="bulkPreviewContent"></div>
 
-<div
-  id="bulkPreviewContent"
-></div>
-
-<button
-  onclick="registerBulkItems()"
->
-  この内容を一括登録
+<button onclick="registerBulkItems()">
+この内容を一括登録
 </button>
 
 </div>
 
-
-<div
-  id="bulkSuccess"
-  class="success"
->
-  登録しました。
+<div id="bulkSuccess" class="success">
+登録しました。
 </div>
 
 </div>
-
 
 
 <div class="card">
 
-<h2>
-  1商品だけ手入力
-</h2>
-
+<h2>1商品だけ手入力</h2>
 
 <div class="field">
-
-<label>
-  日付
-</label>
-
-<input
-  id="manualDate"
-  type="date"
->
-
+<label>日付</label>
+<input id="manualDate" type="date">
 </div>
 
-
 <div class="field">
-
-<label>
-  店名
-</label>
-
+<label>店名</label>
 <input
   id="manualShop"
   type="text"
   placeholder="例：スーパー"
 >
-
 </div>
 
-
 <div class="field">
-
-<label>
-  商品名
-</label>
-
+<label>商品名</label>
 <input
   id="manualProduct"
   type="text"
   placeholder="例：牛乳"
 >
-
 </div>
 
-
 <div class="field">
-
-<label>
-  金額
-</label>
-
+<label>金額</label>
 <input
   id="manualAmount"
   type="number"
   inputmode="numeric"
   placeholder="例：218"
 >
-
 </div>
-
 
 <div class="field">
-
-<label>
-  カテゴリ
-</label>
-
-<select
-  id="manualCategory"
-></select>
-
+<label>カテゴリ</label>
+<select id="manualCategory"></select>
 </div>
 
-
-<button
-  onclick="registerManualItem()"
->
-  登録する
+<button onclick="registerManualItem()">
+登録する
 </button>
 
 </div>
@@ -1418,26 +946,16 @@ button.small{
 </section>
 
 
+<!-- 詳細 -->
 
-<!-- =========================
-     詳細
-========================= -->
+<section id="detailPage" class="page">
 
-<section
-  id="detailPage"
-  class="page"
->
-
-<h1>
-  詳細
-</h1>
+<h1>詳細</h1>
 
 
 <div class="card">
 
-<h2>
-  検索
-</h2>
+<h2>検索</h2>
 
 <input
   id="searchInput"
@@ -1446,78 +964,47 @@ button.small{
   oninput="renderSearchResults()"
 >
 
-<div
-  id="searchResults"
-></div>
+<div id="searchResults"></div>
 
 </div>
 
 
-
-<div class="card">
-
-<h2>
-  よく買う商品
+<h2 style="margin-top:24px;">
+月別明細
 </h2>
+
+<div id="detailMonthNav" class="month-nav"></div>
+
+<div id="receiptList"></div>
+
+
+<div class="card" style="margin-top:24px;">
+
+<h2>よく買う商品</h2>
 
 <div class="subtext">
-  同じ商品名で購入回数を集計しています。
+同じ商品名で購入回数を集計しています。
 </div>
 
-<div
-  id="frequentProducts"
-></div>
+<div id="frequentProducts"></div>
 
 </div>
-
-
-
-<h2
-  style="margin-top:24px;"
->
-  月別明細
-</h2>
-
-
-<div
-  id="detailMonthNav"
-  class="month-nav"
-></div>
-
-
-<div
-  id="receiptList"
-></div>
 
 </section>
 
 
+<!-- 設定 -->
 
-<!-- =========================
-     設定
-========================= -->
+<section id="settingsPage" class="page">
 
-<section
-  id="settingsPage"
-  class="page"
->
-
-<h1>
-  設定
-</h1>
-
+<h1>設定</h1>
 
 <div class="card">
 
-<h2>
-  月の予算
-</h2>
+<h2>月の予算</h2>
 
 <div class="field">
-
-<label>
-  毎月の予算
-</label>
+<label>毎月の予算</label>
 
 <input
   id="monthlyBudget"
@@ -1528,32 +1015,23 @@ button.small{
 
 </div>
 
-
-<button
-  onclick="saveBudget()"
->
-  予算を保存
+<button onclick="saveBudget()">
+予算を保存
 </button>
 
 <div class="setting-note">
-  ホーム画面に残り予算と使用率が表示されます。
+ホーム画面に残り予算と使用率が表示されます。
 </div>
 
 </div>
-
 
 
 <div class="card">
 
-<h2>
-  カテゴリー
-</h2>
+<h2>カテゴリー</h2>
 
 <div class="field">
-
-<label>
-  新しいカテゴリー
-</label>
+<label>新しいカテゴリー</label>
 
 <input
   id="newCategory"
@@ -1563,13 +1041,9 @@ button.small{
 
 </div>
 
-
-<button
-  onclick="addCategory()"
->
-  カテゴリーを追加
+<button onclick="addCategory()">
+カテゴリーを追加
 </button>
-
 
 <div
   id="categorySettingsList"
@@ -1579,19 +1053,12 @@ button.small{
 </div>
 
 
-
 <div class="card">
 
-<h2>
-  固定費
-</h2>
-
+<h2>固定費</h2>
 
 <div class="field">
-
-<label>
-  固定費名
-</label>
+<label>固定費名</label>
 
 <input
   id="fixedName"
@@ -1601,12 +1068,8 @@ button.small{
 
 </div>
 
-
 <div class="field">
-
-<label>
-  金額
-</label>
+<label>金額</label>
 
 <input
   id="fixedAmount"
@@ -1616,12 +1079,8 @@ button.small{
 
 </div>
 
-
 <div class="field">
-
-<label>
-  毎月の日付
-</label>
+<label>毎月の日付</label>
 
 <input
   id="fixedDay"
@@ -1634,26 +1093,16 @@ button.small{
 
 </div>
 
-
 <div class="field">
+<label>カテゴリー</label>
 
-<label>
-  カテゴリー
-</label>
-
-<select
-  id="fixedCategory"
-></select>
+<select id="fixedCategory"></select>
 
 </div>
 
-
-<button
-  onclick="addFixedCost()"
->
-  固定費を追加
+<button onclick="addFixedCost()">
+固定費を追加
 </button>
-
 
 <div
   id="fixedCostList"
@@ -1667,111 +1116,54 @@ button.small{
 </div>
 
 
+<!-- 編集モーダル -->
 
-<!-- =========================
-     編集画面
-========================= -->
-
-<div
-  id="editModal"
-  class="modal-backdrop"
->
+<div id="editModal" class="modal-backdrop">
 
 <div class="modal">
 
-<h2>
-  支出を編集
-</h2>
+<h2>支出を編集</h2>
 
-
-<input
-  id="editItemId"
-  type="hidden"
->
-
+<input id="editItemId" type="hidden">
 
 <div class="field">
-
-<label>
-  日付
-</label>
-
-<input
-  id="editDate"
-  type="date"
->
-
+<label>日付</label>
+<input id="editDate" type="date">
 </div>
 
-
 <div class="field">
-
-<label>
-  店名
-</label>
-
-<input
-  id="editShop"
-  type="text"
->
-
+<label>店名</label>
+<input id="editShop" type="text">
 </div>
 
-
 <div class="field">
-
-<label>
-  商品名
-</label>
-
-<input
-  id="editProduct"
-  type="text"
->
-
+<label>商品名</label>
+<input id="editProduct" type="text">
 </div>
 
-
 <div class="field">
-
-<label>
-  金額
-</label>
-
+<label>金額</label>
 <input
   id="editAmount"
   type="number"
   inputmode="numeric"
 >
-
 </div>
-
 
 <div class="field">
-
-<label>
-  カテゴリ
-</label>
-
-<select
-  id="editCategory"
-></select>
-
+<label>カテゴリ</label>
+<select id="editCategory"></select>
 </div>
 
-
-<button
-  onclick="saveEditedItem()"
->
-  変更を保存
+<button onclick="saveEditedItem()">
+変更を保存
 </button>
-
 
 <button
   class="secondary"
   onclick="closeEditModal()"
 >
-  キャンセル
+キャンセル
 </button>
 
 </div>
@@ -1779,125 +1171,67 @@ button.small{
 </div>
 
 
-
-<!-- =========================
-     下部メニュー
-========================= -->
+<!-- 下部メニュー -->
 
 <nav class="nav">
-
 
 <button
   id="navHome"
   class="nav-button active"
   onclick="showPage('home')"
 >
-
-<span class="nav-icon">
-  ⌂
-</span>
-
-<span class="nav-label">
-  ホーム
-</span>
-
+<span class="nav-icon">⌂</span>
+<span class="nav-label">ホーム</span>
 </button>
-
-
 
 <button
   id="navCalendar"
   class="nav-button"
   onclick="showPage('calendar')"
 >
-
-<span class="nav-icon">
-  ▦
-</span>
-
-<span class="nav-label">
-  カレンダー
-</span>
-
+<span class="nav-icon">▦</span>
+<span class="nav-label">カレンダー</span>
 </button>
-
-
 
 <button
   id="navInput"
   class="nav-button"
   onclick="showPage('input')"
 >
-
-<span class="nav-icon">
-  ＋
-</span>
-
-<span class="nav-label">
-  登録
-</span>
-
+<span class="nav-icon">＋</span>
+<span class="nav-label">登録</span>
 </button>
-
-
 
 <button
   id="navDetail"
   class="nav-button"
   onclick="showPage('detail')"
 >
-
-<span class="nav-icon">
-  ≡
-</span>
-
-<span class="nav-label">
-  詳細
-</span>
-
+<span class="nav-icon">≡</span>
+<span class="nav-label">詳細</span>
 </button>
-
-
 
 <button
   id="navSettings"
   class="nav-button"
   onclick="showPage('settings')"
 >
-
-<span class="nav-icon">
-  ⚙
-</span>
-
-<span class="nav-label">
-  設定
-</span>
-
+<span class="nav-icon">⚙</span>
+<span class="nav-label">設定</span>
 </button>
 
 </nav>
 
 
-
 <script>
 
-const ITEMS_KEY =
-  "kakeibo_items_v2";
+const ITEMS_KEY="kakeibo_items_v2";
+const OLD_ITEMS_KEY="kakeibo_expenses_v1";
+const CATEGORY_KEY="kakeibo_categories_v3";
+const FIXED_KEY="kakeibo_fixed_costs_v3";
+const BUDGET_KEY="kakeibo_budget_v1";
 
-const OLD_ITEMS_KEY =
-  "kakeibo_expenses_v1";
-
-const CATEGORY_KEY =
-  "kakeibo_categories_v3";
-
-const FIXED_KEY =
-  "kakeibo_fixed_costs_v3";
-
-const BUDGET_KEY =
-  "kakeibo_budget_v1";
-
-
-const DEFAULT_CATEGORIES = [
+const DEFAULT_CATEGORIES=[
   "食費",
   "お菓子",
   "日用品",
@@ -1908,8 +1242,7 @@ const DEFAULT_CATEGORIES = [
   "その他"
 ];
 
-
-const PIE_COLORS = [
+const PIE_COLORS=[
   "#4A90E2",
   "#F5A623",
   "#7ED321",
@@ -1924,197 +1257,148 @@ const PIE_COLORS = [
   "#8B572A"
 ];
 
+let items=[];
+let categories=[];
+let fixedCosts=[];
+let previewItems=[];
+let monthlyBudget=0;
 
-let items = [];
+let pieMode="withFixed";
 
-let categories = [];
-
-let fixedCosts = [];
-
-let previewItems = [];
-
-let monthlyBudget = 0;
-
-
-/* 円グラフの表示モード */
-
-let pieMode =
-  "withFixed";
-
-
-let selectedMonth =
+let selectedMonth=
   new Date(
     new Date().getFullYear(),
     new Date().getMonth(),
     1
   );
 
-
-let selectedCalendarDay =
-  null;
+let selectedCalendarDay=null;
 
 
-
-/* =========================
-   データ読込
-========================= */
+/* データ読込 */
 
 function loadData(){
-
   loadItems();
-
   loadCategories();
-
   loadFixedCosts();
-
   loadBudget();
-
 }
-
-
 
 function loadItems(){
 
-  const current =
+  const current=
     localStorage.getItem(
       ITEMS_KEY
     );
 
-
   if(current){
 
     try{
-
-      items =
+      items=
         JSON.parse(
           current
-        ) || [];
-
+        )||[];
     }catch{
-
-      items = [];
-
+      items=[];
     }
 
     return;
-
   }
 
-
-  const old =
+  const old=
     localStorage.getItem(
       OLD_ITEMS_KEY
     );
 
-
   if(!old){
-
-    items = [];
-
+    items=[];
     return;
-
   }
-
 
   try{
 
-    const oldItems =
+    const oldItems=
       JSON.parse(
         old
       );
 
-
-    items =
+    items=
       oldItems.map(
-        old => ({
+        old=>({
 
           id:
-            "old_" +
+            "old_"+
             old.id,
 
           receiptId:
-            "old_receipt_" +
+            "old_receipt_"+
             old.id,
 
           date:
-            old.date ||
+            old.date||
             "",
 
           shop:
-            old.shop ||
+            old.shop||
             "旧データ",
 
           product:
-            old.memo ||
+            old.memo||
             "支出",
 
           amount:
             Number(
               old.amount
-            ) || 0,
+            )||0,
 
           category:
-            old.category ||
+            old.category||
             "その他",
 
           createdAt:
-            old.id ||
+            old.id||
             Date.now()
 
         })
       );
 
-
     saveItems();
 
   }catch{
-
-    items = [];
-
+    items=[];
   }
-
 }
-
-
 
 function loadCategories(){
 
-  const data =
+  const data=
     localStorage.getItem(
       CATEGORY_KEY
     );
 
-
   if(data){
 
     try{
-
-      categories =
+      categories=
         JSON.parse(
           data
         );
-
     }catch{
-
-      categories =
-        [
-          ...DEFAULT_CATEGORIES
-        ];
-
+      categories=[
+        ...DEFAULT_CATEGORIES
+      ];
     }
 
   }else{
 
-    categories =
-      [
-        ...DEFAULT_CATEGORIES
-      ];
+    categories=[
+      ...DEFAULT_CATEGORIES
+    ];
 
   }
 
-
   items.forEach(
-    item => {
+    item=>{
 
       if(
         item.category &&
@@ -2122,191 +1406,128 @@ function loadCategories(){
           item.category
         )
       ){
-
         categories.push(
           item.category
         );
-
       }
 
     }
   );
 
-
   saveCategories();
-
 }
-
-
 
 function loadFixedCosts(){
 
-  const data =
+  const data=
     localStorage.getItem(
       FIXED_KEY
     );
 
-
   if(!data){
-
-    fixedCosts = [];
-
+    fixedCosts=[];
     return;
-
   }
-
 
   try{
-
-    fixedCosts =
+    fixedCosts=
       JSON.parse(
         data
-      ) || [];
-
+      )||[];
   }catch{
-
-    fixedCosts = [];
-
+    fixedCosts=[];
   }
-
 }
-
-
 
 function loadBudget(){
 
-  monthlyBudget =
+  monthlyBudget=
     Number(
       localStorage.getItem(
         BUDGET_KEY
       )
-    ) || 0;
-
+    )||0;
 }
 
-
-
 function saveItems(){
-
   localStorage.setItem(
     ITEMS_KEY,
     JSON.stringify(
       items
     )
   );
-
 }
 
-
-
 function saveCategories(){
-
   localStorage.setItem(
     CATEGORY_KEY,
     JSON.stringify(
       categories
     )
   );
-
 }
 
-
-
 function saveFixedCosts(){
-
   localStorage.setItem(
     FIXED_KEY,
     JSON.stringify(
       fixedCosts
     )
   );
-
 }
 
 
+/* 共通 */
 
-/* =========================
-   共通
-========================= */
+function formatMoney(value){
 
-function formatMoney(
-  value
-){
-
-  return "¥" +
+  return "¥"+
     Number(
-      value || 0
+      value||0
     )
     .toLocaleString(
       "ja-JP"
     );
-
 }
 
-
-
-function monthKey(
-  date
-){
+function monthKey(date){
 
   return (
     date.getFullYear()
-    +
-    "-"
-    +
+    +"-"+
     String(
-      date.getMonth() + 1
+      date.getMonth()+1
     )
     .padStart(
       2,
       "0"
     )
   );
-
 }
 
-
-
 function selectedMonthKey(){
-
   return monthKey(
     selectedMonth
   );
-
 }
 
-
-
-function formatMonthTitle(
-  date
-){
+function formatMonthTitle(date){
 
   return (
     date.getFullYear()
-    +
-    "年"
-    +
-    (
-      date.getMonth() + 1
-    )
-    +
-    "月"
+    +"年"+
+    (date.getMonth()+1)
+    +"月"
   );
-
 }
 
-
-
-function formatDateInput(
-  date
-){
+function formatDateInput(date){
 
   return [
-
     date.getFullYear(),
 
     String(
-      date.getMonth() + 1
+      date.getMonth()+1
     )
     .padStart(
       2,
@@ -2324,67 +1545,40 @@ function formatDateInput(
   ].join(
     "-"
   );
-
 }
 
-
-
-function formatDisplayDate(
-  date
-){
+function formatDisplayDate(date){
 
   if(!date){
-
     return "";
-
   }
 
-
-  const parts =
+  const parts=
     date.split(
       "-"
     );
 
-
   if(
-    parts.length !== 3
+    parts.length!==3
   ){
-
     return date;
-
   }
-
 
   return (
-    Number(
-      parts[1]
-    )
-    +
-    "月"
-    +
-    Number(
-      parts[2]
-    )
-    +
-    "日"
+    Number(parts[1])
+    +"月"+
+    Number(parts[2])
+    +"日"
   );
-
 }
 
-
-
-function normalizeDate(
-  value
-){
+function normalizeDate(value){
 
   if(!value){
-
     return "";
-
   }
 
-
-  value =
+  value=
     value
     .trim()
     .replace(
@@ -2400,8 +1594,7 @@ function normalizeDate(
       "/"
     );
 
-
-  const parts =
+  const parts=
     value
     .split(
       "/"
@@ -2410,13 +1603,11 @@ function normalizeDate(
       Boolean
     );
 
-
   if(
-    parts.length === 3
+    parts.length===3
   ){
 
     return [
-
       parts[0],
 
       String(
@@ -2438,15 +1629,10 @@ function normalizeDate(
     ].join(
       "-"
     );
-
   }
 
-
   return "";
-
 }
-
-
 
 function daysInMonth(
   year,
@@ -2455,21 +1641,16 @@ function daysInMonth(
 
   return new Date(
     year,
-    month + 1,
+    month+1,
     0
   )
   .getDate();
-
 }
 
-
-
-function escapeHtml(
-  value
-){
+function escapeHtml(value){
 
   return String(
-    value ?? ""
+    value??""
   )
   .replace(
     /&/g,
@@ -2491,17 +1672,12 @@ function escapeHtml(
     /'/g,
     "&#039;"
   );
-
 }
 
-
-
-function escapeJs(
-  value
-){
+function escapeJs(value){
 
   return String(
-    value ?? ""
+    value??""
   )
   .replace(
     /\\/g,
@@ -2515,42 +1691,29 @@ function escapeJs(
     /\n/g,
     " "
   );
-
 }
 
+function changeMonth(diff){
 
-
-function changeMonth(
-  diff
-){
-
-  selectedMonth =
+  selectedMonth=
     new Date(
       selectedMonth.getFullYear(),
-      selectedMonth.getMonth() + diff,
+      selectedMonth.getMonth()+diff,
       1
     );
 
-
-  selectedCalendarDay =
-    null;
-
+  selectedCalendarDay=null;
 
   renderAll();
-
 }
 
-
-
-function renderMonthNavigator(
-  id
-){
+function renderMonthNavigator(id){
 
   document
     .getElementById(
       id
     )
-    .innerHTML = `
+    .innerHTML=`
 
       <button
         onclick="changeMonth(-1)"
@@ -2558,14 +1721,8 @@ function renderMonthNavigator(
         ‹
       </button>
 
-      <div
-        class="month-label"
-      >
-        ${
-          formatMonthTitle(
-            selectedMonth
-          )
-        }
+      <div class="month-label">
+        ${formatMonthTitle(selectedMonth)}
       </div>
 
       <button
@@ -2575,14 +1732,10 @@ function renderMonthNavigator(
       </button>
 
     `;
-
 }
 
 
-
-/* =========================
-   固定費
-========================= */
+/* 固定費 */
 
 function fixedCostActiveInMonth(
   fixed,
@@ -2591,61 +1744,44 @@ function fixedCostActiveInMonth(
 
   if(
     fixed.startMonth &&
-    key <
-    fixed.startMonth
+    key<fixed.startMonth
   ){
-
     return false;
-
   }
-
 
   if(
     fixed.endMonth &&
-    key >
-    fixed.endMonth
+    key>fixed.endMonth
   ){
-
     return false;
-
   }
 
-
   return true;
-
 }
 
+function virtualFixedItemsForMonth(date){
 
-
-function virtualFixedItemsForMonth(
-  date
-){
-
-  const key =
+  const key=
     monthKey(
       date
     );
 
-
-  const year =
+  const year=
     date.getFullYear();
 
-
-  const month =
+  const month=
     date.getMonth();
 
-
-  const max =
+  const max=
     daysInMonth(
       year,
       month
     );
 
-
   return fixedCosts
 
     .filter(
-      fixed =>
+      fixed=>
         fixedCostActiveInMonth(
           fixed,
           key
@@ -2653,38 +1789,32 @@ function virtualFixedItemsForMonth(
     )
 
     .map(
-      fixed => {
+      fixed=>{
 
-        const day =
+        const day=
           Math.min(
 
             Math.max(
               Number(
                 fixed.day
-              ) || 1,
+              )||1,
               1
             ),
 
             max
-
           );
 
-
-        const dateString =
+        const dateString=
           year
-          +
-          "-"
-          +
+          +"-"+
           String(
-            month + 1
+            month+1
           )
           .padStart(
             2,
             "0"
           )
-          +
-          "-"
-          +
+          +"-"+
           String(
             day
           )
@@ -2693,25 +1823,18 @@ function virtualFixedItemsForMonth(
             "0"
           );
 
-
-        return {
+        return{
 
           id:
-            "fixed_"
-            +
-            fixed.id
-            +
-            "_"
-            +
+            "fixed_"+
+            fixed.id+
+            "_"+
             key,
 
           receiptId:
-            "fixed_receipt_"
-            +
-            fixed.id
-            +
-            "_"
-            +
+            "fixed_receipt_"+
+            fixed.id+
+            "_"+
             key,
 
           date:
@@ -2741,52 +1864,39 @@ function virtualFixedItemsForMonth(
             fixed.id
 
         };
-
       }
     );
-
 }
-
-
 
 function monthItems(){
 
-  const key =
+  const key=
     selectedMonthKey();
 
-
-  const normal =
+  const normal=
     items.filter(
-      item =>
+      item=>
         item.date &&
         item.date.slice(
           0,
           7
-        ) === key
+        )===key
     );
 
-
-  return [
-
+  return[
     ...normal,
-
     ...virtualFixedItemsForMonth(
       selectedMonth
     )
-
   ];
-
 }
 
 
-
-/* =========================
-   予算
-========================= */
+/* 予算 */
 
 function saveBudget(){
 
-  const value =
+  const value=
     Number(
       document
       .getElementById(
@@ -2795,9 +1905,8 @@ function saveBudget(){
       .value
     );
 
-
   if(
-    value < 0
+    value<0
   ){
 
     alert(
@@ -2805,13 +1914,9 @@ function saveBudget(){
     );
 
     return;
-
   }
 
-
-  monthlyBudget =
-    value;
-
+  monthlyBudget=value;
 
   localStorage.setItem(
     BUDGET_KEY,
@@ -2820,90 +1925,71 @@ function saveBudget(){
     )
   );
 
-
   renderHome();
-
 
   alert(
     "予算を保存しました。"
   );
-
 }
-
-
 
 function renderBudget(){
 
-  const area =
+  const area=
     document
     .getElementById(
       "budgetHome"
     );
 
-
-  const spending =
+  const spending=
     monthItems()
     .reduce(
-      (
-        sum,
-        item
-      ) =>
-        sum +
+      (sum,item)=>
+        sum+
         Number(
           item.amount
         ),
       0
     );
 
-
   if(
     !monthlyBudget
   ){
 
-    area.innerHTML = `
-
+    area.innerHTML=`
       <div class="empty">
-
         予算が設定されていません。
         <br>
         設定画面から登録できます。
-
       </div>
-
     `;
 
     return;
-
   }
 
-
-  const remaining =
-    monthlyBudget -
+  const remaining=
+    monthlyBudget-
     spending;
 
-
-  const percent =
+  const percent=
     Math.round(
-      spending /
-      monthlyBudget *
+      spending/
+      monthlyBudget*
       100
     );
 
-
-  const width =
+  const width=
     Math.min(
       percent,
       100
     );
 
-
-  area.innerHTML = `
+  area.innerHTML=`
 
     <div
       class="${
-        remaining < 0
-        ? "budget-over"
-        : ""
+        remaining<0
+        ?"budget-over"
+        :""
       }"
     >
 
@@ -2912,17 +1998,14 @@ function renderBudget(){
         <div>
 
           <div class="subtext">
-
             ${
-              remaining >= 0
-              ? "あと使える金額"
-              : "予算オーバー"
+              remaining>=0
+              ?"あと使える金額"
+              :"予算オーバー"
             }
-
           </div>
 
           <div class="budget-main">
-
             ${
               formatMoney(
                 Math.abs(
@@ -2930,282 +2013,190 @@ function renderBudget(){
                 )
               )
             }
-
           </div>
 
         </div>
 
-
         <div class="subtext">
-
           ${percent}%使用
-
         </div>
 
       </div>
 
-
       <div class="budget-progress">
-
         <div
           class="budget-progress-bar"
-          style="
-            width:${width}%;
-          "
+          style="width:${width}%;"
         ></div>
-
       </div>
-
 
       <div
         class="subtext"
-        style="
-          margin-top:9px;
-        "
+        style="margin-top:9px;"
       >
-
-        ${
-          formatMoney(
-            spending
-          )
-        }
-
+        ${formatMoney(spending)}
         ／
-
-        ${
-          formatMoney(
-            monthlyBudget
-          )
-        }
-
+        ${formatMoney(monthlyBudget)}
       </div>
 
     </div>
-
   `;
-
 }
 
 
+/* ChatGPT一括入力 */
 
-/* =========================
-   ChatGPT一括入力
-========================= */
+function parseBulkText(text){
 
-function parseBulkText(
-  text
-){
-
-  const lines =
+  const lines=
     text
     .split(
       /\r?\n/
     )
     .map(
-      line =>
+      line=>
         line.trim()
     );
 
+  let date="";
+  let shop="";
+  let product="";
+  let amount="";
+  let category="";
 
-  let date = "";
-
-  let shop = "";
-
-  let product = "";
-
-  let amount = "";
-
-  let category = "";
-
-
-  const result = [];
-
+  const result=[];
 
   function push(){
 
     if(
-      !product ||
+      !product||
       !amount
     ){
-
       return;
-
     }
 
-
-    const number =
+    const number=
       Number(
-
         String(
           amount
         )
-
         .replace(
           /[¥￥円,\s]/g,
           ""
         )
-
         .replace(
           /[^\d]/g,
           ""
         )
-
       );
-
 
     if(
       !number
     ){
-
       return;
-
     }
 
-
     result.push({
-
       date,
-
       shop,
-
       product,
-
-      amount:
-        number,
-
+      amount:number,
       category:
-        category ||
+        category||
         "その他"
-
     });
 
-
-    product = "";
-
-    amount = "";
-
-    category = "";
-
+    product="";
+    amount="";
+    category="";
   }
 
-
   lines.forEach(
-    line => {
+    line=>{
 
       let match;
 
-
-      match =
+      match=
         line.match(
           /^日付\s*[：:]\s*(.+)$/
         );
 
-
       if(match){
-
-        date =
+        date=
           normalizeDate(
             match[1]
           );
-
         return;
-
       }
 
-
-      match =
+      match=
         line.match(
           /^店名\s*[：:]\s*(.+)$/
         );
 
-
       if(match){
-
-        shop =
+        shop=
           match[1]
           .trim();
-
         return;
-
       }
 
-
-      match =
+      match=
         line.match(
           /^商品\s*[：:]\s*(.+)$/
         );
 
-
       if(match){
-
         push();
 
-        product =
+        product=
           match[1]
           .trim();
 
         return;
-
       }
 
-
-      match =
+      match=
         line.match(
           /^金額\s*[：:]\s*(.+)$/
         );
 
-
       if(match){
-
-        amount =
+        amount=
           match[1]
           .trim();
-
         return;
-
       }
 
-
-      match =
+      match=
         line.match(
           /^カテゴリ\s*[：:]\s*(.+)$/
         );
 
-
       if(match){
-
-        category =
+        category=
           match[1]
           .trim();
-
       }
 
     }
   );
 
-
   push();
 
-
   return result;
-
 }
-
-
 
 function previewBulkInput(){
 
-  previewItems =
+  previewItems=
     parseBulkText(
-
       document
       .getElementById(
         "bulkInput"
       )
       .value
-
     );
-
 
   if(
     !previewItems.length
@@ -3216,9 +2207,7 @@ function previewBulkInput(){
     );
 
     return;
-
   }
-
 
   if(
     !previewItems[0].date
@@ -3229,83 +2218,58 @@ function previewBulkInput(){
     );
 
     return;
-
   }
 
-
-  const total =
+  const total=
     previewItems
     .reduce(
-      (
-        sum,
-        item
-      ) =>
-        sum +
+      (sum,item)=>
+        sum+
         Number(
           item.amount
         ),
       0
     );
 
-
-  let html = `
+  let html=`
 
     <div
-      style="
-        margin-bottom:10px;
-      "
+      style="margin-bottom:10px;"
     >
 
       <strong>
-
         ${
           formatDisplayDate(
             previewItems[0].date
           )
         }
-
         ・
-
         ${
           escapeHtml(
-            previewItems[0].shop ||
+            previewItems[0].shop||
             "店名なし"
           )
         }
-
       </strong>
 
       <div class="subtext">
-
-        ${
-          previewItems.length
-        }商品
-
+        ${previewItems.length}商品
         ／
-
-        ${
-          formatMoney(
-            total
-          )
-        }
-
+        ${formatMoney(total)}
       </div>
 
     </div>
-
   `;
 
-
   previewItems.forEach(
-    item => {
+    item=>{
 
-      const isNew =
+      const isNew=
         !categories.includes(
           item.category
         );
 
-
-      html += `
+      html+=`
 
         <div class="preview-item">
 
@@ -3322,69 +2286,50 @@ function previewBulkInput(){
                 badge
                 ${
                   isNew
-                  ? "new-badge"
-                  : ""
+                  ?"new-badge"
+                  :""
                 }
               "
             >
-
               ${
                 escapeHtml(
                   item.category
                 )
               }
-
             </span>
 
           </div>
 
-
           <strong>
-
-            ${
-              formatMoney(
-                item.amount
-              )
-            }
-
+            ${formatMoney(item.amount)}
           </strong>
 
         </div>
-
       `;
-
     }
   );
-
 
   document
     .getElementById(
       "bulkPreviewContent"
     )
-    .innerHTML =
+    .innerHTML=
     html;
-
 
   document
     .getElementById(
       "bulkPreview"
     )
-    .style.display =
+    .style.display=
     "block";
-
 }
-
-
 
 function createReceiptId(){
 
-  return (
-    "r_"
-    +
-    Date.now()
-    +
-    "_"
-    +
+  return(
+    "r_"+
+    Date.now()+
+    "_"+
     Math.random()
     .toString(
       36
@@ -3394,65 +2339,48 @@ function createReceiptId(){
       8
     )
   );
-
 }
-
-
 
 function registerBulkItems(){
 
   if(
     !previewItems.length
   ){
-
     return;
-
   }
 
-
   previewItems.forEach(
-    item => {
+    item=>{
 
       if(
         !categories.includes(
           item.category
         )
       ){
-
         categories.push(
           item.category
         );
-
       }
 
     }
   );
 
-
   saveCategories();
 
-
-  const receiptId =
+  const receiptId=
     createReceiptId();
 
-
-  const now =
+  const now=
     Date.now();
 
-
   previewItems.forEach(
-    (
-      item,
-      index
-    ) => {
+    (item,index)=>{
 
       items.push({
 
         id:
-          receiptId
-          +
-          "_"
-          +
+          receiptId+
+          "_"+
           index,
 
         receiptId,
@@ -3475,68 +2403,55 @@ function registerBulkItems(){
           item.category,
 
         createdAt:
-          now +
+          now+
           index
-
       });
 
     }
   );
 
-
   saveItems();
 
-
-  previewItems = [];
-
+  previewItems=[];
 
   document
     .getElementById(
       "bulkInput"
     )
-    .value =
-    "";
-
+    .value="";
 
   document
     .getElementById(
       "bulkPreview"
     )
-    .style.display =
+    .style.display=
     "none";
-
 
   document
     .getElementById(
       "bulkSuccess"
     )
-    .style.display =
+    .style.display=
     "block";
-
 
   setupCategorySelects();
 
   renderAll();
-
 }
 
 
-
-/* =========================
-   手入力
-========================= */
+/* 手入力 */
 
 function registerManualItem(){
 
-  const date =
+  const date=
     document
     .getElementById(
       "manualDate"
     )
     .value;
 
-
-  const shop =
+  const shop=
     document
     .getElementById(
       "manualShop"
@@ -3544,8 +2459,7 @@ function registerManualItem(){
     .value
     .trim();
 
-
-  const product =
+  const product=
     document
     .getElementById(
       "manualProduct"
@@ -3553,8 +2467,7 @@ function registerManualItem(){
     .value
     .trim();
 
-
-  const amount =
+  const amount=
     Number(
       document
       .getElementById(
@@ -3563,14 +2476,12 @@ function registerManualItem(){
       .value
     );
 
-
-  const category =
+  const category=
     document
     .getElementById(
       "manualCategory"
     )
     .value;
-
 
   if(
     !date
@@ -3581,9 +2492,7 @@ function registerManualItem(){
     );
 
     return;
-
   }
-
 
   if(
     !product
@@ -3594,13 +2503,11 @@ function registerManualItem(){
     );
 
     return;
-
   }
 
-
   if(
-    !amount ||
-    amount <= 0
+    !amount||
+    amount<=0
   ){
 
     alert(
@@ -3608,141 +2515,108 @@ function registerManualItem(){
     );
 
     return;
-
   }
 
-
-  const receiptId =
+  const receiptId=
     createReceiptId();
-
 
   items.push({
 
     id:
-      receiptId +
+      receiptId+
       "_0",
 
     receiptId,
-
     date,
-
     shop,
-
     product,
-
     amount,
-
     category,
 
     createdAt:
       Date.now()
-
   });
 
-
   saveItems();
-
 
   document
     .getElementById(
       "manualShop"
     )
-    .value =
-    "";
-
+    .value="";
 
   document
     .getElementById(
       "manualProduct"
     )
-    .value =
-    "";
-
+    .value="";
 
   document
     .getElementById(
       "manualAmount"
     )
-    .value =
-    "";
-
+    .value="";
 
   renderAll();
-
 
   alert(
     "登録しました。"
   );
-
 }
 
 
+/* 支出編集 */
 
-/* =========================
-   支出編集
-========================= */
+function openEditModal(id){
 
-function openEditModal(
-  id
-){
-
-  const item =
+  const item=
     items.find(
-      item =>
-        item.id === id
+      item=>
+        item.id===id
     );
-
 
   if(
     !item
   ){
-
     return;
-
   }
-
 
   document
     .getElementById(
       "editItemId"
     )
-    .value =
+    .value=
     item.id;
-
 
   document
     .getElementById(
       "editDate"
     )
-    .value =
+    .value=
     item.date;
-
 
   document
     .getElementById(
       "editShop"
     )
-    .value =
-    item.shop ||
+    .value=
+    item.shop||
     "";
-
 
   document
     .getElementById(
       "editProduct"
     )
-    .value =
-    item.product ||
+    .value=
+    item.product||
     "";
-
 
   document
     .getElementById(
       "editAmount"
     )
-    .value =
+    .value=
     item.amount;
-
 
   setupCategorySelect(
     document
@@ -3752,7 +2626,6 @@ function openEditModal(
     item.category
   );
 
-
   document
     .getElementById(
       "editModal"
@@ -3761,10 +2634,7 @@ function openEditModal(
     .add(
       "open"
     );
-
 }
-
-
 
 function closeEditModal(){
 
@@ -3776,46 +2646,37 @@ function closeEditModal(){
     .remove(
       "open"
     );
-
 }
-
-
 
 function saveEditedItem(){
 
-  const id =
+  const id=
     document
     .getElementById(
       "editItemId"
     )
     .value;
 
-
-  const item =
+  const item=
     items.find(
-      item =>
-        item.id === id
+      item=>
+        item.id===id
     );
-
 
   if(
     !item
   ){
-
     return;
-
   }
 
-
-  const date =
+  const date=
     document
     .getElementById(
       "editDate"
     )
     .value;
 
-
-  const product =
+  const product=
     document
     .getElementById(
       "editProduct"
@@ -3823,8 +2684,7 @@ function saveEditedItem(){
     .value
     .trim();
 
-
-  const amount =
+  const amount=
     Number(
       document
       .getElementById(
@@ -3833,12 +2693,11 @@ function saveEditedItem(){
       .value
     );
 
-
   if(
-    !date ||
-    !product ||
-    !amount ||
-    amount <= 0
+    !date||
+    !product||
+    !amount||
+    amount<=0
   ){
 
     alert(
@@ -3846,15 +2705,12 @@ function saveEditedItem(){
     );
 
     return;
-
   }
 
-
-  item.date =
+  item.date=
     date;
 
-
-  item.shop =
+  item.shop=
     document
     .getElementById(
       "editShop"
@@ -3862,113 +2718,86 @@ function saveEditedItem(){
     .value
     .trim();
 
-
-  item.product =
+  item.product=
     product;
 
-
-  item.amount =
+  item.amount=
     amount;
 
-
-  item.category =
+  item.category=
     document
     .getElementById(
       "editCategory"
     )
     .value;
 
-
   saveItems();
-
 
   closeEditModal();
 
-
   renderAll();
-
 }
 
 
-
-/* =========================
-   検索
-========================= */
+/* 検索 */
 
 function renderSearchResults(){
 
-  const area =
+  const area=
     document
     .getElementById(
       "searchResults"
     );
 
-
-  const input =
+  const input=
     document
     .getElementById(
       "searchInput"
     );
 
-
   if(
-    !area ||
+    !area||
     !input
   ){
-
     return;
-
   }
 
-
-  const keyword =
+  const keyword=
     input.value
     .trim()
     .toLowerCase();
-
 
   if(
     !keyword
   ){
 
-    area.innerHTML = `
-
+    area.innerHTML=`
       <div
         class="subtext"
-        style="
-          margin-top:12px;
-        "
+        style="margin-top:12px;"
       >
-
         商品名・店名・カテゴリを入力してください。
-
       </div>
-
     `;
 
     return;
-
   }
 
-
-  const result =
+  const result=
     items
 
     .filter(
-      item => {
+      item=>{
 
-        return [
-
+        return[
           item.product,
-
           item.shop,
-
           item.category
-
-        ].some(
-          value =>
+        ]
+        .some(
+          value=>
             String(
-              value ||
+              value||
               ""
             )
             .toLowerCase()
@@ -3976,15 +2805,11 @@ function renderSearchResults(){
               keyword
             )
         );
-
       }
     )
 
     .sort(
-      (
-        a,
-        b
-      ) =>
+      (a,b)=>
         b.date.localeCompare(
           a.date
         )
@@ -3995,22 +2820,19 @@ function renderSearchResults(){
       100
     );
 
-
   if(
     !result.length
   ){
 
-    area.innerHTML =
+    area.innerHTML=
       '<div class="empty">該当する支出はありません</div>';
 
     return;
-
   }
 
-
-  area.innerHTML =
+  area.innerHTML=
     result.map(
-      item => `
+      item=>`
 
         <div class="search-result">
 
@@ -4019,173 +2841,101 @@ function renderSearchResults(){
             <div>
 
               <div class="search-name">
-
-                ${
-                  escapeHtml(
-                    item.product
-                  )
-                }
-
+                ${escapeHtml(item.product)}
               </div>
 
               <div class="subtext">
 
-                ${
-                  escapeHtml(
-                    item.date
-                  )
-                }
-
+                ${escapeHtml(item.date)}
                 ・
-
-                ${
-                  escapeHtml(
-                    item.shop ||
-                    ""
-                  )
-                }
-
+                ${escapeHtml(item.shop||"")}
                 ・
-
-                ${
-                  escapeHtml(
-                    item.category ||
-                    ""
-                  )
-                }
+                ${escapeHtml(item.category||"")}
 
               </div>
 
             </div>
 
-
             <div class="search-price">
-
-              ${
-                formatMoney(
-                  item.amount
-                )
-              }
-
+              ${formatMoney(item.amount)}
             </div>
 
           </div>
 
-
           <button
             class="secondary small"
-            style="
-              margin-top:8px;
-            "
-            onclick="
-              openEditModal(
-                '${item.id}'
-              )
-            "
+            style="margin-top:8px;"
+            onclick="openEditModal('${item.id}')"
           >
-
             編集
-
           </button>
 
         </div>
-
       `
     )
     .join(
       ""
     );
-
 }
 
 
-
-/* =========================
-   よく買う商品
-========================= */
+/* よく買う商品 */
 
 function renderFrequentProducts(){
 
-  const area =
+  const area=
     document
     .getElementById(
       "frequentProducts"
     );
 
-
   if(
     !area
   ){
-
     return;
-
   }
 
-
-  const map = {};
-
+  const map={};
 
   items.forEach(
-    item => {
+    item=>{
 
-      const name =
+      const name=
         (
-          item.product ||
+          item.product||
           ""
         )
         .trim();
 
-
       if(
         !name
       ){
-
         return;
-
       }
-
 
       if(
-        !map[
-          name
-        ]
+        !map[name]
       ){
-
-        map[
-          name
-        ] = [];
-
+        map[name]=[];
       }
 
-
-      map[
-        name
-      ]
+      map[name]
       .push(
         item
       );
-
     }
   );
 
-
-  const list =
+  const list=
     Object.entries(
       map
     )
 
     .map(
-      (
-        [
-          name,
-          purchases
-        ]
-      ) => ({
+      ([name,purchases])=>({
 
         name,
-
         purchases,
-
         count:
           purchases.length,
 
@@ -4194,44 +2944,27 @@ function renderFrequentProducts(){
             ...purchases
           ]
           .sort(
-            (
-              a,
-              b
-            ) =>
+            (a,b)=>
               b.date.localeCompare(
                 a.date
               )
           )[0]
-
       })
     )
 
     .sort(
-      (
-        a,
-        b
-      ) => {
+      (a,b)=>{
 
         if(
-          b.count !==
-          a.count
+          b.count!==a.count
         ){
-
-          return (
-            b.count -
-            a.count
-          );
-
+          return b.count-a.count;
         }
 
-
-        return (
-          b.latest.date
-          .localeCompare(
-            a.latest.date
-          )
+        return b.latest.date
+        .localeCompare(
+          a.latest.date
         );
-
       }
     )
 
@@ -4240,36 +2973,27 @@ function renderFrequentProducts(){
       10
     );
 
-
   if(
     !list.length
   ){
 
-    area.innerHTML =
+    area.innerHTML=
       '<div class="empty">まだ購入履歴がありません</div>';
 
     return;
-
   }
 
-
-  area.innerHTML =
+  area.innerHTML=
     list.map(
-      (
-        entry,
-        index
-      ) => {
+      (entry,index)=>{
 
-        const history =
+        const history=
           [
             ...entry.purchases
           ]
 
           .sort(
-            (
-              a,
-              b
-            ) =>
+            (a,b)=>
               b.date.localeCompare(
                 a.date
               )
@@ -4281,41 +3005,21 @@ function renderFrequentProducts(){
           )
 
           .map(
-            item => `
+            item=>`
 
               <div class="history-row">
 
                 <div>
-
-                  ${
-                    escapeHtml(
-                      item.date
-                    )
-                  }
-
+                  ${escapeHtml(item.date)}
                   ・
-
-                  ${
-                    escapeHtml(
-                      item.shop ||
-                      ""
-                    )
-                  }
-
+                  ${escapeHtml(item.shop||"")}
                 </div>
 
                 <strong>
-
-                  ${
-                    formatMoney(
-                      item.amount
-                    )
-                  }
-
+                  ${formatMoney(item.amount)}
                 </strong>
 
               </div>
-
             `
           )
 
@@ -4323,8 +3027,7 @@ function renderFrequentProducts(){
             ""
           );
 
-
-        return `
+        return`
 
           <div class="frequent-item">
 
@@ -4341,88 +3044,51 @@ function renderFrequentProducts(){
                 <div>
 
                   <div class="frequent-name">
-
-                    ${
-                      escapeHtml(
-                        entry.name
-                      )
-                    }
-
+                    ${escapeHtml(entry.name)}
                   </div>
 
                   <div class="subtext">
-
                     最新
-
-                    ${
-                      formatMoney(
-                        entry.latest.amount
-                      )
-                    }
-
+                    ${formatMoney(entry.latest.amount)}
                     ・
-
-                    ${
-                      escapeHtml(
-                        entry.latest.date
-                      )
-                    }
-
+                    ${escapeHtml(entry.latest.date)}
                   </div>
 
                 </div>
 
-
                 <div class="frequent-count">
-
                   ${entry.count}回
-
                 </div>
 
               </div>
 
-
               <div
                 class="subtext"
-                style="
-                  margin-top:5px;
-                "
+                style="margin-top:5px;"
               >
-
                 タップして購入履歴
-
               </div>
 
             </div>
-
 
             <div
               id="history_${index}"
               class="product-history"
             >
-
               ${history}
-
             </div>
 
           </div>
-
         `;
-
       }
     )
 
     .join(
       ""
     );
-
 }
 
-
-
-function toggleProductHistory(
-  id
-){
+function toggleProductHistory(id){
 
   document
     .getElementById(
@@ -4432,14 +3098,10 @@ function toggleProductHistory(
     .toggle(
       "open"
     );
-
 }
 
 
-
-/* =========================
-   カテゴリー
-========================= */
+/* カテゴリー */
 
 function setupCategorySelect(
   select,
@@ -4449,60 +3111,44 @@ function setupCategorySelect(
   if(
     !select
   ){
-
     return;
-
   }
 
-
-  const previous =
-    currentValue ||
+  const previous=
+    currentValue||
     select.value;
 
-
-  select.innerHTML =
-    "";
-
+  select.innerHTML="";
 
   categories.forEach(
-    category => {
+    category=>{
 
-      const option =
+      const option=
         document.createElement(
           "option"
         );
 
-
-      option.value =
+      option.value=
         category;
 
-
-      option.textContent =
+      option.textContent=
         category;
-
 
       select.appendChild(
         option
       );
-
     }
   );
-
 
   if(
     categories.includes(
       previous
     )
   ){
-
-    select.value =
+    select.value=
       previous;
-
   }
-
 }
-
-
 
 function setupCategorySelects(){
 
@@ -4513,7 +3159,6 @@ function setupCategorySelects(){
     )
   );
 
-
   setupCategorySelect(
     document
     .getElementById(
@@ -4521,31 +3166,25 @@ function setupCategorySelects(){
     )
   );
 
-
   setupCategorySelect(
     document
     .getElementById(
       "editCategory"
     )
   );
-
 }
-
-
 
 function addCategory(){
 
-  const input =
+  const input=
     document
     .getElementById(
       "newCategory"
     );
 
-
-  const value =
+  const value=
     input.value
     .trim();
-
 
   if(
     !value
@@ -4556,9 +3195,7 @@ function addCategory(){
     );
 
     return;
-
   }
-
 
   if(
     categories.includes(
@@ -4571,87 +3208,60 @@ function addCategory(){
     );
 
     return;
-
   }
-
 
   categories.push(
     value
   );
 
-
   saveCategories();
 
-
-  input.value =
-    "";
-
+  input.value="";
 
   setupCategorySelects();
 
-
   renderAll();
-
 }
 
-
-
-function deleteCategory(
-  category
-){
+function deleteCategory(category){
 
   if(
     !confirm(
-      "「"
-      +
-      category
-      +
+      "「"+
+      category+
       "」をカテゴリー一覧から削除しますか？"
     )
   ){
-
     return;
-
   }
 
-
-  categories =
+  categories=
     categories.filter(
-      item =>
-        item !== category
+      item=>
+        item!==category
     );
-
 
   if(
     !categories.length
   ){
-
-    categories = [
+    categories=[
       "その他"
     ];
-
   }
-
 
   saveCategories();
 
-
   setupCategorySelects();
 
-
   renderAll();
-
 }
 
 
-
-/* =========================
-   固定費設定
-========================= */
+/* 固定費 */
 
 function addFixedCost(){
 
-  const name =
+  const name=
     document
     .getElementById(
       "fixedName"
@@ -4659,8 +3269,7 @@ function addFixedCost(){
     .value
     .trim();
 
-
-  const amount =
+  const amount=
     Number(
       document
       .getElementById(
@@ -4669,8 +3278,7 @@ function addFixedCost(){
       .value
     );
 
-
-  const day =
+  const day=
     Number(
       document
       .getElementById(
@@ -4679,14 +3287,12 @@ function addFixedCost(){
       .value
     );
 
-
-  const category =
+  const category=
     document
     .getElementById(
       "fixedCategory"
     )
     .value;
-
 
   if(
     !name
@@ -4697,13 +3303,11 @@ function addFixedCost(){
     );
 
     return;
-
   }
 
-
   if(
-    !amount ||
-    amount <= 0
+    !amount||
+    amount<=0
   ){
 
     alert(
@@ -4711,13 +3315,11 @@ function addFixedCost(){
     );
 
     return;
-
   }
 
-
   if(
-    day < 1 ||
-    day > 31
+    day<1||
+    day>31
   ){
 
     alert(
@@ -4725,19 +3327,14 @@ function addFixedCost(){
     );
 
     return;
-
   }
-
 
   fixedCosts.push({
 
     id:
-      "f_"
-      +
-      Date.now()
-      +
-      "_"
-      +
+      "f_"+
+      Date.now()+
+      "_"+
       Math.random()
       .toString(
         36
@@ -4748,11 +3345,8 @@ function addFixedCost(){
       ),
 
     name,
-
     amount,
-
     day,
-
     category,
 
     startMonth:
@@ -4762,48 +3356,34 @@ function addFixedCost(){
 
     endMonth:
       null
-
   });
 
-
   saveFixedCosts();
-
 
   document
     .getElementById(
       "fixedName"
     )
-    .value =
-    "";
-
+    .value="";
 
   document
     .getElementById(
       "fixedAmount"
     )
-    .value =
-    "";
-
+    .value="";
 
   document
     .getElementById(
       "fixedDay"
     )
-    .value =
-    "1";
-
+    .value="1";
 
   renderAll();
-
 }
 
+function previousMonthKey(key){
 
-
-function previousMonthKey(
-  key
-){
-
-  const parts =
+  const parts=
     key
     .split(
       "-"
@@ -4812,134 +3392,100 @@ function previousMonthKey(
       Number
     );
 
-
-  const date =
+  const date=
     new Date(
       parts[0],
-      parts[1] - 2,
+      parts[1]-2,
       1
     );
-
 
   return monthKey(
     date
   );
-
 }
 
+function deleteFixedCost(id){
 
-
-function deleteFixedCost(
-  id
-){
-
-  const fixed =
+  const fixed=
     fixedCosts.find(
-      item =>
-        item.id === id
+      item=>
+        item.id===id
     );
-
 
   if(
     !fixed
   ){
-
     return;
-
   }
-
 
   if(
     !confirm(
-      "「"
-      +
-      fixed.name
-      +
+      "「"+
+      fixed.name+
       "」を今月以降の固定費から削除しますか？"
     )
   ){
-
     return;
-
   }
 
-
-  const currentKey =
+  const currentKey=
     monthKey(
       new Date()
     );
 
-
   if(
-    fixed.startMonth ===
+    fixed.startMonth===
     currentKey
   ){
 
-    fixedCosts =
+    fixedCosts=
       fixedCosts.filter(
-        item =>
-          item.id !== id
+        item=>
+          item.id!==id
       );
 
   }else{
 
-    fixed.endMonth =
+    fixed.endMonth=
       previousMonthKey(
         currentKey
       );
-
   }
-
 
   saveFixedCosts();
 
-
   renderAll();
-
 }
 
 
-
-/* =========================
-   ホーム
-========================= */
+/* ホーム */
 
 function categoryTotals(){
 
-  const totals = {};
-
+  const totals={};
 
   monthItems()
   .forEach(
-    item => {
+    item=>{
 
-      const category =
-        item.category ||
+      const category=
+        item.category||
         "その他";
 
-
-      totals[
-        category
-      ] =
+      totals[category]=
         (
-          totals[
-            category
-          ] || 0
+          totals[category]||
+          0
         )
         +
         Number(
           item.amount
         );
-
     }
   );
 
-
   return totals;
-
 }
-
-
 
 function renderHome(){
 
@@ -4947,364 +3493,244 @@ function renderHome(){
     "homeMonthNav"
   );
 
-
-  const data =
+  const data=
     monthItems();
 
-
-  const total =
+  const total=
     data.reduce(
-      (
-        sum,
-        item
-      ) =>
-        sum +
+      (sum,item)=>
+        sum+
         Number(
           item.amount
         ),
       0
     );
 
-
   document
     .getElementById(
       "homeTotal"
     )
-    .textContent =
+    .textContent=
     formatMoney(
       total
     );
 
-
   renderBudget();
 
-
-  const totals =
+  const totals=
     categoryTotals();
 
-
-  const area =
+  const area=
     document
     .getElementById(
       "categorySummary"
     );
 
-
-  const entries =
+  const entries=
     Object.entries(
       totals
     )
-
     .filter(
-      item =>
-        item[1] > 0
+      item=>
+        item[1]>0
     )
-
     .sort(
-      (
-        a,
-        b
-      ) =>
-        b[1] -
-        a[1]
+      (a,b)=>
+        b[1]-a[1]
     );
-
 
   if(
     !entries.length
   ){
 
-    area.innerHTML =
+    area.innerHTML=
       '<div class="empty">まだ支出がありません</div>';
 
   }else{
 
-    area.innerHTML =
+    area.innerHTML=
       entries.map(
-        (
-          [
-            category,
-            amount
-          ]
-        ) => `
+        ([category,amount])=>`
 
           <div class="category-row">
 
             <div>
-
-              ${
-                escapeHtml(
-                  category
-                )
-              }
-
+              ${escapeHtml(category)}
             </div>
 
             <div class="category-amount">
-
-              ${
-                formatMoney(
-                  amount
-                )
-              }
-
+              ${formatMoney(amount)}
             </div>
 
           </div>
-
         `
       )
       .join(
         ""
       );
-
   }
 
-
   renderPie();
-
 }
 
 
+/* 円グラフ */
 
-/* =========================
-   円グラフ
-   固定費込み / 除外
-========================= */
+function setPieMode(mode){
 
-function setPieMode(
-  mode
-){
-
-  pieMode =
+  pieMode=
     mode;
 
-
   renderPie();
-
 }
-
-
 
 function renderPie(){
 
-  const area =
+  const area=
     document
     .getElementById(
       "pieArea"
     );
 
-
-  let data =
+  let data=
     monthItems();
 
-
-  /*
-    固定費を除くモードでは
-    設定画面から自動生成された
-    isFixed:true の支出だけを除外
-  */
-
   if(
-    pieMode ===
+    pieMode===
     "withoutFixed"
   ){
 
-    data =
+    data=
       data.filter(
-        item =>
+        item=>
           !item.isFixed
       );
-
   }
 
-
-  const totals = {};
-
+  const totals={};
 
   data.forEach(
-    item => {
+    item=>{
 
-      const category =
-        item.category ||
+      const category=
+        item.category||
         "その他";
 
-
-      totals[
-        category
-      ] =
+      totals[category]=
         (
-          totals[
-            category
-          ] || 0
+          totals[category]||
+          0
         )
         +
         Number(
           item.amount
         );
-
     }
   );
 
-
-  const entries =
+  const entries=
     Object.entries(
       totals
     )
-
     .filter(
-      item =>
-        item[1] > 0
+      item=>
+        item[1]>0
     )
-
     .sort(
-      (
-        a,
-        b
-      ) =>
-        b[1] -
-        a[1]
+      (a,b)=>
+        b[1]-a[1]
     );
 
-
-  const total =
+  const total=
     entries.reduce(
-      (
-        sum,
-        entry
-      ) =>
-        sum +
+      (sum,entry)=>
+        sum+
         Number(
           entry[1]
         ),
       0
     );
 
-
-  const toggleHtml = `
+  const toggleHtml=`
 
     <div class="pie-toggle">
 
       <button
         class="${
-          pieMode ===
-          "withFixed"
-          ? "active"
-          : ""
+          pieMode==="withFixed"
+          ?"active"
+          :""
         }"
-        onclick="
-          setPieMode(
-            'withFixed'
-          )
-        "
+        onclick="setPieMode('withFixed')"
       >
-
         固定費込み
-
       </button>
-
 
       <button
         class="${
-          pieMode ===
-          "withoutFixed"
-          ? "active"
-          : ""
+          pieMode==="withoutFixed"
+          ?"active"
+          :""
         }"
-        onclick="
-          setPieMode(
-            'withoutFixed'
-          )
-        "
+        onclick="setPieMode('withoutFixed')"
       >
-
         固定費を除く
-
       </button>
 
     </div>
-
   `;
-
 
   if(
     !total
   ){
 
-    area.innerHTML =
-      toggleHtml
-      +
+    area.innerHTML=
+      toggleHtml+
       '<div class="empty">表示できる支出がありません</div>';
 
-
     return;
-
   }
 
+  let degree=0;
 
-  let degree = 0;
-
-
-  const gradients =
+  const gradients=
     entries.map(
-      (
-        [
-          category,
-          amount
-        ],
-        index
-      ) => {
+      ([category,amount],index)=>{
 
-        const start =
+        const start=
           degree;
 
-
-        degree +=
-          amount /
-          total *
+        degree+=
+          amount/
+          total*
           360;
 
-
-        return (
+        return(
           PIE_COLORS[
-            index %
+            index%
             PIE_COLORS.length
           ]
-          +
-          " "
-          +
-          start
-          +
-          "deg "
-          +
-          degree
-          +
+          +" "+
+          start+
+          "deg "+
+          degree+
           "deg"
         );
-
       }
     );
 
-
-  const legend =
+  const legend=
     entries.map(
-      (
-        [
-          category,
-          amount
-        ],
-        index
-      ) => {
+      ([category,amount],index)=>{
 
-        const percent =
+        const percent=
           Math.round(
-            amount /
-            total *
+            amount/
+            total*
             100
           );
 
-
-        return `
+        return`
 
           <div class="legend-row">
 
@@ -5316,99 +3742,61 @@ function renderPie(){
                   background:
                   ${
                     PIE_COLORS[
-                      index %
+                      index%
                       PIE_COLORS.length
                     ]
                   };
                 "
               ></span>
 
-
               <span>
-
-                ${
-                  escapeHtml(
-                    category
-                  )
-                }
-
+                ${escapeHtml(category)}
               </span>
 
             </div>
 
-
             <div class="legend-value">
-
-              ${
-                formatMoney(
-                  amount
-                )
-              }
-
+              ${formatMoney(amount)}
               ・
-
               ${percent}%
-
             </div>
 
           </div>
-
         `;
-
       }
     )
     .join(
       ""
     );
 
-
-  area.innerHTML = `
+  area.innerHTML=`
 
     ${toggleHtml}
-
 
     <div
       class="pie-chart"
       style="
         background:
-          conic-gradient(
-            ${
-              gradients.join(
-                ","
-              )
-            }
-          );
+        conic-gradient(
+          ${gradients.join(",")}
+        );
       "
     >
 
       <div class="pie-hole">
-
-        ${
-          formatMoney(
-            total
-          )
-        }
-
+        ${formatMoney(total)}
       </div>
 
     </div>
 
-
     <div class="pie-legend">
-
       ${legend}
-
     </div>
-
   `;
-
 }
 
 
-
-/* =========================
-   カレンダー
-========================= */
+/* カレンダー */
 
 function renderCalendar(){
 
@@ -5416,29 +3804,23 @@ function renderCalendar(){
     "calendarMonthNav"
   );
 
-
-  const grid =
+  const grid=
     document
     .getElementById(
       "calendarGrid"
     );
 
+  grid.innerHTML="";
 
-  grid.innerHTML =
-    "";
-
-
-  const year =
+  const year=
     selectedMonth
     .getFullYear();
 
-
-  const month =
+  const month=
     selectedMonth
     .getMonth();
 
-
-  const firstDay =
+  const firstDay=
     new Date(
       year,
       month,
@@ -5446,22 +3828,19 @@ function renderCalendar(){
     )
     .getDay();
 
-
-  const max =
+  const max=
     daysInMonth(
       year,
       month
     );
 
-
-  const totals = {};
-
+  const totals={};
 
   monthItems()
   .forEach(
-    item => {
+    item=>{
 
-      const day =
+      const day=
         Number(
           item.date
           .slice(
@@ -5470,100 +3849,74 @@ function renderCalendar(){
           )
         );
 
-
-      totals[
-        day
-      ] =
+      totals[day]=
         (
-          totals[
-            day
-          ] || 0
+          totals[day]||
+          0
         )
         +
         Number(
           item.amount
         );
-
     }
   );
 
-
   for(
-    let i = 0;
-    i < firstDay;
+    let i=0;
+    i<firstDay;
     i++
   ){
 
-    grid.innerHTML +=
+    grid.innerHTML+=
       '<div class="calendar-day empty-day"></div>';
-
   }
 
-
   for(
-    let day = 1;
-    day <= max;
+    let day=1;
+    day<=max;
     day++
   ){
 
-    const total =
-      totals[
-        day
-      ] || 0;
+    const total=
+      totals[day]||
+      0;
 
-
-    grid.innerHTML += `
+    grid.innerHTML+=`
 
       <div
         class="
           calendar-day
           ${
             total
-            ? "has-spending"
-            : ""
+            ?"has-spending"
+            :""
           }
           ${
-            selectedCalendarDay === day
-            ? "selected-day"
-            : ""
+            selectedCalendarDay===day
+            ?"selected-day"
+            :""
           }
         "
-        onclick="
-          selectCalendarDay(
-            ${day}
-          )
-        "
+        onclick="selectCalendarDay(${day})"
       >
 
         <div class="calendar-date">
-
           ${day}
-
         </div>
-
 
         ${
           total
-          ? `
-              <div class="calendar-money">
-
-                ${
-                  formatMoney(
-                    total
-                  )
-                }
-
-              </div>
-            `
-          : ""
+          ?`
+            <div class="calendar-money">
+              ${formatMoney(total)}
+            </div>
+          `
+          :""
         }
 
       </div>
-
     `;
-
   }
-
 
   if(
     selectedCalendarDay
@@ -5579,48 +3932,32 @@ function renderCalendar(){
       .getElementById(
         "dayDetail"
       )
-      .innerHTML =
+      .innerHTML=
       '<div class="subtext">日付をタップすると明細を確認できます。</div>';
-
   }
-
 }
 
+function selectCalendarDay(day){
 
-
-function selectCalendarDay(
-  day
-){
-
-  selectedCalendarDay =
+  selectedCalendarDay=
     day;
 
-
   renderCalendar();
-
 }
 
+function renderDayDetail(day){
 
-
-function renderDayDetail(
-  day
-){
-
-  const year =
+  const year=
     selectedMonth
     .getFullYear();
 
-
-  const month =
+  const month=
     selectedMonth
-    .getMonth() + 1;
+    .getMonth()+1;
 
-
-  const date =
+  const date=
     year
-    +
-    "-"
-    +
+    +"-"+
     String(
       month
     )
@@ -5628,9 +3965,7 @@ function renderDayDetail(
       2,
       "0"
     )
-    +
-    "-"
-    +
+    +"-"+
     String(
       day
     )
@@ -5639,127 +3974,78 @@ function renderDayDetail(
       "0"
     );
 
-
-  const data =
+  const data=
     monthItems()
     .filter(
-      item =>
-        item.date ===
-        date
+      item=>
+        item.date===date
     );
 
-
-  const total =
+  const total=
     data.reduce(
-      (
-        sum,
-        item
-      ) =>
-        sum +
+      (sum,item)=>
+        sum+
         Number(
           item.amount
         ),
       0
     );
 
-
-  let html = `
+  let html=`
 
     <div class="day-detail-title">
-
       ${month}月${day}日
-
       ・
-
-      ${
-        formatMoney(
-          total
-        )
-      }
-
+      ${formatMoney(total)}
     </div>
-
   `;
 
-
   data.forEach(
-    item => {
+    item=>{
 
-      html += `
+      html+=`
 
         <div class="detail-item">
 
           <div class="detail-item-name">
 
-            ${
-              escapeHtml(
-                item.product
-              )
-            }
-
+            ${escapeHtml(item.product)}
 
             <div class="subtext">
 
-              ${
-                escapeHtml(
-                  item.shop ||
-                  ""
-                )
-              }
-
+              ${escapeHtml(item.shop||"")}
               ・
-
-              ${
-                escapeHtml(
-                  item.category ||
-                  ""
-                )
-              }
-
+              ${escapeHtml(item.category||"")}
 
               ${
                 item.isFixed
-                ? '<span class="fixed-tag">固定費</span>'
-                : ""
+                ?'<span class="fixed-tag">固定費</span>'
+                :""
               }
 
             </div>
 
           </div>
 
-
           <div class="detail-item-price">
-
-            ${
-              formatMoney(
-                item.amount
-              )
-            }
-
+            ${formatMoney(item.amount)}
           </div>
 
         </div>
-
       `;
-
     }
   );
-
 
   document
     .getElementById(
       "dayDetail"
     )
-    .innerHTML =
+    .innerHTML=
     html;
-
 }
 
 
-
-/* =========================
-   月別詳細
-========================= */
+/* 月別詳細 */
 
 function renderDetails(){
 
@@ -5767,31 +4053,25 @@ function renderDetails(){
     "detailMonthNav"
   );
 
-
-  const data =
+  const data=
     monthItems();
 
-
-  const map =
+  const map=
     new Map();
 
-
   data.forEach(
-    item => {
+    item=>{
 
       if(
         !map.has(
           item.receiptId
         )
       ){
-
         map.set(
           item.receiptId,
           []
         );
-
       }
-
 
       map
       .get(
@@ -5800,23 +4080,16 @@ function renderDetails(){
       .push(
         item
       );
-
     }
   );
 
-
-  const receipts =
+  const receipts=
     Array.from(
       map.entries()
     )
 
     .map(
-      (
-        [
-          receiptId,
-          list
-        ]
-      ) => ({
+      ([receiptId,list])=>({
 
         receiptId,
 
@@ -5831,11 +4104,8 @@ function renderDetails(){
 
         total:
           list.reduce(
-            (
-              sum,
-              item
-            ) =>
-              sum +
+            (sum,item)=>
+              sum+
               Number(
                 item.amount
               ),
@@ -5844,197 +4114,129 @@ function renderDetails(){
 
         isFixed:
           list.every(
-            item =>
+            item=>
               item.isFixed
           )
-
       })
     )
 
     .sort(
-      (
-        a,
-        b
-      ) =>
+      (a,b)=>
         b.date.localeCompare(
           a.date
         )
     );
 
-
-  const area =
+  const area=
     document
     .getElementById(
       "receiptList"
     );
 
-
   if(
     !receipts.length
   ){
 
-    area.innerHTML =
+    area.innerHTML=
       '<div class="card empty">この月の支出はありません</div>';
 
     return;
-
   }
 
-
-  area.innerHTML =
+  area.innerHTML=
     receipts.map(
-      (
-        receipt,
-        index
-      ) => {
+      (receipt,index)=>{
 
-        const groups = {};
-
+        const groups={};
 
         receipt.items.forEach(
-          item => {
+          item=>{
 
-            const category =
-              item.category ||
+            const category=
+              item.category||
               "その他";
 
-
             if(
-              !groups[
-                category
-              ]
+              !groups[category]
             ){
-
-              groups[
-                category
-              ] = [];
-
+              groups[category]=[];
             }
 
-
-            groups[
-              category
-            ]
+            groups[category]
             .push(
               item
             );
-
           }
         );
 
-
-        let body = "";
-
+        let body="";
 
         Object.entries(
           groups
         )
         .forEach(
-          (
-            [
-              category,
-              list
-            ]
-          ) => {
+          ([category,list])=>{
 
-            body += `
+            body+=`
 
               <div class="detail-category-title">
-
-                ${
-                  escapeHtml(
-                    category
-                  )
-                }
-
+                ${escapeHtml(category)}
               </div>
-
             `;
 
-
             list.forEach(
-              item => {
+              item=>{
 
-                body += `
+                body+=`
 
                   <div class="detail-item">
 
                     <div class="detail-item-name">
 
-                      ${
-                        escapeHtml(
-                          item.product
-                        )
-                      }
-
+                      ${escapeHtml(item.product)}
 
                       ${
                         item.isFixed
-                        ? '<span class="fixed-tag">固定費</span>'
-                        : ""
+                        ?'<span class="fixed-tag">固定費</span>'
+                        :""
                       }
 
                     </div>
-
 
                     <div class="detail-item-price">
-
-                      ${
-                        formatMoney(
-                          item.amount
-                        )
-                      }
-
+                      ${formatMoney(item.amount)}
                     </div>
-
 
                     ${
                       !item.isFixed
-                      ? `
+                      ?`
 
-                          <button
-                            class="secondary small"
-                            onclick="
-                              openEditModal(
-                                '${item.id}'
-                              )
-                            "
-                          >
+                        <button
+                          class="secondary small"
+                          onclick="openEditModal('${item.id}')"
+                        >
+                          編集
+                        </button>
 
-                            編集
+                        <button
+                          class="danger small"
+                          onclick="deleteItem('${item.id}')"
+                        >
+                          削除
+                        </button>
 
-                          </button>
-
-
-                          <button
-                            class="danger small"
-                            onclick="
-                              deleteItem(
-                                '${item.id}'
-                              )
-                            "
-                          >
-
-                            削除
-
-                          </button>
-
-                        `
-                      : ""
+                      `
+                      :""
                     }
 
                   </div>
-
                 `;
-
               }
             );
-
           }
         );
 
-
-        return `
+        return`
 
           <div class="receipt-card">
 
@@ -6052,84 +4254,46 @@ function renderDetails(){
                 <div>
 
                   <div class="receipt-date">
-
-                    ${
-                      formatDisplayDate(
-                        receipt.date
-                      )
-                    }
-
+                    ${formatDisplayDate(receipt.date)}
                   </div>
 
-
                   <div class="receipt-shop">
-
-                    ${
-                      escapeHtml(
-                        receipt.shop ||
-                        "店名なし"
-                      )
-                    }
-
+                    ${escapeHtml(receipt.shop||"店名なし")}
                   </div>
 
                 </div>
 
-
                 <div class="receipt-total">
-
-                  ${
-                    formatMoney(
-                      receipt.total
-                    )
-                  }
-
+                  ${formatMoney(receipt.total)}
                 </div>
 
               </div>
 
-
               <div class="receipt-count">
-
-                ${
-                  receipt.items.length
-                }商品
-
+                ${receipt.items.length}商品
                 ・
-
                 タップして詳細
-
               </div>
 
             </div>
-
 
             <div
               id="receiptBody${index}"
               class="receipt-body"
             >
-
               ${body}
-
             </div>
 
           </div>
-
         `;
-
       }
     )
     .join(
       ""
     );
-
 }
 
-
-
-function toggleReceipt(
-  id
-){
+function toggleReceipt(id){
 
   document
     .getElementById(
@@ -6139,45 +4303,31 @@ function toggleReceipt(
     .toggle(
       "open"
     );
-
 }
 
-
-
-function deleteItem(
-  id
-){
+function deleteItem(id){
 
   if(
     !confirm(
       "この商品を削除しますか？"
     )
   ){
-
     return;
-
   }
 
-
-  items =
+  items=
     items.filter(
-      item =>
-        item.id !== id
+      item=>
+        item.id!==id
     );
-
 
   saveItems();
 
-
   renderAll();
-
 }
 
 
-
-/* =========================
-   設定
-========================= */
+/* 設定 */
 
 function renderSettings(){
 
@@ -6185,35 +4335,27 @@ function renderSettings(){
     .getElementById(
       "monthlyBudget"
     )
-    .value =
-    monthlyBudget ||
+    .value=
+    monthlyBudget||
     "";
-
 
   document
     .getElementById(
       "categorySettingsList"
     )
-    .innerHTML =
+    .innerHTML=
     categories.map(
-      category => `
+      category=>`
 
         <div class="setting-item">
 
           <div class="setting-main">
 
             <div class="setting-title">
-
-              ${
-                escapeHtml(
-                  category
-                )
-              }
-
+              ${escapeHtml(category)}
             </div>
 
           </div>
-
 
           <button
             class="danger small"
@@ -6223,133 +4365,99 @@ function renderSettings(){
               )
             "
           >
-
             削除
-
           </button>
 
         </div>
-
       `
     )
     .join(
       ""
     );
 
-
-  const active =
+  const active=
     fixedCosts.filter(
-      fixed =>
+      fixed=>
         !fixed.endMonth
     );
-
 
   document
     .getElementById(
       "fixedCostList"
     )
-    .innerHTML =
+    .innerHTML=
     active.length
 
-    ? active.map(
-        fixed => `
+    ?active.map(
+      fixed=>`
 
-          <div class="setting-item">
+        <div class="setting-item">
 
-            <div class="setting-main">
+          <div class="setting-main">
 
-              <div class="setting-title">
+            <div class="setting-title">
 
-                ${
-                  escapeHtml(
-                    fixed.name
-                  )
-                }
-
-                ・
-
-                ${
-                  formatMoney(
-                    fixed.amount
-                  )
-                }
-
-              </div>
-
-
-              <div class="setting-sub">
-
-                毎月
-                ${fixed.day}日
-
-                ／
-
-                ${
-                  escapeHtml(
-                    fixed.category
-                  )
-                }
-
-              </div>
+              ${escapeHtml(fixed.name)}
+              ・
+              ${formatMoney(fixed.amount)}
 
             </div>
 
+            <div class="setting-sub">
 
-            <button
-              class="danger small"
-              onclick="
-                deleteFixedCost(
-                  '${fixed.id}'
-                )
-              "
-            >
+              毎月${fixed.day}日
+              ／
+              ${escapeHtml(fixed.category)}
 
-              削除
-
-            </button>
+            </div>
 
           </div>
 
-        `
-      )
-      .join(
-        ""
-      )
+          <button
+            class="danger small"
+            onclick="
+              deleteFixedCost(
+                '${fixed.id}'
+              )
+            "
+          >
+            削除
+          </button>
 
-    : '<div class="empty">固定費はまだありません</div>';
+        </div>
+      `
+    )
+    .join(
+      ""
+    )
 
+    :'<div class="empty">固定費はまだありません</div>';
 }
 
 
+/* ページ切替 */
 
-/* =========================
-   ページ切替
-========================= */
-
-function showPage(
-  page
-){
+function showPage(page){
 
   document
     .querySelectorAll(
       ".page"
     )
     .forEach(
-      element =>
+      element=>
         element
         .classList
         .remove(
           "active"
         )
     );
-
 
   document
     .querySelectorAll(
       ".nav-button"
     )
     .forEach(
-      element =>
+      element=>
         element
         .classList
         .remove(
@@ -6357,8 +4465,7 @@ function showPage(
         )
     );
 
-
-  const map = {
+  const map={
 
     home:[
       "homePage",
@@ -6384,15 +4491,10 @@ function showPage(
       "settingsPage",
       "navSettings"
     ]
-
   };
 
-
-  const target =
-    map[
-      page
-    ];
-
+  const target=
+    map[page];
 
   document
     .getElementById(
@@ -6403,7 +4505,6 @@ function showPage(
       "active"
     );
 
-
   document
     .getElementById(
       target[1]
@@ -6413,53 +4514,38 @@ function showPage(
       "active"
     );
 
-
   if(
-    page ===
+    page===
     "detail"
   ){
 
     renderSearchResults();
-
-    renderFrequentProducts();
-
     renderDetails();
-
+    renderFrequentProducts();
   }
 
-
   if(
-    page ===
+    page===
     "calendar"
   ){
-
     renderCalendar();
-
   }
-
 
   if(
-    page ===
+    page===
     "settings"
   ){
-
     renderSettings();
-
   }
-
 
   window.scrollTo(
     0,
     0
   );
-
 }
 
 
-
-/* =========================
-   全体描画
-========================= */
+/* 全体描画 */
 
 function renderAll(){
 
@@ -6476,30 +4562,23 @@ function renderAll(){
   renderSettings();
 
   setupCategorySelects();
-
 }
 
 
-
-/* =========================
-   初期化
-========================= */
+/* 初期化 */
 
 loadData();
 
-
 setupCategorySelects();
-
 
 document
   .getElementById(
     "manualDate"
   )
-  .value =
+  .value=
   formatDateInput(
     new Date()
   );
-
 
 renderAll();
 
